@@ -1,56 +1,18 @@
+using System.Security.Cryptography.X509Certificates;
+
 class Question
-{
-   
-    string Subject {get; set;}
+{   
+    public string Subject {get; set;}
     public string Quest {get; set;}
     public string Answer {get; set;}
     public int Points {get; set;}
-    
 
     public Question(string subject, string quest, string answer, int points)
     {
         Subject = subject;
         Quest = quest;
         Answer = answer;
-        Points = points;
-      
-    }
-
-    public static Question MakeQuestion() //En metod som skapar en ny fråga, svar och dess poäng OBS!!! Utöka med while-loop, om man vill lägga till ytterligare frågor!
-    {
-        System.Console.WriteLine("Vilken typ av fråga vill du skapa?");
-        System.Console.WriteLine("1. Sant/Falskt");
-        System.Console.WriteLine("2. Flervalsfråga");
-        System.Console.WriteLine("3. Fritextfråga");
-        string input = Console.ReadLine();
-
-        switch(input)
-        {
-            case "1":
-            System.Console.WriteLine("Sant/Falskt");
-            break;
-            
-            case "2":
-            System.Console.WriteLine("Flervalsfråga");
-            break;
-
-            case "3":
-            System.Console.WriteLine("Fritextfråga");
-            break;
-        }
-
-
-        System.Console.WriteLine("Till vilket ämne hör frågan?");
-        string subject = Console.ReadLine();
-        System.Console.Write("Skriv in frågan: ");
-        string question = Console.ReadLine();
-        System.Console.Write("Skriv in svaret på frågan: ");
-        string answer = Console.ReadLine();
-        System.Console.WriteLine("Hur många poäng ska frågan ge?");
-        int points = int.Parse(Console.ReadLine());
-      
-
-        return new Question(subject, question, answer, points); //Returnerar en instans av ny fråga.      
+        Points = points;      
     }
 }
 
@@ -58,26 +20,75 @@ class HandleQuestion
 {
    public List<Question> questions = new List<Question>();
 
-   public void AddQuestion(Question question) //Metod som lägger till fråga i listan äver frågor
-   {
-    questions.Add(question);
-   }
+     public void CreateAndAddQuestion() //Metod som skapar och lägger till frågan i listan över frågor. 
 
-   public void CreateAndAddQuestion() //Metod som skapar och lägger till frågan i listan över frågor. 
    {
-    Question newQuestion = Question.MakeQuestion(); //Anropar funktionen för att skapa frågor, som finns i klassen Question
-   }
+
+        System.Console.WriteLine("Vilken typ av fråga vill du skapa?");
+        System.Console.WriteLine("1. Sant/Falskt");
+        System.Console.WriteLine("2. Flervalsfråga");
+        System.Console.WriteLine("3. Fritextfråga");
+        string input = Console.ReadLine();
+
+               
+        switch(input)
+        {
+            case "1":
+            System.Console.WriteLine("Sant/Falskt"); //Lägg till metod för att skapa och lägga till true/false-fråga
+            break;
+            
+            case "2":
+            System.Console.WriteLine("Flervalsfråga"); //Lägg till metod för att skapa och lägga till flervals-fråga
+            break;
+
+            case "3":
+            System.Console.WriteLine("Fritextfråga"); //Lägg till metod för att skapa och lägga till fritext-fråga
+            questions.Add(ShortAnswer.CreateShortAnswerQuestion());
+            break;
+
+            default:
+            System.Console.WriteLine("Ogiltig inmatning");
+            break;
+        } 
+
+        
+    }
 }
 
 
+class ShortAnswer : Question
+{
+    List<ShortAnswer> shortAnswers = new List<ShortAnswer>();
+   public ShortAnswer(string subject, string quest, string answer, int points) : base(subject, quest, answer, points) //base - refererar till basklassen
+   {}
+
+   public static ShortAnswer CreateShortAnswerQuestion()
+   {
+        System.Console.WriteLine("-----Skapa en ny fritextfråga-----");
+        System.Console.Write("Skriv in vilket ämne som frågan hör till (SV, MA, ENG, SO, Idrott)");
+        string subject = Console.ReadLine();        
+        System.Console.Write("Skriv in fråga: ");
+        string question = Console.ReadLine();
+        System.Console.Write("Skriv in svaret på frågan: ");
+        string answer = Console.ReadLine();
+        System.Console.WriteLine("Skriv in hur många poäng som frågan är värd");
+        int points = int.Parse(Console.ReadLine());
+
+        
+        return new ShortAnswer(subject, question, answer, points);
+   }
+
+
+}
+
 /*class  MultiChoice : Question
 {
-    public string RightAnswer {get; set;}
+    public string CorrectAnswer {get; set;}
     public string WrongAnswer {get; set;}
     
-    public MultiChoice(string quest, string answer, int points, string rightAnswer, string wrongAnswer) : base (quest, answer, points)
+    public MultiChoice(string quest, string answer, int points, string correctAnswer, string wrongAnswer) : base (quest, answer, points)
     {
-        RightAnswer = rightAnswer;
+        CorrectAnswer = correctAnswer;
         WrongAnswer = wrongAnswer; 
     }
 
@@ -87,10 +98,5 @@ class TrueFalse :  Question
 {
     public string TrueAnswer {get; set;}
     public string FalseAnswer {get; set;}
-
-}
-
-class ShortAnswer : Question
-{
 
 }*/
