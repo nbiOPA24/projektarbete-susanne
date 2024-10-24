@@ -28,6 +28,7 @@ class HandleQuestion
         System.Console.WriteLine("1. Sant/Falskt");
         System.Console.WriteLine("2. Flervalsfråga");
         System.Console.WriteLine("3. Fritextfråga");
+        System.Console.WriteLine("4. Skriv ut en lista med samtliga frågor");
         string input = Console.ReadLine();
 
                
@@ -46,12 +47,17 @@ class HandleQuestion
             questions.Add(ShortAnswer.CreateShortAnswerQuestion());
             break;
 
+            case "4":
+            foreach(var question in questions)
+            {
+                Console.WriteLine($"Du har skrivit in följande frågor: {question.Subject}, {question.Quest}, {question.Answer}, {question.Points}"); 
+            }
+            break;
+
             default:
             System.Console.WriteLine("Ogiltig inmatning");
             break;
         } 
-
-        
     }
 }
 
@@ -65,13 +71,13 @@ class ShortAnswer : Question
    public static ShortAnswer CreateShortAnswerQuestion()
    {
         System.Console.WriteLine("-----Skapa en ny fritextfråga-----");
-        System.Console.Write("Skriv in vilket ämne som frågan hör till (SV, MA, ENG, SO, Idrott)");
+        System.Console.Write("Skriv in vilket ämne som frågan hör till (SV, MA, ENG, SO, Idrott): ");
         string subject = Console.ReadLine();        
         System.Console.Write("Skriv in fråga: ");
         string question = Console.ReadLine();
         System.Console.Write("Skriv in svaret på frågan: ");
         string answer = Console.ReadLine();
-        System.Console.WriteLine("Skriv in hur många poäng som frågan är värd");
+        System.Console.WriteLine("Skriv in hur många poäng som frågan är värd: ");
         int points = int.Parse(Console.ReadLine());
 
         

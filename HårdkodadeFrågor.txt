@@ -1,0 +1,8 @@
+SV|Till vilken ordklass hör ordet bil?|substantiv|5
+EN|What is the past tense of the verb "go"?|Went|5
+EN|What is the comparative form of "happy"?|happier|5
+EN|What is the plural form of "child"?|children|5
+SO|Vilken är världens största kontinent?|Asien|5
+SO|Vad heter floden som rinner genom Egypten?|Nilen|5
+SO|Vilket land har störst befolkning i världen?|Kina|5
+SO|Vad kallas den breddgrad som delar jorden i norra och södra halvklotet?|Ekvatorn|5

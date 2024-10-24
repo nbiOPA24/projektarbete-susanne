@@ -1,0 +1,57 @@
+
+BESKRIVNING:
+En protoyp på en quiz-app som riktar sig till barn/ungdomar i skolåldern. 
+Frågorna i denna protoyp riktar sig till skolelever i åk 8. 
+Frågorna följer de ämnen som man har inom skolan, och syftet med appen är att vara ett kul sätt att lära sig. 
+
+SÅ HÄR FUNKAR APPLIKATIONEN:
+Appen består av en meny med ett alternativ för respektive ämnesområden (SV, ENG, MA, SO)
+Eleven väljer exempelvis SV. 
+Ny meny öppnas, där eleven får välja mellan olika typer av quiz (ex. gissa årtal, rätt/fel, 1X2, fritext, glosor).
+Varje rätt svar genererar poäng. 
+Poängen kommer sedermera ge ett sammataget betygspoäng (enbart inom appen...) i respektive ämne (ex. har 15 poäng i EN == betyg G, har 25 i SV == MVG). 
+Eleven ska kunna gå in i sin betygssammanställning och se sitt "betyg" i den omgång där den gör sitt quiz. 
+
+FUNDERINGAR LÄNGS VÄGEN:
+1. Varje fråga ska ge poäng. Frågorna hör dock till olika ämnesområden. Hur lösa detta?
+2. Ska jag ha nåon egen klass för Quiz, eller ska det hanteras i Main-metoden?
+3. Möjlighet att spara tidigare resultat???
+4. Använda streamreader för hårdkodade frågor? (Hur sjutton får jag skiten att funka????????)
+
+******TO DO:*******
+
+[x] Klass -  Program
+[x] bool - isRunning
+[x] Metod - Innehåller meny, 
+
+[] KLASS - Question
+[] Egenskaper - Ämne, Fråga, Svar, Poängen
+
+[] SUBKLASS - MultiChoice : Question
+[] Egna svarsalternativ för flervalsalternarnativ
+
+
+[] SUBKLASS TrueFalse :  Question
+[] Egna svarsalternativ för sant/falskt
+
+
+[] SUBKLASS ShortAnswer : Question
+
+[] KLASS - HandleQuestions
+[] Lista för Frågorna
+
+[] KLASS - Admin
+[] Ordna whileloop i admin-menyn
+
+[] Test - Använda Streamreader för hårdkodade frågor?????????
+
+[] KLASS - Elev. 
+[] Egenskaper - Namn, poäng
+[] Metod - Lägg till poäng till respektive ämne
+
+[] KLASS - HandleElev
+[] Lista för elever
+[] Metod  - Lägg till elever till lista
+
+
+
