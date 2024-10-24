@@ -7,10 +7,17 @@ class Program
     {
         bool isRunning = true;
 
-        System.Console.WriteLine("ElevQuiz");
+        System.Console.WriteLine("***************************************************************************");
+        System.Console.WriteLine("Välkommen till elev-Quiz!");
+        System.Console.WriteLine("Detta Quiz hjälper dig att hålla koll på dina kunskaper inom olika ämnen. ");
+        System.Console.WriteLine("Välj ett ämne och svara på frågorna. Du får poäng för varje rätt svar.");
+        System.Console.WriteLine("När du är klar kan du se vilket betyg dina poäng motsvarar i respektive ämne");
+        System.Console.WriteLine("Lycka till!");
+        System.Console.WriteLine("*****************************************************************************");
 
        while(isRunning)
        {
+        System.Console.WriteLine();
         System.Console.WriteLine("Välj ett ämne : ");
         System.Console.WriteLine("1. Svenska ");
         System.Console.WriteLine("2. Engelska ");
@@ -18,7 +25,10 @@ class Program
         System.Console.WriteLine("4. Matte ");
         System.Console.WriteLine("5. Idrott ");
         System.Console.WriteLine("6. Se dina betyg ");
-        System.Console.WriteLine("7. Avsluta programmet ");
+        System.Console.WriteLine("7. Admin");
+        System.Console.WriteLine("8. Avsluta programmet ");
+       
+        System.Console.WriteLine();
         string choice = Console.ReadLine();
 
         switch(choice)
@@ -28,26 +38,31 @@ class Program
             break;
 
             case "2":
-            System.Console.WriteLine("Svenska");
+            System.Console.WriteLine("Engelska");
             break;
 
             case "3":
-            System.Console.WriteLine("Svenska");
+            System.Console.WriteLine("SO");
             break;
 
             case "4":
-            System.Console.WriteLine("Svenska");
+            System.Console.WriteLine("Matte");
             break;
 
             case "5":
-            System.Console.WriteLine("Svenska");
+            System.Console.WriteLine("Idrott");
             break;
 
             case "6":
-            System.Console.WriteLine("Svenska");
+            System.Console.WriteLine("Se dina betyg");
             break;
 
             case "7":
+            System.Console.WriteLine("Admin");    //Här skapar vi frågor etc. Ska kräva inlogg!        
+            break;
+        
+
+            case "8":
             System.Console.WriteLine("Tack för idag!");
             isRunning = false;
             break;

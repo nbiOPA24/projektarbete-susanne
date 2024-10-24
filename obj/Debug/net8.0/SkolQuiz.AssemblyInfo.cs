@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SkolQuiz")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e08e9f0d949c74ef9b30b5eaaa76f9d5fbf5cdb4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ec3f03bc0ce1461f27949009696381912634eab")]
 [assembly: System.Reflection.AssemblyProductAttribute("SkolQuiz")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SkolQuiz")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
