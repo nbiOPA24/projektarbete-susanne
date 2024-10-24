@@ -1,30 +1,56 @@
 class Question
 {
-    HandleQuestion handleQuestion = new HandleQuestion();
-
+   
+    string Subject {get; set;}
     public string Quest {get; set;}
     public string Answer {get; set;}
     public int Points {get; set;}
+    
 
-    public Question(string quest, string answer, int points)
+    public Question(string subject, string quest, string answer, int points)
     {
+        Subject = subject;
         Quest = quest;
         Answer = answer;
         Points = points;
+      
     }
 
-    public static Question MakeQuestion() //En metod som skapar ny fråga, svar och dess poäng
+    public static Question MakeQuestion() //En metod som skapar en ny fråga, svar och dess poäng OBS!!! Utöka med while-loop, om man vill lägga till ytterligare frågor!
     {
+        System.Console.WriteLine("Vilken typ av fråga vill du skapa?");
+        System.Console.WriteLine("1. Sant/Falskt");
+        System.Console.WriteLine("2. Flervalsfråga");
+        System.Console.WriteLine("3. Fritextfråga");
+        string input = Console.ReadLine();
+
+        switch(input)
+        {
+            case "1":
+            System.Console.WriteLine("Sant/Falskt");
+            break;
+            
+            case "2":
+            System.Console.WriteLine("Flervalsfråga");
+            break;
+
+            case "3":
+            System.Console.WriteLine("Fritextfråga");
+            break;
+        }
+
+
+        System.Console.WriteLine("Till vilket ämne hör frågan?");
+        string subject = Console.ReadLine();
         System.Console.Write("Skriv in frågan: ");
         string question = Console.ReadLine();
         System.Console.Write("Skriv in svaret på frågan: ");
         string answer = Console.ReadLine();
         System.Console.WriteLine("Hur många poäng ska frågan ge?");
         int points = int.Parse(Console.ReadLine());
-
-        return new Question(question, answer, points); //Returnerar en instans av ny fråga.
-
       
+
+        return new Question(subject, question, answer, points); //Returnerar en instans av ny fråga.      
     }
 }
 

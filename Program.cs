@@ -6,6 +6,7 @@ class Program
     public static void Main()
     {
         bool isRunning = true;
+        Admin admin = new Admin();
 
         System.Console.WriteLine("***************************************************************************");
         System.Console.WriteLine("Välkommen till elev-Quiz!");
@@ -59,6 +60,7 @@ class Program
 
             case "7":
             System.Console.WriteLine("Admin");    //Här skapar vi frågor etc. Ska kräva inlogg!        
+            admin.CreateNewQuestion();
             break;
         
 
