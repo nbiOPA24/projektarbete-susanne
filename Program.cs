@@ -5,56 +5,49 @@ class Program
 
     public static void Main()
     {
+        Ämne ämne = new Ämne();
         bool isRunning = true;
 
-        Admin admin = new Admin();      
-
-               
+        Admin admin = new Admin();                  
 
         System.Console.WriteLine("***************************************************************************");
         System.Console.WriteLine("Välkommen till elev-Quiz!");
         System.Console.WriteLine("Detta Quiz hjälper dig att hålla koll på dina kunskaper inom olika ämnen. ");
-        System.Console.WriteLine("Välj ett ämne och svara på frågorna. Du får poäng för varje rätt svar.");
+        System.Console.WriteLine("Välj vilken typ av quiz du vill göra. Därefter väljer du ämne.");
         System.Console.WriteLine("När du är klar kan du se vilket betyg dina poäng motsvarar i respektive ämne");
         System.Console.WriteLine("Lycka till!");
         System.Console.WriteLine("*****************************************************************************");
 
-       while(isRunning)
+        while(isRunning)
        {
-            System.Console.WriteLine();
-            System.Console.WriteLine("Välj ett ämne : ");
-            System.Console.WriteLine("1. Svenska ");
-            System.Console.WriteLine("2. Engelska ");
-            System.Console.WriteLine("3. SO ");
-            System.Console.WriteLine("4. Matte ");
-            System.Console.WriteLine("5. Idrott ");
-            System.Console.WriteLine("6. Se dina betyg ");
+            System.Console.WriteLine("Välj vilken typ av quiz du vill göra");
+            System.Console.WriteLine("1. Svara med fritext");
+            System.Console.WriteLine("2. Flervalsalternativ");
+            System.Console.WriteLine("3. Sant eller Falskt");
             System.Console.WriteLine("7. Admin");
-            System.Console.WriteLine("8. Avsluta programmet ");
-        
-            System.Console.WriteLine();
-            string choice = Console.ReadLine();
+            System.Console.WriteLine("8. Avsluta programmet.");
+            string input = Console.ReadLine();
 
-            switch(choice)
+            switch(input)
             {
                 case "1":
-                System.Console.WriteLine("Svenska");
+                System.Console.WriteLine("Fritext");
                 break;
 
                 case "2":
-                System.Console.WriteLine("Engelska");
+                System.Console.WriteLine("Flervalsalternativ");
                 break;
 
                 case "3":
-                System.Console.WriteLine("SO");
+                System.Console.WriteLine("Sant eller falskt");
                 break;
 
                 case "4":
-                System.Console.WriteLine("Matte");
+                System.Console.WriteLine("Alternativ 4");
                 break;
 
                 case "5":
-                System.Console.WriteLine("Idrott");
+                System.Console.WriteLine("Alternativ 4");
                 break;
 
                 case "6":
@@ -64,16 +57,19 @@ class Program
                 case "7":
                 System.Console.WriteLine("Admin");    //Här skapar vi frågor etc. Ska kräva inlogg!  
                 admin.Menu();
-                break;
-            
+                break;            
 
                 case "8":
                 System.Console.WriteLine("Tack för idag!");
                 isRunning = false;
                 break;
-            }
-       }
+                
+                default:            
+                System.Console.WriteLine("Ogiltig inmatning.");
+                break;   
+            } 
 
+        }
         
     }
 }

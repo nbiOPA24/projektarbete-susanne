@@ -7,8 +7,8 @@ class Admin
     {
         System.Console.WriteLine("1. Lägg till en fråga ");        
         System.Console.WriteLine("2. Se samtliga frågor "); 
-        System.Console.WriteLine("3.Se hårdkodade frågor ");         
-        System.Console.WriteLine("4.Ta bort en fråga");        
+        System.Console.WriteLine("3. Se hårdkodade frågor ");         
+        System.Console.WriteLine("4. Ta bort en fråga");        
         System.Console.WriteLine("5. Återgå till huvudmeny");
         string input = Console.ReadLine();
 
@@ -34,8 +34,7 @@ class Admin
             System.Console.WriteLine(); //EJ KLART!
             break;
         }        
-    }
-        
+    }       
    
 
     public void CreateNewQuestion() //Ny metod i adminklassen, för att kunna skapa nya frågor
@@ -48,8 +47,7 @@ class Admin
         Console.WriteLine("Lista över frågor:");
         foreach (var question in handleQuestion.questions)
         {
-            Console.WriteLine($"Ämne: {question.Subject}, Fråga: {question.Quest}, Svar: {question.Answer}, Poäng: {question.Points}");
-                       
+            Console.WriteLine($"Ämne: {question.Subject}, Fråga: {question.Quest}, Svar: {question.Answer}, Poäng: {question.Points}");                       
         }        
     }
 
@@ -57,6 +55,11 @@ class Admin
     {   
         testaStreamReader = new TestaStreamReader();
         TestaStreamReader.TestaSR(handleQuestion);
+
+        foreach(var question in handleQuestion.questions)
+        {
+            System.Console.WriteLine($"Ämne: {question.Subject}, Fråga: {question.Quest}, Svar: {question.Answer}, Poäng: {question.Points}");
+        }      
         
        
     } 

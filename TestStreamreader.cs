@@ -12,7 +12,7 @@ class TestaStreamReader
                 {
                     var parts =line.Split("|");  
 
-                    if (parts.Length ==4)
+                    if (parts.Length == 4)
                     {
                         string subject = parts[0].Trim();
                         string questionText = parts[1].Trim();
@@ -21,6 +21,7 @@ class TestaStreamReader
 
                         Question newQuestion = new Question(subject, questionText, answer, points);
                         handleQuestion.questions.Add(newQuestion);
+                        
                     }               
                 }
             }
