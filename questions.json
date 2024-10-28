@@ -1,0 +1,62 @@
+[
+    {
+        "question": "Vad är 2 + 2?",
+        "answer": "4",
+        "difficulty": 1
+    },
+    {
+        "question": "Vad är huvudstaden i Sverige?",
+        "answer": "Stockholm",
+        "difficulty": 3
+    },
+    {
+        "question": "Vilket år landade människan på månen?",
+        "answer": "1969",
+        "difficulty": 4
+    },
+    {
+        "question": "Vad är havets djupaste punkt?",
+        "answer": "Marianergraven",
+        "difficulty": 5
+    },
+    {
+        "question": "Vad är pi?",
+        "answer": "3.14",
+        "difficulty": 2
+    },
+    {
+        "question": "Vilket ämne har kemisk beteckning O?",
+        "answer": "Syre",
+        "difficulty": 3
+    },
+    {
+        "question": "Vilken planet är känd som den röda planeten?",
+        "answer": "Mars",
+        "difficulty": 4
+    },
+    {
+        "question": "Vad kallas den process där växter omvandlar ljus till energi?",
+        "answer": "Fotosyntes",
+        "difficulty": 4
+    },
+    {
+        "question": "På vilken kontinent ligger Australien på?",
+        "answer": "Oceanien",
+        "difficulty": 5
+    },
+    {
+        "question": "Vilket år startade andra världskriget?",
+        "answer": "1939",
+        "difficulty": 5
+    },
+    {
+        "question": "Vilken är den största arten av landlevande däggdjur?",
+        "answer": "Elefant",
+        "difficulty": 1
+    },
+    {
+        "question": "Vad är enheten för elektrisk ström?",
+        "answer": "Ampere",
+        "difficulty": 4
+    }
+]
