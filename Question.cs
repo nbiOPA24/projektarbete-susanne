@@ -1,4 +1,5 @@
 using System.Security.Cryptography.X509Certificates;
+using System.IO; //Lägger till för att kunna hantera filinläsning av defaultfrågor
 
 class Question
 {   
@@ -15,6 +16,7 @@ class Question
         Points = points;      
     }
 }
+
 
 class HandleQuestion
 {
@@ -58,6 +60,27 @@ class HandleQuestion
             System.Console.WriteLine("Ogiltig inmatning");
             break;
         } 
+    }
+    public static List<Question> LoadQuestions(string filePath) //Metod för att läsa in filen med frågor och spara i listan questions. 
+    {
+        List<Question> questions = new List<Question>(); 
+
+        foreach(var line in File.ReadLines(filePath))
+        {
+            var parts = line.Split('|');
+            if(parts.Length == 4)
+            {
+                string subject = parts[0];
+                string quest = parts[1];
+                string answer = parts[2];
+                int points = int.Parse(parts[3]);
+
+                questions.Add(new Question(subject, quest, answer, points));
+            }
+        }
+
+        return questions;
+
     }
 }
 

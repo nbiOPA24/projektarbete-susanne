@@ -1,7 +1,7 @@
 class Admin
 {
     private HandleQuestion handleQuestion = new HandleQuestion(); //Skapar en instans för att kunna hantera frågor från klassen HandleQuestion!
-    private TestaStreamReader testaStreamReader;
+ 
 
     public void Menu()
     {
@@ -53,8 +53,7 @@ class Admin
 
     public void DefaultQuestions()
     {   
-        testaStreamReader = new TestaStreamReader();
-        TestaStreamReader.TestaSR(handleQuestion);
+       
 
         foreach(var question in handleQuestion.questions)
         {

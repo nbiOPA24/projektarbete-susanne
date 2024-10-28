@@ -5,7 +5,6 @@ class Program
 
     public static void Main()
     {
-        Ämne ämne = new Ämne();
         bool isRunning = true;
 
         Admin admin = new Admin();                  
@@ -20,53 +19,60 @@ class Program
 
         while(isRunning)
        {
-            System.Console.WriteLine("Välj vilken typ av quiz du vill göra");
-            System.Console.WriteLine("1. Svara med fritext");
-            System.Console.WriteLine("2. Flervalsalternativ");
-            System.Console.WriteLine("3. Sant eller Falskt");
+            System.Console.WriteLine();
+            System.Console.WriteLine("Välj ett ämne:");
+            System.Console.WriteLine("1. Svenska");
+            System.Console.WriteLine("2. Engelska");
+            System.Console.WriteLine("3. SO");
+            System.Console.WriteLine("4. Matte");
+            System.Console.WriteLine("5. Idrott ");
+            System.Console.WriteLine("6. Se dina betyg i respektive ämne"); 
             System.Console.WriteLine("7. Admin");
-            System.Console.WriteLine("8. Avsluta programmet.");
-            string input = Console.ReadLine();
+            System.Console.WriteLine("8. Avsluta programmet");         
+            System.Console.WriteLine();
+            string choice = Console.ReadLine();
 
-            switch(input)
+            switch(choice)
             {
                 case "1":
-                System.Console.WriteLine("Fritext");
+                System.Console.WriteLine("Svenska"); //Härifrån kommer jag vidare till frågor i svenska
                 break;
 
                 case "2":
-                System.Console.WriteLine("Flervalsalternativ");
+                System.Console.WriteLine("Engelska"); //Härifrån kommer jag vidare till frågor i engelska
                 break;
 
                 case "3":
-                System.Console.WriteLine("Sant eller falskt");
+                System.Console.WriteLine("SO"); //Härifrån kommer jag vidare till frågor i SO
                 break;
 
                 case "4":
-                System.Console.WriteLine("Alternativ 4");
+                System.Console.WriteLine("Matte"); //Härifrån kommer jag vidare till frågor i matte
                 break;
 
                 case "5":
-                System.Console.WriteLine("Alternativ 4");
+                System.Console.WriteLine("Idrott"); //Härifrån kommer jag vidare till frågor i idrott
                 break;
 
                 case "6":
-                System.Console.WriteLine("Se dina betyg");
+                System.Console.WriteLine("Se dina betyg i respektive ämne"); //Poäng i respektive ämne omvanldas till "betyg"
                 break;
 
                 case "7":
-                System.Console.WriteLine("Admin");    //Här skapar vi frågor etc. Ska kräva inlogg!  
+                System.Console.WriteLine("Admin"); //Härifrån skapar jag frågor
                 admin.Menu();
-                break;            
+                break;
 
                 case "8":
-                System.Console.WriteLine("Tack för idag!");
+                System.Console.WriteLine("Avsluta programmet."); 
                 isRunning = false;
                 break;
-                
-                default:            
-                System.Console.WriteLine("Ogiltig inmatning.");
-                break;   
+
+                default:
+                System.Console.WriteLine("Felaktig inmatning");
+                break;
+
+
             } 
 
         }
