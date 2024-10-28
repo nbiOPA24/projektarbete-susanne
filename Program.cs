@@ -1,84 +1,83 @@
-﻿using System.Runtime.CompilerServices;
-
+﻿
 class Program
 {
-
     static async Task Main()
     {
-        string filePath = "questions.json";
+        string filePath = "questions.json"; 
+        List<Question> questions = await Question.LoadQuestion(filePath);
+        
+
         bool isRunning = true;
 
-        Admin admin = new Admin(filePath);   
-              
+        Console.WriteLine("***************************************************************************");
+        Console.WriteLine("Välkommen till elev-Quiz!");
+        Console.WriteLine("Detta Quiz hjälper dig att hålla koll på dina kunskaper inom olika ämnen. ");
+        Console.WriteLine("Välj vilken typ av quiz du vill göra. Därefter väljer du ämne.");
+        Console.WriteLine("När du är klar kan du se vilket betyg dina poäng motsvarar i respektive ämne");
+        Console.WriteLine("Lycka till!");
+        Console.WriteLine("*****************************************************************************");
 
-        System.Console.WriteLine("***************************************************************************");
-        System.Console.WriteLine("Välkommen till elev-Quiz!");
-        System.Console.WriteLine("Detta Quiz hjälper dig att hålla koll på dina kunskaper inom olika ämnen. ");
-        System.Console.WriteLine("Välj vilken typ av quiz du vill göra. Därefter väljer du ämne.");
-        System.Console.WriteLine("När du är klar kan du se vilket betyg dina poäng motsvarar i respektive ämne");
-        System.Console.WriteLine("Lycka till!");
-        System.Console.WriteLine("*****************************************************************************");
-
-        while(isRunning)
-       {
-            System.Console.WriteLine();
-            System.Console.WriteLine("Välj ett ämne:");
-            System.Console.WriteLine("1. Svenska");
-            System.Console.WriteLine("2. Engelska");
-            System.Console.WriteLine("3. SO");
-            System.Console.WriteLine("4. Matte");
-            System.Console.WriteLine("5. Idrott ");
-            System.Console.WriteLine("6. Se dina betyg i respektive ämne"); 
-            System.Console.WriteLine("7. Se samttliga frårgor");
-            System.Console.WriteLine("8. Avsluta programmet");         
-            System.Console.WriteLine();
+        while (isRunning)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Välj ett ämne:");
+            Console.WriteLine("1. Svenska");
+            Console.WriteLine("2. Engelska");
+            Console.WriteLine("3. SO");
+            Console.WriteLine("4. Matte");
+            Console.WriteLine("5. Idrott ");
+            Console.WriteLine("6. Se dina betyg i respektive ämne");
+            Console.WriteLine("7. Se samtliga frågor");
+            Console.WriteLine("8. Avsluta programmet");
+            Console.WriteLine();
             string choice = Console.ReadLine();
 
-            switch(choice)
+            switch (choice)
             {
                 case "1":
-                System.Console.WriteLine("Svenska"); //Härifrån kommer jag vidare till frågor i svenska                                 
-                break;
-
+                    Console.WriteLine("Svenska");
+                    
+                    break;
                 case "2":
-                System.Console.WriteLine("Engelska"); //Härifrån kommer jag vidare till frågor i engelska
-                break;
-
+                    Console.WriteLine("Engelska");
+                    
+                    break;
                 case "3":
-                System.Console.WriteLine("SO"); //Härifrån kommer jag vidare till frågor i SO
-                break;
-
+                    Console.WriteLine("SO");
+                    
+                    break;
                 case "4":
-                System.Console.WriteLine("Matte"); //Härifrån kommer jag vidare till frågor i matte
-                break;
-
+                    Console.WriteLine("Matte");
+                    
+                    break;
                 case "5":
-                System.Console.WriteLine("Idrott"); //Härifrån kommer jag vidare till frågor i idrott
-                break;
-
+                    Console.WriteLine("Idrott");
+                   
+                    break;
                 case "6":
-                System.Console.WriteLine("Se dina betyg i respektive ämne"); //Poäng i respektive ämne omvanldas till "betyg"
-                break;
-
+                    Console.WriteLine("Se dina betyg i respektive ämne");
+                   
+                    break;
                 case "7":
-                System.Console.WriteLine("Här syns just nu alla"); 
-                //await admin.DisplayQuestionsAsync(); //Visar just nu alla frågor!
-                
-                break;
-
+                    Console.WriteLine("Här är alla frågor:");
+                    ShowAllQuestions(questions);
+                   
+                    break;
                 case "8":
-                System.Console.WriteLine("Avsluta programmet."); 
-                isRunning = false;
-                break;
-
+                    Console.WriteLine("Avslutar programmet.");
+                    isRunning = false;
+                    break;
                 default:
-                System.Console.WriteLine("Felaktig inmatning");
-                break;
-
-
-            } 
-
+                    Console.WriteLine("Felaktig inmatning");
+                    break;
+            }
         }
-        
+    }
+    static void ShowAllQuestions(List<Question> questions)
+    {
+        foreach(var question in questions)
+        {
+            System.Console.WriteLine($"Ämne: {question.Subject}, Fråga: {question.Quest}, Svar: {question.Answer}, Poäng: {question.Points} ");
+        }
     }
 }

@@ -1,81 +1,81 @@
 [
     {
-        "subject": "MA",
-        "question": "Vad är 2 + 2?",
-        "answer": "4",
-        "difficulty": 1
+        "Subject": "MA",
+        "Quest": "Vad är 2 + 2?",
+        "Answer": "4",
+        "Points": 1
     },
     {
-       "subject": "SO",
-        "question": "Vad är huvudstaden i Sverige?",
-        "answer": "Stockholm",
-        "difficulty": 3
+        "Subject": "SO",
+        "Question": "Vad är huvudstaden i Sverige?",
+        "Answer": "Stockholm",
+        "Points": 3
     },
     {
-        "subject": "SO",
-        "question": "Vilket år landade människan på månen?",
-        "answer": "1969",
-        "difficulty": 4
+        "Subject": "SO",
+        "Question": "Vilket år landade människan på månen?",
+        "Answer": "1969",
+        "Points": 4
     },
     {
-        "subject": "NA",
-        "question": "Vad är havets djupaste punkt?",
-        "answer": "Marianergraven",
-        "difficulty": 5
+        "Subject": "NA",
+        "Question": "Vad är havets djupaste punkt?",
+        "Answer": "Marianergraven",
+        "Points": 5
     },
     {
-        "subject": "MA",
-        "question": "Vad är pi?",
-        "answer": "3.14",
-        "difficulty": 2
+        "Subject": "MA",
+        "Question": "Vad är pi?",
+        "Answer": "3.14",
+        "Points": 2
     },
     {
-        "subject": "NA",
-        "question": "Vilket ämne har kemisk beteckning O?",
-        "answer": "Syre",
-        "difficulty": 3
+        "Subject": "NA",
+        "Question": "Vilket ämne har kemisk beteckning O?",
+        "Answer": "Syre",
+        "Points": 3
     },
     {
-        "subject": "NA",
-        "question": "Vilken planet är känd som den röda planeten?",
-        "answer": "Mars",
-        "difficulty": 4
+        "Subject": "NA",
+        "Question": "Vilken planet är känd som den röda planeten?",
+        "Answer": "Mars",
+        "Points": 4
     },
     {
-        "subject": "NA",
-        "question": "Vad kallas den process där växter omvandlar ljus till energi?",
-        "answer": "Fotosyntes",
-        "difficulty": 4
+        "Subject": "NA",
+        "Question": "Vad kallas den process där växter omvandlar ljus till energi?",
+        "Answer": "Fotosyntes",
+        "Points": 4
     },
     {
-        "subject": "SO",
-        "question": "På vilken kontinent ligger Australien på?",
-        "answer": "Oceanien",
-        "difficulty": 5
+        "Subject": "SO",
+        "Question": "På vilken kontinent ligger Australien på?",
+        "Answer": "Oceanien",
+        "Points": 5
     },
     {
-        "subject": "SO",
-        "question": "Vilket år startade andra världskriget?",
-        "answer": "1939",
-        "difficulty": 5
+        "Subject": "SO",
+        "Question": "Vilket år startade andra världskriget?",
+        "Answer": "1939",
+        "Points": 5
     },
     {
-        "subject": "NA",
-        "question": "Vilken är den största arten av landlevande däggdjur?",
-        "answer": "Elefant",
-        "difficulty": 1
+        "Subject": "NA",
+        "Question": "Vilken är den största arten av landlevande däggdjur?",
+        "Answer": "Elefant",
+        "Points": 1
     },
     {
-        "subject": "NA",
-        "question": "Vad är enheten för elektrisk ström?",
-        "answer": "Ampere",
-        "difficulty": 4
+        "Subject": "NA",
+        "Question": "Vad är enheten för elektrisk ström?",
+        "Answer": "Ampere",
+        "Points": 4
     }
     ,
     {
-        "subject": "MA",
-        "question": "Vad är roten ur 9?",
-        "answer": "3",
-        "difficulty": 4
+        "Subject": "MA",
+        "Question": "Vad är roten ur 9?",
+        "Answer": "3",
+        "Points": 4
     }
 ]
