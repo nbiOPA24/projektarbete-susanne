@@ -29,7 +29,7 @@ class Program
             System.Console.WriteLine("4. Matte");
             System.Console.WriteLine("5. Idrott ");
             System.Console.WriteLine("6. Se dina betyg i respektive ämne"); 
-            System.Console.WriteLine("7. Admin");
+            System.Console.WriteLine("7. Se samttliga frårgor");
             System.Console.WriteLine("8. Avsluta programmet");         
             System.Console.WriteLine();
             string choice = Console.ReadLine();
@@ -37,10 +37,7 @@ class Program
             switch(choice)
             {
                 case "1":
-                System.Console.WriteLine("Svenska"); //Härifrån kommer jag vidare till frågor i svenska
-                // Anropa metoden för att visa alla frågor
-                await admin.DisplayQuestionsAsync();    
-                    
+                System.Console.WriteLine("Svenska"); //Härifrån kommer jag vidare till frågor i svenska                                 
                 break;
 
                 case "2":
@@ -64,7 +61,8 @@ class Program
                 break;
 
                 case "7":
-                System.Console.WriteLine("Admin"); //Härifrån skapar jag frågor
+                System.Console.WriteLine("Här syns just nu alla"); 
+                //await admin.DisplayQuestionsAsync(); //Visar just nu alla frågor!
                 
                 break;
 

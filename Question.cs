@@ -1,4 +1,10 @@
 using System.Security.Cryptography.X509Certificates;
+using System.Text.Json.Serialization;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+using System.Threading.Tasks;
 
 class Question
 {   
@@ -18,21 +24,8 @@ class Question
 
 
 
-{
-    public string CorrectAnswer {get; set;}
-    public string WrongAnswer {get; set;}
-    
-    public MultiChoice(string quest, string answer, int points, string correctAnswer, string wrongAnswer) : base (quest, answer, points)
-    {
-        CorrectAnswer = correctAnswer;
-        WrongAnswer = wrongAnswer; 
-    }
 
-}
 
-class TrueFalse :  Question
-{
-    public string TrueAnswer {get; set;}
-    public string FalseAnswer {get; set;}
 
-}*/
+
+
