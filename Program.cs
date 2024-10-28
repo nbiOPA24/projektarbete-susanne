@@ -3,11 +3,13 @@
 class Program
 {
 
-    public static void Main()
+    static async Task Main()
     {
+        string filePath = "questions.json";
         bool isRunning = true;
 
-        Admin admin = new Admin();                  
+        Admin admin = new Admin(filePath);   
+              
 
         System.Console.WriteLine("***************************************************************************");
         System.Console.WriteLine("Välkommen till elev-Quiz!");
@@ -36,6 +38,9 @@ class Program
             {
                 case "1":
                 System.Console.WriteLine("Svenska"); //Härifrån kommer jag vidare till frågor i svenska
+                // Anropa metoden för att visa alla frågor
+                await admin.DisplayQuestionsAsync();    
+                    
                 break;
 
                 case "2":
@@ -60,7 +65,7 @@ class Program
 
                 case "7":
                 System.Console.WriteLine("Admin"); //Härifrån skapar jag frågor
-                admin.Menu();
+                
                 break;
 
                 case "8":
