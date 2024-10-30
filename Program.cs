@@ -5,14 +5,14 @@ class Program
     {
         string filePath = "questions.json"; 
         List<Question> questions = await Question.LoadQuestion(filePath);
+        SubjectMenu subjectMenu = new SubjectMenu();
         
 
         bool isRunning = true;
 
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("Välkommen till elev-Quiz!");
-        Console.WriteLine("Detta Quiz hjälper dig att hålla koll på dina kunskaper inom olika ämnen. ");
-        Console.WriteLine("Välj vilken typ av quiz du vill göra. Därefter väljer du ämne.");
+        Console.WriteLine("Välj det ämne som du vill öva på.");
         Console.WriteLine("När du är klar kan du se vilket betyg dina poäng motsvarar i respektive ämne");
         Console.WriteLine("Lycka till!");
         Console.WriteLine("*****************************************************************************");
@@ -36,6 +36,7 @@ class Program
             {
                 case "1":
                     Console.WriteLine("Svenska");
+                    subjectMenu.SubjectM();
                     
                     break;
                 case "2":
