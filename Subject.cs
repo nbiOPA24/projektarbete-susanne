@@ -38,41 +38,40 @@ public class Subject
         string input = Console.ReadLine();
         bool isFlervalsFråga = input == "2";
 
-        // Hämta slumpmässig fråga
-        if (Questions.Count > 0)
+        if (isFlervalsFråga)
         {
-            var rnd = new Random();
-            var rndQuestion = Questions[rnd.Next(Questions.Count)];
-
-            if (isFlervalsFråga)
-            {
-                Console.WriteLine("Flervalsfråga");
-                // Logik för flervalsfråga
-            }
-            else
-            {
-                FritextFråga(rndQuestion);
-            }
+            Console.WriteLine("Flervalsfråga");
+            // Logik för flervalsfråga
         }
         else
         {
-            Console.WriteLine("Inga frågor att svara på.");
-        } 
+            FritextFråga();
+        }
     }   
     
-    private void FritextFråga(Question question)
+    private void FritextFråga()
     {
-        System.Console.WriteLine(question.Quest);
-        string userAnswer = Console.ReadLine();
-    
-        if(userAnswer.Equals(question.Answer, StringComparison.OrdinalIgnoreCase))
+        var rnd = new Random();
+        while(Questions.Count > 0)
         {
-            System.Console.WriteLine("Du svarade rätt!"); //Poängen ska läggas till i en lista för ämnet SV. 
+            var rndQuestion = Questions[rnd.Next(Questions.Count)];
+            Questions.Remove(rndQuestion);
+
+            System.Console.WriteLine(rndQuestion.Quest);
+            string userAnswer = Console.ReadLine();
+
+            if(userAnswer.Equals(rndQuestion.Answer, StringComparison.OrdinalIgnoreCase))
+            {
+                System.Console.WriteLine("Du svarade rätt!");//Poäng ska läggas till i en lista för respektive ämne
+            }           
+
+            else
+            {
+                System.Console.WriteLine("Ditt svar var tyvärr fel");//Frågan ska läggas till i en lista för nytt försök
+            }
         }
-        else
-        {
-            System.Console.WriteLine("Du svarade tyvärr fel"); //Frågan ska läggas till i en lista över fel svar, där användaren får försöka igen.
-        }
+        System.Console.WriteLine("Inga frågor inom ämnet kvar.");     
+       
     }
 }
 
