@@ -38,39 +38,9 @@ public class Question
             return false;
         }
     }
-
-    public void AskQuestion()
-    {
-        System.Console.WriteLine(Quest);
-        string userAnswer = Console.ReadLine();
-        
-        if(CheckAnswer (userAnswer))
-        {
-            System.Console.WriteLine("Du svarade rätt!");//Logik i respektive ämne! Lägg till poäng till lista.
-        }
-        else
-        {
-            System.Console.WriteLine("Du svarade tyvärr fel."); //Logik i respektive ämne! Lägg till fråga till lista för att köra igen.
-        }
-    }      
-
 }
 
-public class Fritext : Question
-{  
-    
-    public Fritext() : base("", "", "", 0) // Tomma strängar och 0 som standardvärden
-    {
-    }
-    
-    public Fritext(string subject, string quest, string answer, int points) 
-    : base(subject, quest, answer, points)
-    {
-    }
-
- 
-
-}
+  
 
 
 

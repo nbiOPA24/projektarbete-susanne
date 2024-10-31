@@ -3,9 +3,7 @@ class Program
 {
     static async Task Main()
     {
-        string filePath = "questions.json"; 
-        
-              
+        string filePath = "questions.json";        
 
         bool isRunning = true;
 
@@ -22,9 +20,9 @@ class Program
             Console.WriteLine("Välj ett ämne:");
             Console.WriteLine("1. Svenska");
             Console.WriteLine("2. Engelska");
-            Console.WriteLine("3. SO");
+            Console.WriteLine("3. Samhällsorienterande ämnen");
             Console.WriteLine("4. Matte");
-            Console.WriteLine("5. Idrott ");
+            Console.WriteLine("5. Naturkunskap ");
             Console.WriteLine("6. Se dina betyg i respektive ämne");
             Console.WriteLine("7. Se samtliga frågor");
             Console.WriteLine("8. Avsluta programmet");
@@ -41,18 +39,20 @@ class Program
                     break;
                 case "2":
                     Console.WriteLine("Engelska");
-                    
+                    currentSubject = new Subject("EN");
                     break;
                 case "3":
-                    Console.WriteLine("SO");
-                    
+                    Console.WriteLine("Samhällsorienterande ämnen");
+                    currentSubject = new Subject("SO");
                     break;
                 case "4":
                     Console.WriteLine("Matte");
+                    currentSubject = new Subject("EN");
                     
                     break;
                 case "5":
-                    Console.WriteLine("Idrott");
+                    Console.WriteLine("Naturkunskap");
+                    currentSubject = new Subject("NA");
                    
                     break;
                 case "6":
@@ -60,7 +60,7 @@ class Program
                    
                     break;
                 case "7":
-                    Console.WriteLine("Här är alla frågor:");
+                    Console.WriteLine("Adminklass:");//Här ska man kunna lägga in frågor och ev även kunna se olika elevers poäng!
                    
                    
                     break;
