@@ -4,9 +4,8 @@ class Program
     static async Task Main()
     {
         string filePath = "questions.json"; 
-        List<Question> questions = await Question.LoadQuestion(filePath);
-        SubjectMenu subjectMenu = new SubjectMenu();
         
+              
 
         bool isRunning = true;
 
@@ -36,7 +35,9 @@ class Program
             {
                 case "1":
                     Console.WriteLine("Svenska");
-                    subjectMenu.SubjectM();
+                    Console.WriteLine("Svenska");
+                    Svenska svenska = new Svenska("Svenska");
+                    svenska.ChooseTypeSV();
                     
                     break;
                 case "2":
@@ -61,7 +62,7 @@ class Program
                     break;
                 case "7":
                     Console.WriteLine("Här är alla frågor:");
-                    ShowAllQuestions(questions);
+                   
                    
                     break;
                 case "8":
@@ -74,7 +75,7 @@ class Program
             }
         }
     }
-    static void ShowAllQuestions(List<Question> questions)
+    static void ShowAllQuestions(List<Question> questions)//Ska flyttas till amdin-klassen!!!
     {
         foreach(var question in questions)
         {

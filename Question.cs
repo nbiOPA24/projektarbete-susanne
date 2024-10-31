@@ -13,26 +13,30 @@ public class Question
     public string Quest {get; set;}
     [JsonPropertyName("Answer")]
     public string Answer {get; set;}
+    [JsonPropertyName("Options")]
+    public List<string> Options {get; set; } //Lägger till för att frågorna ska kunna återanvändas till olika frågetyper!
     [JsonPropertyName("Points")]
     public int Points {get; set;}
+   
 
-    public Question(string subject, string quest, string answer, int points)
+    public Question(string subject, string quest, string answer, int points, List<string> options = null)
     {
         Subject = subject;
         Quest = quest;
         Answer = answer;
-        Points = points;      
+        Points = points;  
+        Options = options ?? new List<string>();    
     }
-
-    /*public static async Task<List<Question>> LoadQuestion(string filePath)
-    {
-        using FileStream openStream = File.OpenRead(filePath);
-        return await JsonSerializer.DeserializeAsync<List<Question>>(openStream);
-    }*/
 }
 
 public class Fritext : Question
 {  
+    
+    public Fritext() : base("", "", "", 0) // Tomma strängar och 0 som standardvärden
+    {
+
+    }
+    
     public Fritext(string subject, string quest, string answer, int points) 
     : base(subject, quest, answer, points)
     {
@@ -54,7 +58,6 @@ public class Fritext : Question
     {
         System.Console.WriteLine(Quest);
         string userAnswer = Console.ReadLine();
-
         
         //Här saknas kod för att slumpa fram ex. fem frågor och skriva ut...
         if(CheckAnswer (userAnswer))
