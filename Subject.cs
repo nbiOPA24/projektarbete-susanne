@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 using System.Reflection.Metadata.Ecma335;
 
 public class Subject
-{
-    string filePath = "questions.json";
+{    
     public List<Question> Questions {get; set; }
     public string Name {get; set; }
 
@@ -22,70 +21,62 @@ public class Subject
     {
         using FileStream openStream = File.OpenRead(filePath);
         var allQuestions = await JsonSerializer.DeserializeAsync<List<Question>>(openStream);
-        Questions = allQuestions.FindAll(quest => quest.Subject == Name);
-        
-     
-    }
-}
-public class Svenska : Subject
-{
-    public List<Fritext> FritextQuestions {get; set;}
-    
-    public Svenska(string name)
-    : base(name)
-    {
-        FritextQuestions = new List<Fritext>();
-    }
-
-    public override async Task LoadQuestionsAsync(string filePath)
-    {
-        using FileStream openStream = File.OpenRead(filePath);
-        var allQuestions = await JsonSerializer.DeserializeAsync<List<Question>>(openStream);
-        
-        foreach(var question in allQuestions)
+        if(allQuestions != null)
         {
-            if (question.Subject == Name && question is Fritext fritextQuestion)
+            Questions = allQuestions.FindAll(quest => quest.Subject == Name);
+        }
+        else
+        {
+            System.Console.WriteLine("Filen med frågorna kunde inte läsas in.");
+        }
+    }
+    public async Task ChooseType()
+    {
+        Console.WriteLine("Välj typ av fråga:");
+        Console.WriteLine("1. Fritextfråga");
+        Console.WriteLine("2. Flervalsfråga");
+        string input = Console.ReadLine();
+        bool isFlervalsFråga = input == "2";
+
+        // Hämta slumpmässig fråga
+        if (Questions.Count > 0)
+        {
+            var rnd = new Random();
+            var rndQuestion = Questions[rnd.Next(Questions.Count)];
+
+            if (isFlervalsFråga)
             {
-                FritextQuestions.Add(fritextQuestion);
+                Console.WriteLine("Flervalsfråga");
+                // Logik för flervalsfråga
+            }
+            else
+            {
+                FritextFråga(rndQuestion);
             }
         }
-    }
-
-    public async void ChooseTypeSV()
-    {  
-        Fritext fritext = new Fritext();
-        string filePath = "questions.json";
-        
-        System.Console.WriteLine("Här väljer du typ av fråga: ");          
-        System.Console.WriteLine("1. Fritextfråga");
-        System.Console.WriteLine("2. Flervalsfråga");
-        string input = Console.ReadLine();
-
-        switch(input)
+        else
         {
-            case "1":
-            System.Console.WriteLine("Du valde fritextfråga");
-            LoadQuestionsAsync(filePath); 
-            
-            fritext.AskQuestion();
-
-            break;
-
-            case "2":
-            System.Console.WriteLine("Du valde flervalsfråga");
-            break;
-
-            case "3":
-            System.Console.WriteLine("Återgår till huvudmenyn");
-            break;
-
-            default:
-            System.Console.WriteLine("Ogiltig inmatning");
-            break;
+            Console.WriteLine("Inga frågor att svara på.");
+        } 
+    }   
+    
+    private void FritextFråga(Question question)
+    {
+        System.Console.WriteLine(question.Quest);
+        string userAnswer = Console.ReadLine();
+    
+        if(userAnswer.Equals(question.Answer, StringComparison.OrdinalIgnoreCase))
+        {
+            System.Console.WriteLine("Du svarade rätt!"); //Poängen ska läggas till i en lista för ämnet SV. 
+        }
+        else
+        {
+            System.Console.WriteLine("Du svarade tyvärr fel"); //Frågan ska läggas till i en lista över fel svar, där användaren får försöka igen.
         }
     }
-    
 }
+
+
 
 
 

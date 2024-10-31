@@ -31,14 +31,13 @@ class Program
             Console.WriteLine();
             string choice = Console.ReadLine();
 
+            Subject currentSubject = null;
+
             switch (choice)
             {
                 case "1":
                     Console.WriteLine("Svenska");
-                    Console.WriteLine("Svenska");
-                    Svenska svenska = new Svenska("Svenska");
-                    svenska.ChooseTypeSV();
-                    
+                    currentSubject = new Subject("SV");                    
                     break;
                 case "2":
                     Console.WriteLine("Engelska");
@@ -73,6 +72,8 @@ class Program
                     Console.WriteLine("Felaktig inmatning");
                     break;
             }
+            await currentSubject.LoadQuestionsAsync("questions.json");
+            await currentSubject.ChooseType();
         }
     }
     static void ShowAllQuestions(List<Question> questions)//Ska flyttas till amdin-klassen!!!

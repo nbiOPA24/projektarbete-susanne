@@ -27,22 +27,7 @@ public class Question
         Points = points;  
         Options = options ?? new List<string>();    
     }
-}
-
-public class Fritext : Question
-{  
-    
-    public Fritext() : base("", "", "", 0) // Tomma strängar och 0 som standardvärden
-    {
-
-    }
-    
-    public Fritext(string subject, string quest, string answer, int points) 
-    : base(subject, quest, answer, points)
-    {
-    }
-
-    public bool CheckAnswer(string userAnswer)
+       public bool CheckAnswer(string userAnswer)
     {
         if(userAnswer.ToUpper() == Answer.ToUpper())
         
@@ -59,7 +44,6 @@ public class Fritext : Question
         System.Console.WriteLine(Quest);
         string userAnswer = Console.ReadLine();
         
-        //Här saknas kod för att slumpa fram ex. fem frågor och skriva ut...
         if(CheckAnswer (userAnswer))
         {
             System.Console.WriteLine("Du svarade rätt!");//Logik i respektive ämne! Lägg till poäng till lista.
@@ -70,6 +54,21 @@ public class Fritext : Question
         }
     }      
 
+}
+
+public class Fritext : Question
+{  
+    
+    public Fritext() : base("", "", "", 0) // Tomma strängar och 0 som standardvärden
+    {
+    }
+    
+    public Fritext(string subject, string quest, string answer, int points) 
+    : base(subject, quest, answer, points)
+    {
+    }
+
+ 
 
 }
 
