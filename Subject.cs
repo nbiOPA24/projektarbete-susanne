@@ -41,8 +41,7 @@ public class Subject
             Console.WriteLine("3. Öva på frågor där du svarat fel");
             Console.WriteLine("4. Återgå till huvudmenyn");
             string input = Console.ReadLine();
-            bool isFlervalsFråga = input == "2";
-
+            
             if (input == "1")
             {
                 FritextFråga();                
@@ -73,7 +72,9 @@ public class Subject
     private void FritextFråga()
     {       
         var rnd = new Random();
-        while(Questions.Count > 0)
+        int numOfQuestions = Math.Min(10, Questions.Count);
+
+        for(int i = 0; i < numOfQuestions; i++)
         {
             var rndQuestion = Questions[rnd.Next(Questions.Count)];
             Questions.Remove(rndQuestion);
@@ -92,7 +93,7 @@ public class Subject
                 wrongAnswer.Add(rndQuestion);                
             }
         }
-        System.Console.WriteLine("Inga frågor inom ämnet kvar.");            
+        System.Console.WriteLine("Inga frågor kvar att besvara.");            
     }
 
     private void FlervalsFråga()
@@ -105,7 +106,8 @@ public class Subject
         }       
         
         var rnd = new Random();
-        while(mulitChoiceQuestions.Count > 0)
+        int numOfQuestions = Math.Min(5, Questions.Count);
+        for(int i = 0; i < numOfQuestions; i++)
         {
             var rndQuestion = mulitChoiceQuestions[rnd.Next(mulitChoiceQuestions.Count)];
             mulitChoiceQuestions.Remove(rndQuestion);
@@ -123,16 +125,21 @@ public class Subject
             int input;
             if(int.TryParse(Console.ReadLine(), out input) && input > 0 && input <= rndQuestion.Options.Count)
             {
-                string optionInput = rndQuestion.Options[input -1];
-                if(optionInput.Contains(rndQuestion.Answer, StringComparison.OrdinalIgnoreCase))
+                string optionInput = rndQuestion.Options[input -1].Trim().TrimEnd('.');
+                string correctAnswer = rndQuestion.Answer.Trim().TrimEnd('.');
+                
+                if(optionInput.Equals(correctAnswer, StringComparison.OrdinalIgnoreCase))                
                 {
+                    System.Console.WriteLine();
                     System.Console.WriteLine("Du svarade rätt!"); //Poäng ska läggas till i en lista för respektive ämne
+                    System.Console.WriteLine(".........................");
                 }
                 
                 else
                 {
-                    System.Console.WriteLine("Ditt svar var tyvärr fel");//Frågan ska läggas till i en lista för nytt försök
-                    wrongAnswer.Add(rndQuestion);                
+                    System.Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar var {rndQuestion.Answer}");//Frågan ska läggas till i en lista för nytt försök
+                    wrongAnswer.Add(rndQuestion);  
+                    System.Console.WriteLine(".........................");              
                 }
             }
             else
@@ -142,6 +149,8 @@ public class Subject
 
         }
         System.Console.WriteLine("Inga fler flervalsfrågor att besvara");
+        System.Console.WriteLine("*************************************");
+        System.Console.WriteLine();
     }
 
     
