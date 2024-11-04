@@ -33,26 +33,41 @@ public class Subject
     }
     public async Task ChooseType()
     {
-        Console.WriteLine("Välj typ av fråga:");
-        Console.WriteLine("1. Fritextfråga");
-        Console.WriteLine("2. Flervalsfråga");
-        Console.WriteLine("3. Öva på frågor där du svarat fel");
-        string input = Console.ReadLine();
-        bool isFlervalsFråga = input == "2";
+        while(true)
+        {
+            Console.WriteLine("Välj typ av fråga:");
+            Console.WriteLine("1. Fritextfråga");
+            Console.WriteLine("2. Flervalsfråga");
+            Console.WriteLine("3. Öva på frågor där du svarat fel");
+            Console.WriteLine("4. Återgå till huvudmenyn");
+            string input = Console.ReadLine();
+            bool isFlervalsFråga = input == "2";
 
-        if (isFlervalsFråga)
-        {
-            FlervalsFråga();
+            if (input == "1")
+            {
+                FritextFråga();                
+            }
+            
+            else if(input == "2")
+            {
+                FlervalsFråga();
+            }
+            else if(input == "3")
+            {
+                System.Console.WriteLine("Öva på de frågor där du svara");
+            }
+            else if(input == "4")
+            {
+                System.Console.WriteLine("Återgår till huvudmenyn");
+                break;
+            }
+            else
+            {
+                System.Console.WriteLine("Ogiltig inmatning");
+            }
+
         }
-           
-        else if(input == "1")
-        {
-            FritextFråga();
-        }
-        else if(input == "3")
-        {
-            System.Console.WriteLine("Öva på de frågor där du svara");
-        }
+        
     }   
     
     private void FritextFråga()
@@ -109,7 +124,7 @@ public class Subject
             if(int.TryParse(Console.ReadLine(), out input) && input > 0 && input <= rndQuestion.Options.Count)
             {
                 string optionInput = rndQuestion.Options[input -1];
-                if(optionInput.Equals(rndQuestion.Answer, StringComparison.OrdinalIgnoreCase))
+                if(optionInput.Contains(rndQuestion.Answer, StringComparison.OrdinalIgnoreCase))
                 {
                     System.Console.WriteLine("Du svarade rätt!"); //Poäng ska läggas till i en lista för respektive ämne
                 }
