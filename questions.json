@@ -3,21 +3,21 @@
         "Subject": "MA",
         "Quest": "Vad är 2 + 2?",
         "Answer": "4",
-        "Points": 1,
+        "Points": 5,
         "Options": ["1", "2", "3","4"]  
     },
     {
         "Subject": "SV",
         "Quest": "Vad är huvudstaden i Sverige?",
         "Answer": "Stockholm",
-        "Points": 1,
+        "Points": 5,
         "Options": ["Göteborg", "Malmö", "Stockholm", "Uppsala"]  
     },
     {
         "Subject": "SV",
         "Quest": "Vilket år landade människan på månen?",
         "Answer": "1969",
-        "Points": 4,
+        "Points": 5,
         "Options": ["1965", "1967", "1969", "1971"]  
     },
     {
@@ -32,21 +32,21 @@
         "Subject": "NA",
         "Quest": "Vilket ämne har kemisk beteckning O?",
         "Answer": "Syre",
-        "Points": 3,
+        "Points": 5,
         "Options": []  
     },
     {
         "Subject": "NA",
         "Quest": "Vilken planet är känd som den röda planeten?",
         "Answer": "Mars",
-        "Points": 4,
+        "Points": 5,
         "Options": ["Merkuris","Jorden","Venus","Merkuris"]  
     },
     {
         "Subject": "NA",
         "Quest": "Vad kallas den process där växter omvandlar ljus till energi?",
         "Answer": "Fotosyntes",
-        "Points": 4,
+        "Points": 5,
         "Options": ["Fotosyntes","Fotosyntes","Fotosyntes","Fotosyntes"]  
     },
     {
@@ -54,35 +54,35 @@
         "Quest": "På vilken kontinent ligger Australien på?",
         "Answer": "Oceanien",
         "Points": 5,
-        "Options": ["Oceanien","Oceanien","Oceanien","Oceanien"]  
+        "Options": []  
     },
     {
         "Subject": "SO",
         "Quest": "Vilket år startade andra världskriget?",
         "Answer": "1939",
         "Points": 5,
-        "Options": ["Oceanien","1939","Oceanien","Oceanien"]  
+        "Options": []  
     },
     {
         "Subject": "NA",
         "Quest": "Vilken är den största arten av landlevande däggdjur?",
         "Answer": "Elefant",
-        "Points": 1,
-        "Options": ["Elefant","Elefant","Elefant","Elefant"]  
+        "Points": 5,
+        "Options": []  
     },
     {
         "Subject": "NA",
         "Quest": "Vad är enheten för elektrisk ström?",
         "Answer": "Ampere",
-        "Points": 4,
-        "Options": ["Ampere","Ampere","Ampere","Ampere"]  
+        "Points": 5,
+        "Options": []
     }
     ,
     {
         "Subject": "MA",
         "Quest": "Vad är roten ur 9?",
         "Answer": "3",
-        "Points": 4,
-        "Options": ["3","3","3","3"]  
+        "Points": 5,
+        "Options": []  
     }
 ]
