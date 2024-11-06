@@ -160,31 +160,31 @@ public class Subject
         }
 
         System.Console.WriteLine("Öva på de frågor där du svarat fel: ");
-        foreach(var question in wrongAnswer)
+        foreach(var rndquestion in wrongAnswer)
         {
-            System.Console.WriteLine(question.Quest);
+            System.Console.WriteLine(rndquestion.Quest);
 
-            if(question.Options != null && question.Options.Count > 0) //Kontrollerar om det är en flervalsfråga! Om nej, gå till else-satsen. 
+            if(rndquestion.Options != null && rndquestion.Options.Count > 0) //Kontrollerar om det är en flervalsfråga! Om nej, gå till else-satsen. 
             {
-                for(int i = 0; i < question.Options.Count; i++)
+                for(int i = 0; i < rndquestion.Options.Count; i++)
                 {
-                    System.Console.WriteLine($"{i + 1}. {question.Quest[i]}");
+                    System.Console.WriteLine($"{i + 1}. {rndquestion.Quest[i]}");
                     System.Console.WriteLine("Ange siffran som motsvarar rätt svar: ");
                     int input;
 
-                    if(int.TryParse(Console.ReadLine(), out input) && input > 0 && input <= question.Options.Count)
+                    if(int.TryParse(Console.ReadLine(), out input) && input > 0 && input <= rndquestion.Options.Count)
                     {
-                        string optionInput = question.Options[input - 1].Trim().TrimEnd('.');
-                        if(optionInput.Equals(question.Answer.Trim(), StringComparison.OrdinalIgnoreCase))
+                        string optionInput = rndquestion.Options[input - 1].Trim().TrimEnd('.');
+                        if(optionInput.Equals(rndquestion.Answer.Trim(), StringComparison.OrdinalIgnoreCase))
                         {
                             System.Console.WriteLine("Den här gången svarade du rätt. Bra jobbat!");
-                            wrongAnswer.Remove(question);
+                            wrongAnswer.Remove(rndquestion);
                             System.Console.WriteLine("------------------------");
                         }
                     }
                     else
                     {
-                        System.Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {question.Answer}. Försök igen!");
+                        System.Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {rndquestion.Answer}. Försök igen!");
                         System.Console.WriteLine("------------------------------");
                     }                                         
                 }
@@ -194,15 +194,15 @@ public class Subject
                 System.Console.WriteLine("Skriv ditt svar: ");
                 string userAnswer = Console.ReadLine();
 
-                if(question.CheckAnswer(userAnswer))
+                if(rndquestion.CheckAnswer(userAnswer))
                 {
                     System.Console.WriteLine("Den här gången svarade du rätt. Bra jobbat!");
-                    wrongAnswer.Remove(question);
+                    wrongAnswer.Remove(rndquestion);
                     System.Console.WriteLine("------------------------");
                 }
                 else
                 {
-                    System.Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {question.Answer}. Försök igen!");
+                    System.Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {rndquestion.Answer}. Försök igen!");
                     System.Console.WriteLine("------------------------------");
                 } 
             }
