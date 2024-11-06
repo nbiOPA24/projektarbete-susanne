@@ -118,114 +118,382 @@
         "Points": 5, 
         "Options": ["Ett ämne som består av bara en sorts atomer", "En kemisk förening av olika atomer", "Ett ämne med flera molekyler", "En blandning av olika metaller"] },
     
-    { "Subject": "NA", "Quest": "Vad är en molekyl?", "Answer": "Två eller fler atomer bundna tillsammans.", "Points": 5, "Options": ["Två eller fler atomer bundna tillsammans", "En enskild atom", "En del av en cellkärna", "Ett slags grundämne"] },
+    {   "Subject": "NA", 
+        "Quest": "Vad är en molekyl?", 
+        "Answer": "Två eller fler atomer bundna tillsammans.", 
+        "Points": 5, 
+        "Options": ["Två eller fler atomer bundna tillsammans", "En enskild atom", "En del av en cellkärna", "Ett slags grundämne"] 
+    },
     
-    { "Subject": "NA", "Quest": "Vad är ekosystem?", "Answer": "Ett område där organismer samverkar med miljön.", "Points": 5, "Options": ["Ett område där organismer samverkar med miljön", "En specifik växts livscykel", "Ett system för energilagring", "Ett samspel mellan celler i kroppen"] },
+    {   "Subject": "NA", 
+        "Quest": "Vad är ekosystem?", 
+        "Answer": "Ett område där organismer samverkar med miljön.", 
+        "Points": 5, 
+        "Options": ["Ett område där organismer samverkar med miljön", "En specifik växts livscykel", "Ett system för energilagring", "Ett samspel mellan celler i kroppen"] 
+    },
     
-    { "Subject": "NA", "Quest": "Vad är ett rovdjur?", "Answer": "Ett djur som äter andra djur.", "Points": 5, "Options": ["Ett djur som äter andra djur", "Ett djur som enbart äter växter", "En växtätande insekt", "En art av fiskar"] },
+    {   "Subject": "NA", 
+        "Quest": "Vad är ett rovdjur?", 
+        "Answer": "Ett djur som äter andra djur.", 
+        "Points": 5, 
+        "Options": ["Ett djur som äter andra djur", "Ett djur som enbart äter växter", "En växtätande insekt", "En art av fiskar"] 
+    },
     
-    { "Subject": "NA", "Quest": "Vad är evolution?", "Answer": "Långsam förändring av arter över tid.", "Points": 5, "Options": ["Långsam förändring av arter över tid", "Omedelbar förändring hos en art", "Enskilds individers anpassning", "Förändringar av cellens struktur"] },
+    {   "Subject": "NA", 
+        "Quest": "Vad är evolution?", 
+        "Answer": "Långsam förändring av arter över tid.", 
+        "Points": 5, 
+        "Options": ["Långsam förändring av arter över tid", "Omedelbar förändring hos en art", "Enskilds individers anpassning", "Förändringar av cellens struktur"] 
+    },
     
-    { "Subject": "NA", "Quest": "Vad är förbränning?", "Answer": "En kemisk reaktion där energi frigörs från bränsle.", "Points": 5, "Options": ["En kemisk reaktion där energi frigörs från bränsle", "Processen att lagra energi i kroppen", "Omvandling av ljus till energi", "Utsläpp av syre i atmosfären"] },
+    {   "Subject": "NA", 
+        "Quest": "Vad är förbränning?", 
+        "Answer": "En kemisk reaktion där energi frigörs från bränsle.", 
+        "Points": 5, 
+        "Options": ["En kemisk reaktion där energi frigörs från bränsle", "Processen att lagra energi i kroppen", "Omvandling av ljus till energi", "Utsläpp av syre i atmosfären"] 
+    },
     
-    { "Subject": "NA", "Quest": "Vad är energi?", "Answer": "Förmågan att utföra arbete eller skapa rörelse.", "Points": 5, "Options": ["Förmågan att utföra arbete eller skapa rörelse", "Ett ämne som lagrar syre", "Värme som produceras av kemiska reaktioner", "En del av en atomkärna"] },
+    {   "Subject": "NA", 
+        "Quest": "Vad är energi?", 
+        "Answer": "Förmågan att utföra arbete eller skapa rörelse.", 
+        "Points": 5, 
+        "Options": ["Förmågan att utföra arbete eller skapa rörelse", "Ett ämne som lagrar syre", "Värme som produceras av kemiska reaktioner", "En del av en atomkärna"] 
+    },
     
-    { "Subject": "NA", "Quest": "Vad är en konsument i ekosystemet?", "Answer": "En organism som äter andra organismer för energi.", "Points": 5, "Options": ["En organism som äter andra organismer för energi", "En organism som producerar egen energi", "En nedbrytare av döda växter", "En växt som binder kväve"] },
+    {   "Subject": "NA", 
+        "Quest": "Vad är en konsument i ekosystemet?", 
+        "Answer": "En organism som äter andra organismer för energi.", 
+        "Points": 5, 
+        "Options": ["En organism som äter andra organismer för energi", "En organism som producerar egen energi", "En nedbrytare av döda växter", "En växt som binder kväve"] 
+    },
     
-    { "Subject": "NA", "Quest": "Vad är en producent i ekosystemet?", "Answer": "En organism, som växter, som tillverkar egen energi.", "Points": 5, "Options": ["En organism, som växter, som tillverkar egen energi", "En organism som äter andra för energi", "En organism som bryter ner organiska ämnen", "En parasit på träd och buskar"] },
+    {   "Subject": "NA", 
+        "Quest": "Vad är en producent i ekosystemet?", 
+        "Answer": "En organism, som växter, som tillverkar egen energi.", 
+        "Points": 5, 
+        "Options": ["En organism, som växter, som tillverkar egen energi", "En organism som äter andra för energi", "En organism som bryter ner organiska ämnen", "En parasit på träd och buskar"] 
+    },
     
-    { "Subject": "NA", "Quest": "Vad är ett kretslopp?", "Answer": "En cykel där ämnen cirkulerar i naturen.", "Points": 5, "Options": ["En cykel där ämnen cirkulerar i naturen", "Ett rovdjurs jaktmönster", "Ett årstidsbaserat beteende", "En engångsprocess i ekosystemet"] },
+    {   "Subject": "NA", 
+        "Quest": "Vad är ett kretslopp?", 
+        "Answer": "En cykel där ämnen cirkulerar i naturen.", 
+        "Points": 5, 
+        "Options": ["En cykel där ämnen cirkulerar i naturen", "Ett rovdjurs jaktmönster", "Ett årstidsbaserat beteende", "En engångsprocess i ekosystemet"] 
+    },
     
-    { "Subject": "NA", "Quest": "Vad är ozonlagret?", "Answer": "Ett lager i atmosfären som skyddar mot UV-strålning.", "Points": 5, "Options": ["Ett lager i atmosfären som skyddar mot UV-strålning", "Ett lager som fångar in syre", "En gasblandning nära marknivå", "En del av jordens kärna"] },
+    {   "Subject": "NA", 
+        "Quest": "Vad är ozonlagret?", 
+        "Answer": "Ett lager i atmosfären som skyddar mot UV-strålning.", 
+        "Points": 5, 
+        "Options": ["Ett lager i atmosfären som skyddar mot UV-strålning", "Ett lager som fångar in syre", "En gasblandning nära marknivå", "En del av jordens kärna"] 
+    },
     
-    { "Subject": "NA", "Quest": "Vad är syre?", "Answer": "En gas som behövs för cellandning.", "Points": 5, "Options": ["En gas som behövs för cellandning", "En syra i blodet", "Ett fast ämne i celler", "En metall"] },
+    {   "Subject": "NA", 
+        "Quest": "Vad är syre?", 
+        "Answer": "En gas som behövs för cellandning.", 
+        "Points": 5, 
+        "Options": ["En gas som behövs för cellandning", "En syra i blodet", "Ett fast ämne i celler", "En metall"] 
+    },
     
-    { "Subject": "NA", "Quest": "Vad är koldioxid?", "Answer": "En gas som växter använder i fotosyntesen.", "Points": 5, "Options": ["En gas som växter använder i fotosyntesen", "En energikälla i celler", "En vätska i blodomloppet", "Ett mineral i jordskorpan"] },
+    {   "Subject": "NA", 
+        "Quest": "Vad är koldioxid?", 
+        "Answer": "En gas som växter använder i fotosyntesen.", 
+        "Points": 5, 
+        "Options": ["En gas som växter använder i fotosyntesen", "En energikälla i celler", "En vätska i blodomloppet", "Ett mineral i jordskorpan"] 
+    },
     
-    { "Subject": "NA", "Quest": "Vad är global uppvärmning?", "Answer": "En ökning av jordens medeltemperatur.", "Points": 5, "Options": ["En ökning av jordens medeltemperatur", "En minskning av ozonlagret", "En kylande effekt av klimatet", "En väderomväxling över kort tid"] },
+    {   "Subject": "NA", 
+        "Quest": "Vad är global uppvärmning?", 
+        "Answer": "En ökning av jordens medeltemperatur.", 
+        "Points": 5, 
+        "Options": ["En ökning av jordens medeltemperatur", "En minskning av ozonlagret", "En kylande effekt av klimatet", "En väderomväxling över kort tid"] 
+    },
     
-    { "Subject": "NA", "Quest": "Vad är hållbar utveckling?", "Answer": "Utveckling som inte skadar framtida generationers möjligheter.", "Points": 5, "Options": ["Utveckling som inte skadar framtida generationers möjligheter", "Resursslöseri för snabb tillväxt", "Endast miljöskydd utan ekonomisk tillväxt", "Kortvarig resursanvändning"] },
+    {   "Subject": "NA", 
+        "Quest": "Vad är hållbar utveckling?", 
+        "Answer": "Utveckling som inte skadar framtida generationers möjligheter.", 
+        "Points": 5, 
+        "Options": ["Utveckling som inte skadar framtida generationers möjligheter", "Resursslöseri för snabb tillväxt", "Endast miljöskydd utan ekonomisk tillväxt", "Kortvarig resursanvändning"] 
+    },
 
 
-    { "Subject": "SV", "Quest": "Vad är ett substantiv?", "Answer": "Namn på saker, personer och platser.", "Points": 5, "Options": ["Namn på saker, personer och platser", "Ord som beskriver handlingar", "Ord som beskriver egenskaper", "Ord som ersätter substantiv"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är ett substantiv?", 
+        "Answer": "Namn på saker, personer och platser.", 
+        "Points": 5, 
+        "Options": ["Namn på saker, personer och platser", "Ord som beskriver handlingar", "Ord som beskriver egenskaper", "Ord som ersätter substantiv"] 
+    },
     
-    { "Subject": "SV", "Quest": "Vad är ett verb?", "Answer": "Ord som beskriver handlingar eller tillstånd.", "Points": 5, "Options": ["Ord som beskriver handlingar eller tillstånd", "Namn på personer och platser", "Ord som ersätter substantiv", "Ord som beskriver egenskaper"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är ett verb?", 
+        "Answer": "Ord som beskriver handlingar eller tillstånd.", 
+        "Points": 5, 
+        "Options": ["Ord som beskriver handlingar eller tillstånd", "Namn på personer och platser", "Ord som ersätter substantiv", "Ord som beskriver egenskaper"] 
+    },
     
-    { "Subject": "SV", "Quest": "Vad är ett adjektiv?", "Answer": "Ord som beskriver egenskaper hos substantiv.", "Points": 5, "Options": ["Ord som beskriver egenskaper hos substantiv", "Ord som uttrycker känslor", "Namn på handlingar", "Ord som ersätter pronomen"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är ett adjektiv?", 
+        "Answer": "Ord som beskriver egenskaper hos substantiv.", 
+        "Points": 5, 
+        "Options": ["Ord som beskriver egenskaper hos substantiv", "Ord som uttrycker känslor", "Namn på handlingar", "Ord som ersätter pronomen"] 
+    },
     
-    { "Subject": "SV", "Quest": "Vad är ett pronomen?", "Answer": "Ord som ersätter substantiv, t.ex. han, hon, det.", "Points": 5, "Options": ["Ord som ersätter substantiv, t.ex. han, hon, det", "Namn på en specifik person", "Ord som beskriver platser", "Ord som uttrycker tillstånd"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är ett pronomen?", 
+        "Answer": "Ord som ersätter substantiv, t.ex. han, hon, det.", 
+        "Points": 5, 
+        "Options": ["Ord som ersätter substantiv, t.ex. han, hon, det", "Namn på en specifik person", "Ord som beskriver platser", "Ord som uttrycker tillstånd"] 
+    },
     
-    { "Subject": "SV", "Quest": "Vad är en synonym?", "Answer": "Ord som betyder ungefär samma sak.", "Points": 5, "Options": ["Ord som betyder ungefär samma sak", "Ord med motsatt betydelse", "Ord som rimmar med varandra", "Ord som används i liknelser"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är en synonym?", 
+        "Answer": "Ord som betyder ungefär samma sak.", 
+        "Points": 5, "Options": ["Ord som betyder ungefär samma sak", "Ord med motsatt betydelse", "Ord som rimmar med varandra", "Ord som används i liknelser"] 
+    },
     
-    { "Subject": "SV", "Quest": "Vad är en antonym?", "Answer": "Ord med motsatt betydelse.", "Points": 5, "Options": ["Ord med motsatt betydelse", "Ord som rimmar", "Ord som används i dikter", "Ord som beskriver känslor"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är en antonym?", 
+        "Answer": "Ord med motsatt betydelse.", 
+        "Points": 5, 
+        "Options": ["Ord med motsatt betydelse", "Ord som rimmar", "Ord som används i dikter", "Ord som beskriver känslor"] 
+    },
     
-    { "Subject": "SV", "Quest": "Vad är en metafor?", "Answer": "Bildspråk som jämför utan 'som'.", "Points": 5, "Options": ["Bildspråk som jämför utan 'som'", "En jämförelse med 'som'", "En typ av rim", "En stilfigur i prosa"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är en metafor?", 
+        "Answer": "Bildspråk som jämför utan 'som'.", 
+        "Points": 5, 
+        "Options": ["Bildspråk som jämför utan 'som'", "En jämförelse med 'som'", "En typ av rim", "En stilfigur i prosa"] 
+    },
     
-    { "Subject": "SV", "Quest": "Vad är en liknelse?", "Answer": "Bildspråk som jämför med 'som'.", "Points": 5, "Options": ["Bildspråk som jämför med 'som'", "En bild utan jämförelse", "En stilfigur i poesi", "En typ av dialog"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är en liknelse?", 
+        "Answer": "Bildspråk som jämför med 'som'.", 
+        "Points": 5, 
+        "Options": ["Bildspråk som jämför med 'som'", "En bild utan jämförelse", "En stilfigur i poesi", "En typ av dialog"] 
+    },
     
-    { "Subject": "SV", "Quest": "Vad är en dikt?", "Answer": "En text med rytm och ibland rim.", "Points": 5, "Options": ["En text med rytm och ibland rim", "En kort berättelse", "En typ av dialog", "En roman i versform"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är en dikt?", 
+        "Answer": "En text med rytm och ibland rim.", 
+        "Points": 5, 
+        "Options": ["En text med rytm och ibland rim", "En kort berättelse", "En typ av dialog", "En roman i versform"] 
+    },
     
-    { "Subject": "SV", "Quest": "Vad är ett rim?", "Answer": "Ord som låter lika i slutet.", "Points": 5, "Options": ["Ord som låter lika i slutet", "Ord som betyder samma sak", "Ord med motsatt betydelse", "Ord som används i metaforer"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är ett rim?", 
+        "Answer": "Ord som låter lika i slutet.", 
+        "Points": 5, "Options": ["Ord som låter lika i slutet", "Ord som betyder samma sak", "Ord med motsatt betydelse", "Ord som används i metaforer"] 
+    },
     
-    { "Subject": "SV", "Quest": "Vad är ett tema i en berättelse?", "Answer": "Berättelsens huvudämne eller budskap.", "Points": 5, "Options": ["Berättelsens huvudämne eller budskap", "En specifik karaktär", "Stilen på berättelsen", "Antalet kapitel i berättelsen"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är ett tema i en berättelse?", 
+        "Answer": "Berättelsens huvudämne eller budskap.", 
+        "Points": 5, 
+        "Options": ["Berättelsens huvudämne eller budskap", "En specifik karaktär", "Stilen på berättelsen", "Antalet kapitel i berättelsen"] 
+    },
     
-    { "Subject": "SV", "Quest": "Vad är en roman?", "Answer": "En längre berättelse i bokform.", "Points": 5, "Options": ["En längre berättelse i bokform", "En kort berättelse", "En typ av dikt", "En samling av artiklar"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är en roman?", 
+        "Answer": "En längre berättelse i bokform.", 
+        "Points": 5, 
+        "Options": ["En längre berättelse i bokform", "En kort berättelse", "En typ av dikt", "En samling av artiklar"] 
+    },
     
-    { "Subject": "SV", "Quest": "Vad är en novell?", "Answer": "En kort berättelse med få karaktärer.", "Points": 5, "Options": ["En kort berättelse med få karaktärer", "En längre berättelse med många karaktärer", "En typ av dikt", "En roman i versform"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är en novell?", 
+        "Answer": "En kort berättelse med få karaktärer.", 
+        "Points": 5, 
+        "Options": ["En kort berättelse med få karaktärer", "En längre berättelse med många karaktärer", "En typ av dikt", "En roman i versform"] 
+    },
     
-    { "Subject": "SV", "Quest": "Vad är ett komparativ?", "Answer": "Steg två i att jämföra adjektiv, t.ex. bättre.", "Points": 5, "Options": ["Steg två i att jämföra adjektiv, t.ex. bättre", "Högsta formen av adjektiv", "En typ av substantiv", "Ord som beskriver känslor"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är ett komparativ?", 
+        "Answer": "Steg två i att jämföra adjektiv, t.ex. bättre.", 
+        "Points": 5, 
+        "Options": ["Steg två i att jämföra adjektiv, t.ex. bättre", "Högsta formen av adjektiv", "En typ av substantiv", "Ord som beskriver känslor"] 
+    },
     
-    { "Subject": "SV", "Quest": "Vad är ett superlativ?", "Answer": "Högsta jämförelseformen av adjektiv, t.ex. bäst.", "Points": 5, "Options": ["Högsta jämförelseformen av adjektiv, t.ex. bäst", "Steg ett i att jämföra adjektiv", "En form av substantiv", "Ord med motsatt betydelse"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är ett superlativ?", 
+        "Answer": "Högsta jämförelseformen av adjektiv, t.ex. bäst.", 
+        "Points": 5, 
+        "Options": ["Högsta jämförelseformen av adjektiv, t.ex. bäst", "Steg ett i att jämföra adjektiv", "En form av substantiv", "Ord med motsatt betydelse"] 
+    },
     
-    { "Subject": "SV", "Quest": "Vad är en dialog?", "Answer": "Ett samtal mellan två eller flera personer.", "Points": 5, "Options": ["Ett samtal mellan två eller flera personer", "Ett längre tal av en person", "En typ av text utan tal", "En samling av rim"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är en dialog?", 
+        "Answer": "Ett samtal mellan två eller flera personer.", 
+        "Points": 5, 
+        "Options": ["Ett samtal mellan två eller flera personer", "Ett längre tal av en person", "En typ av text utan tal", "En samling av rim"] 
+    },
     
-    { "Subject": "SV", "Quest": "Vad är en monolog?", "Answer": "Ett längre tal av en person.", "Points": 5, "Options": ["Ett längre tal av en person", "Ett samtal mellan flera personer", "En typ av dikt", "En kort text"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är en monolog?", 
+        "Answer": "Ett längre tal av en person.", 
+        "Points": 5, 
+        "Options": ["Ett längre tal av en person", "Ett samtal mellan flera personer", "En typ av dikt", "En kort text"] 
+    },
     
-    { "Subject": "SV", "Quest": "Vad är ett presens?", "Answer": "Verbform för nutid, t.ex. springer.", "Points": 5, "Options": ["Verbform för nutid, t.ex. springer", "Verbform för dåtid, t.ex. sprang", "En typ av substantiv", "En orddel som förändrar betydelse"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är ett presens?", 
+        "Answer": "Verbform för nutid, t.ex. springer.", 
+        "Points": 5, 
+        "Options": ["Verbform för nutid, t.ex. springer", "Verbform för dåtid, t.ex. sprang", "En typ av substantiv", "En orddel som förändrar betydelse"] 
+    },
     
-    { "Subject": "SV", "Quest": "Vad är ett preteritum?", "Answer": "Verbform för dåtid, t.ex. sprang.", "Points": 5, "Options": ["Verbform för dåtid, t.ex. sprang", "Verbform för nutid, t.ex. springer", "En typ av verb som beskriver tillstånd", "En orddel i början av ord"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är ett preteritum?", 
+        "Answer": "Verbform för dåtid, t.ex. sprang.", 
+        "Points": 5, 
+        "Options": ["Verbform för dåtid, t.ex. sprang", "Verbform för nutid, t.ex. springer", "En typ av verb som beskriver tillstånd", "En orddel i början av ord"] 
+    },
     
-    { "Subject": "SV", "Quest": "Vad är ett prefix?", "Answer": "En orddel som läggs i början och ändrar ordets betydelse.", "Points": 5, "Options": ["En orddel som läggs i början och ändrar ordets betydelse", "En del av en mening", "En typ av substantiv", "Ett synonym till suffix"] },
+    {   "Subject": "SV", 
+        "Quest": "Vad är ett prefix?", 
+        "Answer": "En orddel som läggs i början och ändrar ordets betydelse.", 
+        "Points": 5, 
+        "Options": ["En orddel som läggs i början och ändrar ordets betydelse", "En del av en mening", "En typ av substantiv", "Ett synonym till suffix"] 
+    },
     
-    { "Subject": "SO", "Quest": "Vad är demokrati?", "Answer": "Folkstyre.", "Points": 5, "Options": ["Folkstyre", "Envälde", "Diktatur", "Monarki"] },
+    {   "Subject": "SO", 
+        "Quest": "Vad är demokrati?", 
+        "Answer": "Folkstyre.", 
+        "Points": 5, 
+        "Options": ["Monarki", "Folkstyre", "Envälde", "Diktatur"] 
+    },
     
-    { "Subject": "SO", "Quest": "Vad är en diktatur?", "Answer": "Envälde, utan folkets inflytande.", "Points": 5, "Options": ["Folkstyre", "Envälde, utan folkets inflytande", "Demokrati", "Republik"] },
+    {   "Subject": "SO", 
+        "Quest": "Vad är en diktatur?", 
+        "Answer": "Envälde, utan folkets inflytande.", 
+        "Points": 5, 
+        "Options": ["Envälde, utan folkets inflytande", "Demokrati", "Republik", "Folkstyre"] 
+    },
     
-    { "Subject": "SO", "Quest": "Vad gör riksdagen?", "Answer": "Stiftar lagar och beslutar om budgeten.", "Points": 5, "Options": ["Stiftar lagar och beslutar om budgeten", "Styr landet", "Representerar folket", "Skriver konstitutionen"] },
+    {   "Subject": "SO", 
+        "Quest": "Vad gör riksdagen?", 
+        "Answer": "Stiftar lagar och beslutar om budgeten.", 
+        "Points": 5, 
+        "Options": ["Styr landet", "Representerar folket", "Stiftar lagar och beslutar om budgeten","Skriver konstitutionen"] 
+    },
     
-    { "Subject": "SO", "Quest": "Vad är regeringens uppgift?", "Answer": "Att styra landet och verkställa lagar.", "Points": 5, "Options": ["Att styra landet och verkställa lagar", "Stifta lagar", "Sköta lokalpolitik", "Representera folket i EU"] },
+    {   "Subject": "SO", 
+        "Quest": "Vad är regeringens uppgift?", 
+        "Answer": "Att styra landet och verkställa lagar.", 
+        "Points": 5, 
+        "Options": ["Att styra landet och verkställa lagar", "Stifta lagar", "Sköta lokalpolitik", "Representera folket i EU"] 
+    },
     
-    { "Subject": "SO", "Quest": "Vad är en grundlag?", "Answer": "En viktig lag som skyddar demokratin.", "Points": 5, "Options": ["En viktig lag som skyddar demokratin", "En lag som kan ändras lätt", "En lokal lag", "En lag för ekonomisk styrning"] },
+    {   "Subject": "SO", 
+        "Quest": "Vad är en grundlag?", 
+        "Answer": "En viktig lag som skyddar demokratin.", 
+        "Points": 5, 
+        "Options": ["En lag för ekonomisk styrning", "En viktig lag som skyddar demokratin", "En lag som kan ändras lätt", "En lokal lag"]
+     },
     
-    { "Subject": "SO", "Quest": "Hur många grundlagar har Sverige?", "Answer": "Fyra.", "Points": 5, "Options": ["Två", "Tre", "Fyra", "Fem"] },
+    {   "Subject": "SO", 
+        "Quest": "Hur många grundlagar har Sverige?", 
+        "Answer": "Fyra.", 
+        "Points": 5, 
+        "Options": ["Två", "Tre", "Fyra", "Fem"] 
+    },
     
-    { "Subject": "SO", "Quest": "Vad är en kommun?", "Answer": "Ett lokalt självstyre.", "Points": 5, "Options": ["Ett lokalt självstyre", "En del av regeringen", "En typ av stat", "En internationell organisation"] },
+    {   "Subject": "SO", 
+        "Quest": "Vad är en kommun?", 
+        "Answer": "Ett lokalt självstyre.", 
+        "Points": 5, 
+        "Options": ["En del av regeringen", "En typ av stat", "En internationell organisation"] 
+    },
     
-    { "Subject": "SO", "Quest": "Vad är skatt?", "Answer": "Avgift till stat och kommun för samhällstjänster.", "Points": 5, "Options": ["Avgift till stat och kommun för samhällstjänster", "En belöning för arbete", "En typ av avgift för företag", "Pengar som ges till välgörenhet"] },
+    {   "Subject": "SO", 
+        "Quest": "Vad är skatt?", 
+        "Answer": "Avgift till stat och kommun för samhällstjänster.",
+        "Points": 5, 
+        "Options": ["Avgift till stat och kommun för samhällstjänster", "En belöning för arbete", "En typ av avgift för företag", "Pengar som ges till välgörenhet"] 
+    },
     
-    { "Subject": "SO", "Quest": "Vad innebär tryckfrihet?", "Answer": "Rätten att skriva fritt.", "Points": 5, "Options": ["Rätten att skriva fritt", "Rätten att läsa böcker", "Rätten att uttrycka åsikter", "Rätten att publicera filmer"] },
+    {   "Subject": "SO",
+         "Quest": "Vad innebär tryckfrihet?", 
+         "Answer": "Rätten att skriva fritt.", 
+         "Points": 5, 
+         "Options": ["Rätten att läsa böcker", "Rätten att skriva fritt", "Rätten att uttrycka åsikter", "Rätten att publicera filmer"] 
+    },
     
-    { "Subject": "SO", "Quest": "Vad gör en domstol?", "Answer": "Avgör om någon brutit mot lagen.", "Points": 5, "Options": ["Avgör om någon brutit mot lagen", "Stiftar lagar", "Representerar folket", "Arbetar med skatter"] },
+    {   "Subject": "SO", 
+        "Quest": "Vad gör en domstol?", 
+        "Answer": "Avgör om någon brutit mot lagen.", 
+        "Points": 5, 
+        "Options": ["Stiftar lagar","Avgör om någon brutit mot lagen", "Representerar folket", "Arbetar med skatter"] 
+    },
     
-    { "Subject": "SO", "Quest": "Vad är rättssäkerhet?", "Answer": "Lagen ska behandla alla lika.", "Points": 5, "Options": ["Lagen ska behandla alla lika", "Lagen är olika för olika personer", "Rätten att välja advokat", "Rätten till en rättvis rättegång"] },
+    {   "Subject": "SO", 
+        "Quest": "Vad är rättssäkerhet?", 
+        "Answer": "Lagen ska behandla alla lika.", 
+        "Points": 5, 
+        "Options": [ "Lagen är olika för olika personer", "Rätten att välja advokat", "Lagen ska behandla alla lika","Rätten till en rättvis rättegång"] 
+    },
     
-    { "Subject": "SO", "Quest": "Vad är välfärd?", "Answer": "Samhällets stöd för utbildning, vård och omsorg.", "Points": 5, "Options": ["Samhällets stöd för utbildning, vård och omsorg", "Ekonomiskt stöd till företag", "Kulturell verksamhet", "Stöd för idrottsaktiviteter"] },
+    {   "Subject": "SO", 
+        "Quest": "Vad är välfärd?", 
+        "Answer": "Samhällets stöd för utbildning, vård och omsorg.", 
+        "Points": 5, 
+        "Options": ["Samhällets stöd för utbildning, vård och omsorg", "Ekonomiskt stöd till företag", "Kulturell verksamhet", "Stöd för idrottsaktiviteter"] 
+    },
     
-    { "Subject": "SO", "Quest": "Vad betyder offentlig sektor?", "Answer": "Den del av samhället som drivs av staten.", "Points": 5, "Options": ["Den del av samhället som drivs av staten", "Privata företag", "Icke vinstdrivande organisationer", "Internationella företag"] },
+    {   "Subject": "SO", 
+        "Quest": "Vad betyder offentlig sektor?", 
+        "Answer": "Den del av samhället som drivs av staten.", 
+        "Points": 5, 
+        "Options": ["Icke vinstdrivande organisationer", "Den del av samhället som drivs av staten", "Privata företag", "Internationella företag"] 
+    },
     
-    { "Subject": "SO", "Quest": "Vad är EU?", "Answer": "En union av europeiska länder.", "Points": 5, "Options": ["En union av europeiska länder", "En militärallians", "En ekonomisk organisation", "En kulturorganisation"] },
+    {   "Subject": "SO", 
+        "Quest": "Vad är EU?", 
+        "Answer": "En union av europeiska länder.", 
+        "Points": 5, 
+        "Options": ["En militärallians","En union av europeiska länder",  "En ekonomisk organisation", "En kulturorganisation"] 
+    },
     
-    { "Subject": "SO", "Quest": "Vad är FN?", "Answer": "En organisation för internationellt samarbete och fred.", "Points": 5, "Options": ["En organisation för internationellt samarbete och fred", "En politisk organisation", "En ekonomisk allians", "En kulturorganisation"] },
+    {   "Subject": "SO", 
+        "Quest": "Vad är FN?", 
+        "Answer": "En organisation för internationellt samarbete och fred.", 
+        "Points": 5, 
+        "Options": ["En organisation för internationellt samarbete och fred", "En politisk organisation", "En ekonomisk allians", "En kulturorganisation"] 
+    },
     
-    { "Subject": "SO", "Quest": "Vad innebär mänskliga rättigheter?", "Answer": "Grundläggande rättigheter för alla människor.", "Points": 5, "Options": ["Grundläggande rättigheter för alla människor", "Rättigheter för medborgare i ett land", "Rättigheter för företag", "Rättigheter för politiska partier"] },
+    {   "Subject": "SO", 
+        "Quest": "Vad innebär mänskliga rättigheter?", 
+        "Answer": "Grundläggande rättigheter för alla människor.", 
+        "Points": 5, 
+        "Options": ["Rättigheter för medborgare i ett land","Grundläggande rättigheter för alla människor", "Rättigheter för företag", "Rättigheter för politiska partier"] 
+    },
     
-    { "Subject": "SO", "Quest": "Vad är en folkomröstning?", "Answer": "Direkt omröstning i en fråga.", "Points": 5, "Options": ["Direkt omröstning i en fråga", "En omröstning i riksdagen", "En typ av val", "En opinionsundersökning"] },
+    {   "Subject": "SO", 
+        "Quest": "Vad är en folkomröstning?", 
+        "Answer": "Direkt omröstning i en fråga.", 
+        "Points": 5, 
+        "Options": ["En omröstning i riksdagen", "En typ av val", "En opinionsundersökning", "Direkt omröstning i en fråga"] 
+    },
     
-    { "Subject": "SO", "Quest": "Vad betyder globalisering?", "Answer": "Att världen knyts närmare genom samarbete.", "Points": 5, "Options": ["Att världen knyts närmare genom samarbete", "Att länder isoleras från varandra", "Att kulturella skillnader ökar", "Att ekonomisk tillväxt minskar"] },
+    {   "Subject": "SO", 
+        "Quest": "Vad betyder globalisering?", 
+        "Answer": "Att världen knyts närmare genom samarbete.", 
+        "Points": 5, 
+        "Options": ["Att länder isoleras från varandra", "Att kulturella skillnader ökar", "Att världen knyts närmare genom samarbete","Att ekonomisk tillväxt minskar"] 
+    },
     
-    { "Subject": "SO", "Quest": "Vad är media?", "Answer": "Kanaler som sprider information till allmänheten.", "Points": 5, "Options": ["Kanaler som sprider information till allmänheten", "En typ av underhållning", "En form av utbildning", "En organisation för journalister"] },
+    {   "Subject": "SO", 
+        "Quest": "Vad är media?", 
+        "Answer": "Kanaler som sprider information till allmänheten.", 
+        "Points": 5, 
+        "Options": [ "En typ av underhållning","Kanaler som sprider information till allmänheten", "En form av utbildning", "En organisation för journalister"] 
+    },
     
-    { "Subject": "SO", "Quest": "Vad är yttrandefrihet?", "Answer": "Rätten att uttrycka sig fritt.", "Points": 5, "Options": ["Rätten att uttrycka sig fritt", "Rätten att skriva lagar", "Rätten att vara anonym", "Rätten att föra en debatt"] }
+    {   "Subject": "SO", 
+        "Quest": "Vad är yttrandefrihet?", 
+        "Answer": "Rätten att uttrycka sig fritt.", 
+        "Points": 5, 
+        "Options": ["Rätten att föra en debatt","Rätten att uttrycka sig fritt", "Rätten att skriva lagar", "Rätten att vara anonym"] 
+    }
 
 
 ]
