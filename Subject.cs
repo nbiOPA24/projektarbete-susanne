@@ -101,8 +101,7 @@ public class Subject
         if(mulitChoiceQuestions.Count == 0)
         {
             System.Console.WriteLine("Det saknas flervalsfrågor i ämnet att besvara");
-            return;
-        }       
+            return;        }       
         
         var rnd = new Random();
         int numOfQuestions = Math.Min(5, Questions.Count);
@@ -151,62 +150,75 @@ public class Subject
         System.Console.WriteLine();
     } 
 
-    public void PracticeWrongQuestions() //Ny metod för att användaren ska kunna öva på frågorna som hen svarat fel på. 
+    public void PracticeWrongQuestions() //Metod för att användaren ska kunna öva på frågorna som hen svarat fel på. 
     {
         if (wrongAnswer.Count == 0)
         {
             System.Console.WriteLine("Det finns inga frågor att öva på. Bra jobbat!");
-
+            return;
         }
 
-        System.Console.WriteLine("Öva på de frågor där du svarat fel: ");
-        foreach(var rndquestion in wrongAnswer)
+        System.Console.WriteLine("Öva på de frågor som du svarat fel på");
+        int index = 0;
+        while (index < wrongAnswer.Count)
         {
-            System.Console.WriteLine(rndquestion.Quest);
+            var rndQuestion = wrongAnswer[index]; //indexering gör itereringen i listan wrongAnswer mer flexibel. Foreach-loopen funkade inte. 
+            System.Console.WriteLine($"{rndQuestion.Quest}");
 
-            if(rndquestion.Options != null && rndquestion.Options.Count > 0) //Kontrollerar om det är en flervalsfråga! Om nej, gå till else-satsen. 
+            if(rndQuestion.Options != null && rndQuestion.Options.Count > 0)
             {
-                for(int i = 0; i < rndquestion.Options.Count; i++)
+                for (int i = 0; i < rndQuestion.Options.Count; i++)
                 {
-                    System.Console.WriteLine($"{i + 1}. {rndquestion.Quest[i]}");
-                    System.Console.WriteLine("Ange siffran som motsvarar rätt svar: ");
-                    int input;
+                    System.Console.WriteLine($"{i + 1}. {rndQuestion.Options[i]}");
+                }
 
-                    if(int.TryParse(Console.ReadLine(), out input) && input > 0 && input <= rndquestion.Options.Count)
+                System.Console.WriteLine("Skriv siffran framför det rätta alternativet");
+                int userInput;
+
+                if(int.TryParse(Console.ReadLine(), out userInput) && userInput > 0 && userInput <= rndQuestion.Options.Count)
+                {
+                    var userChoice = rndQuestion.Options[userInput - 1].Trim().TrimEnd('.');
+                    if(userChoice.Equals(rndQuestion.Answer.Trim().TrimEnd('.'), StringComparison.OrdinalIgnoreCase))
                     {
-                        string optionInput = rndquestion.Options[input - 1].Trim().TrimEnd('.');
-                        if(optionInput.Equals(rndquestion.Answer.Trim(), StringComparison.OrdinalIgnoreCase))
-                        {
-                            System.Console.WriteLine("Den här gången svarade du rätt. Bra jobbat!");
-                            wrongAnswer.Remove(rndquestion);
-                            System.Console.WriteLine("------------------------");
-                        }
+                        System.Console.WriteLine("Den här gången svarade du rätt. Bra jobbat!");
+                        System.Console.WriteLine();
+                        wrongAnswer.RemoveAt(index);
                     }
                     else
                     {
-                        System.Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {rndquestion.Answer}. Försök igen!");
-                        System.Console.WriteLine("------------------------------");
-                    }                                         
-                }
-            }
-            else
-            {
-                System.Console.WriteLine("Skriv ditt svar: ");
-                string userAnswer = Console.ReadLine();
-
-                if(rndquestion.CheckAnswer(userAnswer))
-                {
-                    System.Console.WriteLine("Den här gången svarade du rätt. Bra jobbat!");
-                    wrongAnswer.Remove(rndquestion);
-                    System.Console.WriteLine("------------------------");
+                        System.Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {rndQuestion.Answer}.");
+                        index++;
+                    }                  
                 }
                 else
                 {
-                    System.Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {rndquestion.Answer}. Försök igen!");
-                    System.Console.WriteLine("------------------------------");
+                    System.Console.WriteLine("Ogiltigt val. Försök igen!");
+                }
+            }
+            else //blir else if när ytterligare frågor tillkommer
+            {
+                System.Console.Write("Skriv in ditt svar: ");
+                string userAnswer = Console.ReadLine();
+
+                if(rndQuestion.CheckAnswer(userAnswer))
+                {
+                    System.Console.WriteLine("Den här gången svarade du rätt. Bra jobbat!");
+                    System.Console.WriteLine();
+                    wrongAnswer.RemoveAt(index);
+                }
+                else
+                {
+                    System.Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {rndQuestion.Answer}.");
+                    index++;
                 } 
             }
+            if (index >= wrongAnswer.Count)
+            {
+                System.Console.WriteLine("Alla frågor är nu besvarade!");
+            }
+
         }
+        
     } 
 }
 
