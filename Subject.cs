@@ -265,7 +265,7 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
             System.Console.WriteLine("1. Lägg till glosor till ordboken");
             System.Console.WriteLine("2. Öva på glosor");
             System.Console.WriteLine("3. Lägg till ord i meningar");
-            System.Console.WriteLine("4. Se hårdkodade frågor");
+            System.Console.WriteLine("4. Se samtliga frågor"); //Admin behörighet?
             System.Console.WriteLine("5. Återgå till hvudmenyn");
             string input = Console.ReadLine();
 
@@ -290,7 +290,7 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
                 case "4":
                 {
                     System.Console.WriteLine(); 
-                    languageQuestions.PrintGlossary();
+                    languageQuestions.PrintGlossary();//Skriver ut frågor - både hårdkodade och egentillagda
                     
                     break;
                 }
