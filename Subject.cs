@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Reflection.Metadata.Ecma335;
 using System.Data;
+using Microsoft.VisualBasic;
 
 //En klass som innehåller en lista för frågor och en lista för felaktiga svar. 
 public class Subject
@@ -226,53 +227,114 @@ public class Subject
     
 }
 
-public class LanguageQuestion
+public class LanguageQuestion //Separat klass för språk, då övningarna inte kommer att genereras från json-filen. 
 {
-    List<string> glossary = new List<string>();
+    private Dictionary<string, string> glossary = new Dictionary<string, string>(); //lista av typen dictionary, som sparar glosor på svenska/engelska
 
-    public static void LanguageQuestionMenu() 
+    public LanguageQuestion()//Konstruktor som innehåller metod för hårdkodade glosor
     {
-        bool isRunning = true; 
+        DefaultGlossary();
+    }   
+
+    private void DefaultGlossary()
+    {
+        glossary["Forskning "] = "Research";
+        glossary["Utveckling "] = "Development";
+        glossary["Möjlighet "] = "Opportunity";
+        glossary["Erfarenhet"] = "Experience";
+        glossary["Framtid "] = "Future";
+        glossary["Samhälle "] = "Society";
+        glossary["Kultur "] = "Culture";
+        glossary["Diskussion "] = "Discussion";
+        glossary["Engagemang "] = "Engagement";
+        glossary["Fråga "] = "Question";
+        glossary["Tolerans "] = "Tolerance";
+        glossary["Förändring "] = "Change";
+
+
+    } 
+    
+    public static void LanguageQuestionMenu() //Meny som anropas från main-metoden.
+    {
+        bool isRunning = true;
+        LanguageQuestion languageQuestion = new LanguageQuestion();
         while(isRunning)
         {
-            //Lägg till två listor för glosor - en för svenska, en för engelska. 
-            //Återanvänd CheckAnswer för att kontrollera rätt/fel. 
-            //Använda sig ag PracticeWrongQuestions eller bygga nytt?????
+            
             System.Console.WriteLine("Gör ett av följande val: ");
-            System.Console.WriteLine("1. Öva på glosor");
-            System.Console.WriteLine("2. Lägg till ord i meningar");
-            System.Console.WriteLine("3. Återgå till hvudmenyn");
+            System.Console.WriteLine("1. Lägg till glosor till ordboken");
+            System.Console.WriteLine("2. Öva på glosor");
+            System.Console.WriteLine("3. Lägg till ord i meningar");
+            System.Console.WriteLine("4. Återgå till hvudmenyn");
             string input = Console.ReadLine();
 
             switch(input)
             {
                 case "1":
                 {
-                    System.Console.WriteLine("Öva på glosor");
+                    System.Console.WriteLine();
+                    languageQuestion.GlossaryAddWord(); //Här återgår jag till ChooseType, vilket jag inte vill. VARFÖR???
                     break;
                 }
                 case "2":
                 {
-                    System.Console.WriteLine("Ersätt ord i meningar");
+                    System.Console.WriteLine("---Öva på glosor---");
                     break;
                 }
-                case "3":
+                 case "3":
                 {
-                    System.Console.WriteLine("Återgår till hvudmenyn"); //Här återgår jag till ChooseType, vilket jag inte vill. ÄNDRA!
+                    System.Console.WriteLine("---Ersätt ord i meningar---");
+                    break;
+                }
+                case "4":
+                {
+                    System.Console.WriteLine("---Återgå till hvudmenyn---"); //Här återgår jag till ChooseType, vilket jag inte vill. ÄNDRA!
                     isRunning = false;
                     break;
                 }
                 default:
                 {
-                    System.Console.WriteLine("Felaktig inmatning");
+                    System.Console.WriteLine("Felaktig inmatning! Ange en siffra mellan 1 och 4.");
                     break;
                 }
             }
-
         }
-        
-
     }
+    public void GlossaryAddWord()
+    {  
+        bool isRunning = true;
+        while(isRunning)
+        {
+            System.Console.WriteLine("---Här lägger du till de glosor som du vill öva på--- ");
+            System.Console.WriteLine("Klicka på 'Q' när du lagt till alla glosor.");
+            System.Console.WriteLine();
+        
+            System.Console.Write("Skriv in ordet på svenska: ");
+            string glossSwedish = Console.ReadLine();//lägg till i dictionary!
+            System.Console.WriteLine();
+
+            System.Console.Write("Skriv in ordet på engelska: ");
+            string glossEnglish = Console.ReadLine(); // Lägg till i dictionary!
+
+            glossary[glossSwedish] = glossEnglish;
+           
+            System.Console.WriteLine($"Glosan {glossSwedish} - {glossEnglish} har lagts till i ordboken");
+            System.Console.WriteLine("------------------------------------------------------------------");
+
+            if(glossSwedish == "Q")
+            {
+                isRunning = false;
+            }
+            else
+            {
+                continue;
+            }
+
+            
+        }
+
+    }      
+        
 }
 
 

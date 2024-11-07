@@ -51,7 +51,7 @@ class Program
                     break;
 
                 case "4":
-                    Console.WriteLine("Matte"); //Ta bort? Hur öva på matte i en konsolapp?
+                    Console.WriteLine("Matte"); //Öva multiplikationstabellen på tid!!!
                     currentSubject = new Subject("EN");                    
                     break;
 
@@ -61,7 +61,7 @@ class Program
                     break;
 
                 case "6":
-                    Console.WriteLine("Se dina betyg i respektive ämne"); //Logik för att räkna poäng behövs.                   
+                    Console.WriteLine("Se dina betyg i respektive ämne"); //Logik för att räkna poäng behövs.  EJ PÅBÖRJAT!!!                 
                     break;
 
                 case "7":
