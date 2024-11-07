@@ -1,6 +1,7 @@
 ﻿
 class Program
 {
+    LanguageQuestion languageQuestion = new LanguageQuestion();
     static async Task Main()
     {
         //string filePath = "questions.json";        
@@ -37,35 +38,36 @@ class Program
                     Console.WriteLine("Svenska");
                     currentSubject = new Subject("SV");                    
                     break;
+
                 case "2":
                     Console.WriteLine("EN"); // Här vill jag ha andra typer av frågor - glosträning, ersätta ord i meningar. 
                     currentSubject = new Subject("EN");
-                    currentSubject.LanguageQuestionMenu();
-
+                    LanguageQuestion.LanguageQuestionMenu();
                     break;
+
                 case "3":
                     Console.WriteLine("Samhällsorienterande ämnen");
                     currentSubject = new Subject("SO");
                     break;
+
                 case "4":
                     Console.WriteLine("Matte"); //Ta bort? Hur öva på matte i en konsolapp?
-                    currentSubject = new Subject("EN");
-                    
+                    currentSubject = new Subject("EN");                    
                     break;
+
                 case "5":
                     Console.WriteLine("Naturkunskap");
-                    currentSubject = new Subject("NA");
-                   
+                    currentSubject = new Subject("NA");                   
                     break;
+
                 case "6":
-                    Console.WriteLine("Se dina betyg i respektive ämne"); //Logik för att räkna poäng behövs.
-                   
+                    Console.WriteLine("Se dina betyg i respektive ämne"); //Logik för att räkna poäng behövs.                   
                     break;
+
                 case "7":
-                    Console.WriteLine("Adminklass:");//Här ska man kunna lägga in frågor och ev även kunna se olika elevers poäng!
-                   
-                   
+                    Console.WriteLine("Adminklass:");//Här ska man kunna lägga in frågor och ev även kunna se olika elevers poäng!                  
                     break;
+
                 case "8":
                     Console.WriteLine("Avslutar programmet.");
                     isRunning = false;

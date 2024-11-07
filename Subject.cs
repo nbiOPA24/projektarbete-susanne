@@ -223,7 +223,14 @@ public class Subject
             }
         }
     } 
-    public void LanguageQuestionMenu()
+    
+}
+
+public class LanguageQuestion
+{
+    List<string> glossary = new List<string>();
+
+    public static void LanguageQuestionMenu() 
     {
         bool isRunning = true; 
         while(isRunning)
