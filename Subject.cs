@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Reflection.Metadata.Ecma335;
 using System.Data;
 
+//En klass som innehåller en lista för frågor och en lista för felaktiga svar. 
 public class Subject
 {   public List<Question> wrongAnswer = new List<Question>();
     public List<Question> Questions {get; set; }
@@ -18,7 +19,7 @@ public class Subject
         Questions = new List<Question>(); 
     }   
 
-    public virtual async Task LoadQuestionsAsync(string filePath)
+    public virtual async Task LoadQuestionsAsync(string filePath) //Kod för att ladda jsonfilen till programmet. Ändra den här till olika frågor?
     {
         using FileStream openStream = File.OpenRead(filePath);
         var allQuestions = await JsonSerializer.DeserializeAsync<List<Question>>(openStream);
@@ -68,10 +69,10 @@ public class Subject
         }        
     }   
     
-    private void FritextFråga()
+    private void FritextFråga() //Metod för fritextfråga - Flytta till filen Questions????
     {       
         var rnd = new Random();
-        int numOfQuestions = Math.Min(10, Questions.Count);
+        int numOfQuestions = Math.Min(5, Questions.Count);
 
         for(int i = 0; i < numOfQuestions; i++)
         {
@@ -84,7 +85,11 @@ public class Subject
             if(userAnswer.Equals(rndQuestion.Answer, StringComparison.OrdinalIgnoreCase))
             {
                 System.Console.WriteLine("Du svarade rätt!");//Poäng ska läggas till i en lista för respektive ämne
-            }           
+            }
+            else if(rndQuestion.Keywords != null && rndQuestion.Keywords.Any(keyword => userAnswer.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)) 
+            {
+                System.Console.WriteLine("Ditt svar innehåller ett eller flera nyckelord. Rätt svar!");
+            }          
 
             else
             {
@@ -95,7 +100,7 @@ public class Subject
         System.Console.WriteLine("Inga frågor kvar att besvara.");            
     }
 
-    public void FlervalsFråga()
+    public void FlervalsFråga() //Metod för flervalsfråga - Flytta till filen Questions?
     {
         List<Question> mulitChoiceQuestions = Questions.FindAll(q => q.Options != null && q.Options.Count > 0);
         if(mulitChoiceQuestions.Count == 0)
@@ -134,7 +139,7 @@ public class Subject
                 
                 else
                 {
-                    System.Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar var {rndQuestion.Answer}");//Frågan ska läggas till i en lista för nytt försök
+                    System.Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar var {rndQuestion.Answer}");//Frågan läggs till i en lista för nytt försök
                     wrongAnswer.Add(rndQuestion);  
                     System.Console.WriteLine(".........................");              
                 }
@@ -216,10 +221,51 @@ public class Subject
             {
                 System.Console.WriteLine("Alla frågor är nu besvarade!");
             }
+        }
+    } 
+    public void LanguageQuestionMenu()
+    {
+        bool isRunning = true; 
+        while(isRunning)
+        {
+            //Lägg till två listor för glosor - en för svenska, en för engelska. 
+            //Återanvänd CheckAnswer för att kontrollera rätt/fel. 
+            //Använda sig ag PracticeWrongQuestions eller bygga nytt?????
+            System.Console.WriteLine("Gör ett av följande val: ");
+            System.Console.WriteLine("1. Öva på glosor");
+            System.Console.WriteLine("2. Lägg till ord i meningar");
+            System.Console.WriteLine("3. Återgå till hvudmenyn");
+            string input = Console.ReadLine();
+
+            switch(input)
+            {
+                case "1":
+                {
+                    System.Console.WriteLine("Öva på glosor");
+                    break;
+                }
+                case "2":
+                {
+                    System.Console.WriteLine("Ersätt ord i meningar");
+                    break;
+                }
+                case "3":
+                {
+                    System.Console.WriteLine("Återgår till hvudmenyn"); //Här återgår jag till ChooseType, vilket jag inte vill. ÄNDRA!
+                    isRunning = false;
+                    break;
+                }
+                default:
+                {
+                    System.Console.WriteLine("Felaktig inmatning");
+                    break;
+                }
+            }
 
         }
         
-    } 
+
+    }
 }
 
 

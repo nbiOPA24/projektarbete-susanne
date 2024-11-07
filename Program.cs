@@ -3,7 +3,7 @@ class Program
 {
     static async Task Main()
     {
-        string filePath = "questions.json";        
+        //string filePath = "questions.json";        
 
         bool isRunning = true;
 
@@ -29,7 +29,7 @@ class Program
             Console.WriteLine();
             string choice = Console.ReadLine();
 
-            Subject currentSubject = null;
+            Subject currentSubject = null; //Variabeln sätter subject till tomt värde från början. I respektive ämne sätts därefter subject/ämne och möjliggör att rätt frågor laddas från filen. 
 
             switch (choice)
             {
@@ -38,15 +38,17 @@ class Program
                     currentSubject = new Subject("SV");                    
                     break;
                 case "2":
-                    Console.WriteLine("Engelska");
+                    Console.WriteLine("EN"); // Här vill jag ha andra typer av frågor - glosträning, ersätta ord i meningar. 
                     currentSubject = new Subject("EN");
+                    currentSubject.LanguageQuestionMenu();
+
                     break;
                 case "3":
                     Console.WriteLine("Samhällsorienterande ämnen");
                     currentSubject = new Subject("SO");
                     break;
                 case "4":
-                    Console.WriteLine("Matte");
+                    Console.WriteLine("Matte"); //Ta bort? Hur öva på matte i en konsolapp?
                     currentSubject = new Subject("EN");
                     
                     break;
@@ -56,7 +58,7 @@ class Program
                    
                     break;
                 case "6":
-                    Console.WriteLine("Se dina betyg i respektive ämne");
+                    Console.WriteLine("Se dina betyg i respektive ämne"); //Logik för att räkna poäng behövs.
                    
                     break;
                 case "7":
@@ -68,6 +70,7 @@ class Program
                     Console.WriteLine("Avslutar programmet.");
                     isRunning = false;
                     break;
+
                 default:
                     Console.WriteLine("Felaktig inmatning");
                     break;

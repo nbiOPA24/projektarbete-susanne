@@ -9,27 +9,30 @@ using System.Threading.Tasks;
 
 public class Question
 {   
-    [JsonPropertyName("Subject")]
+    //[JsonPropertyName("Subject")] Onödig kod? Kommenterar bort så länge!
     public string Subject {get; set;}
-    [JsonPropertyName("Quest")]
+    //[JsonPropertyName("Quest")]
     public string Quest {get; set;}
-    [JsonPropertyName("Answer")]
+    //[JsonPropertyName("Answer")]
     public string Answer {get; set;}
-    [JsonPropertyName("Options")]
+    //[JsonPropertyName("Options")]
     public List<string> Options {get; set; } //Lägger till för att frågorna ska kunna återanvändas till olika frågetyper!
-    [JsonPropertyName("Points")]
+    //[JsonPropertyName("Points")]
     public int Points {get; set;}
+    //[JsonPropertyName("Keywords")] //Lägger till för att fritextfrågorna ska funka även om anv inte skriver meningen helt rätt. 
+    public List<string> Keywords {get; set;}
    
 
-    public Question(string subject, string quest, string answer, int points, List<string> options = null)
+    public Question(string subject, string quest, string answer, int points, List<string> options = null, List<string> keywords = null)
     {
         Subject = subject;
         Quest = quest;
         Answer = answer;
         Points = points;  
-        Options = options ?? new List<string>();    
+        Options = options ?? new List<string>(); //Lista för options. ?? kontrollerar om värdet finns, annars skapas en tom sträng. 
+        Keywords = keywords ?? new List<string>();   //Lista för heywords. ?? kontrollerar om värdet finns, annars skapas en tom sträng. 
     }
-       public bool CheckAnswer(string userAnswer)
+       public bool CheckAnswer(string userAnswer) //metod för att kontrollera om svaret är rätt. Ändra?????
     {
         if(userAnswer.ToUpper() == Answer.ToUpper())
         
@@ -38,8 +41,11 @@ public class Question
         else
         {
             return false;
-        }
+        }        
     }
+
+    
+
     
   
 }
