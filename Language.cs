@@ -1,30 +1,31 @@
 public class LanguageQuestion //Separat klass för språk, då övningarna inte kommer att genereras från json-filen. 
 {
     private Dictionary<string, string> glossary = new Dictionary<string, string>(); //lista av typen dictionary, som sparar glosor på svenska/engelska
+    public List<string> wrongAnswers = new List<string>(); //Lista för fel svar, som används för att användren ska kunna öva på de frågor där hen svarat fel. 
 
     public LanguageQuestion()//Konstruktor som innehåller metod för hårdkodade glosor
     {
         DefaultGlossary();
     }   
 
-    public void DefaultGlossary() //Dictionary med hårdkodade frågor
+    public void DefaultGlossary() //Metod för Dictionary med hårdkodade frågor
     {
         glossary["Forskning "] = "Research";
         glossary["Utveckling "] = "Development";
         glossary["Möjlighet "] = "Opportunity";
         glossary["Erfarenhet"] = "Experience";
-        glossary["Framtid "] = "Future";
+        /*glossary["Framtid "] = "Future";
         glossary["Samhälle "] = "Society";
         glossary["Kultur "] = "Culture";
         glossary["Diskussion "] = "Discussion";
         glossary["Engagemang "] = "Engagement";
         glossary["Fråga "] = "Question";
         glossary["Tolerans "] = "Tolerance";
-        glossary["Förändring "] = "Change";               
+        glossary["Förändring "] = "Change"; */             
 
     } 
     
-    public static void LanguageQuestionMenu() //Meny för språkövningar (nu enbart engelska) som anropas från main-metoden.
+    public static void LanguageQuestionMenu() //Meny för språkövningar (nu enbart för engelska språket...) som anropas från main-metoden.
     {
         bool isRunning = true;
         LanguageQuestion languageQuestions = new LanguageQuestion();
@@ -51,6 +52,7 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
                 case "2":
                 {
                     System.Console.WriteLine("---Öva på glosor---");
+                    languageQuestions.PracticeGlossary();
                     break;
                 }
                  case "3":
@@ -115,7 +117,65 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
             foreach(var keyValuePair in glossary)
             System.Console.WriteLine($"Svenska: {keyValuePair.Key} // Engelska: {keyValuePair.Value}");            
         }     
-    }      
+    } 
+
+    public void PracticeGlossary() //Metod för användaren att öva på de glosor som finns i listan. Ev. slumpa fram 10 glosor?
+    {     
+        
+        foreach(var gloss in glossary)
+        {
+            System.Console.WriteLine($"Skriv ordet '{gloss.Key}' på engelska");
+            string userAnswer = Console.ReadLine();
+
+            if(userAnswer.Equals(gloss.Value,StringComparison.OrdinalIgnoreCase))
+            {
+                System.Console.WriteLine("Du svarade rätt!"); //Lägg till logik för att lägga till poäng i lista!
+            }
+            else
+            {
+                System.Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {gloss.Value}"); //Lägg till logik för attt lägga i övrningslista!
+                wrongAnswers.Add(gloss.Key);
+                
+            }
+        }
+
+        if(wrongAnswers.Count > 0)
+        {
+            System.Console.WriteLine("--------------------------------------------");
+            System.Console.WriteLine("Samtliga glosor besvarade");
+            System.Console.Write("Vill du öva på de frågor där du svarat fel?");
+            string userAnswer = Console.ReadLine();
+
+            if(userAnswer.ToLower() == "j")
+            {
+                PracticeWrongAnswers();
+            }
+            /*else
+            {
+                System.Console.WriteLine("Bra jobbat med glosorna! Återgå till tidigare meny.");
+            }*/
+        }      
+    }   
+    public void PracticeWrongAnswers()
+    {
+        foreach(var q in wrongAnswers)
+        {
+            System.Console.WriteLine($"Skriv orden {q} på engelska");
+            string userAnswer = Console.ReadLine();
+
+            if(userAnswer.Equals(glossary[q], StringComparison.OrdinalIgnoreCase))
+            {
+                System.Console.WriteLine("Bra jobbat! Denna gång svarade du rätt!");
+                System.Console.WriteLine();
+            }
+            else
+            {
+                System.Console.WriteLine($"Ditt svar är tyvärr fel. Rätt svar är {glossary[q]}");
+                System.Console.WriteLine();
+            }
+        }
+        wrongAnswers.Clear();      
+    } 
 }
 
 
