@@ -1,6 +1,6 @@
 public class LanguageQuestion //Separat klass för språk, då övningarna inte kommer att genereras från json-filen. 
 {
-    private Dictionary<string, string> glossary = new Dictionary<string, string>(); //lista av typen dictionary, som sparar glosor på svenska/engelska
+    private Dictionary<string, string> glossary = new Dictionary<string, string>(); //Lista av typen dictionary, som sparar glosor på svenska/engelska
     public List<string> wrongAnswers = new List<string>(); //Lista för fel svar, som används för att användren ska kunna öva på de frågor där hen svarat fel. 
 
     public LanguageQuestion()//Konstruktor som innehåller metod för hårdkodade glosor
@@ -110,7 +110,7 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
         }
     }
 
-    public void PrintGlossary()
+    public void PrintGlossary() //Metod för att skriva ut samtliga frågor, både hårdkodade och tillagda. 
     {
         DefaultGlossary();
         {            
@@ -129,11 +129,11 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
 
             if(userAnswer.Equals(gloss.Value,StringComparison.OrdinalIgnoreCase))
             {
-                System.Console.WriteLine("Du svarade rätt!"); //Lägg till logik för att lägga till poäng i lista!
+                System.Console.WriteLine("Du svarade rätt!"); //Lägg till logik för att lägga till poäng i lista! //Fast har ju inga poäng för
             }
             else
             {
-                System.Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {gloss.Value}"); //Lägg till logik för attt lägga i övrningslista!
+                System.Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {gloss.Value}"); //Lägger till fel svar i en lista för fel svar. 
                 wrongAnswers.Add(gloss.Key);
                 
             }
@@ -149,14 +149,10 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
             if(userAnswer.ToLower() == "j")
             {
                 PracticeWrongAnswers();
-            }
-            /*else
-            {
-                System.Console.WriteLine("Bra jobbat med glosorna! Återgå till tidigare meny.");
-            }*/
+            }            
         }      
     }   
-    public void PracticeWrongAnswers()
+    public void PracticeWrongAnswers() //Metod för att öva på de glosor där anv svarat fel. 
     {
         foreach(var q in wrongAnswers)
         {

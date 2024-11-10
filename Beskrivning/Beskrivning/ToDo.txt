@@ -1,3 +1,8 @@
+Att fortsätta med på måndag:
+Fortsätta försöka få till logik för att lägga till poäng i listor för respektive ämne. 
+Är det enklare/bättre med en dict även här???
+
+
 
 BESKRIVNING:
 En protoyp på en quiz-app som riktar sig till barn/ungdomar i skolåldern. 

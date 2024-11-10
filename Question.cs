@@ -9,21 +9,16 @@ using System.Threading.Tasks;
 
 public class Question
 {   
-    //[JsonPropertyName("Subject")] Onödig kod? Kommenterar bort så länge!
-    public string Subject {get; set;}
-    //[JsonPropertyName("Quest")]
-    public string Quest {get; set;}
-    //[JsonPropertyName("Answer")]
-    public string Answer {get; set;}
-    //[JsonPropertyName("Options")]
+    
+    public string Subject {get; set;}   
+    public string Quest {get; set;}    
+    public string Answer {get; set;}   
     public List<string> Options {get; set; } //Lägger till för att frågorna ska kunna återanvändas till olika frågetyper!
-    //[JsonPropertyName("Points")]
     public int Points {get; set;}
-    //[JsonPropertyName("Keywords")] //Lägger till för att fritextfrågorna ska funka även om anv inte skriver meningen helt rätt. 
-    public List<string> Keywords {get; set;}
+    public List<string> Keywords {get; set;}//Lägger till för att fritextfrågorna ska funka även om anv inte skriver meningen helt rätt. 
    
 
-    public Question(string subject, string quest, string answer, int points, List<string> options = null, List<string> keywords = null)
+    public Question(string subject, string quest, string answer, int points, List<string>? options = null, List<string>? keywords = null)//Sätter ett frågetecken efter string för att göra dem till nullable referenstyper
     {
         Subject = subject;
         Quest = quest;
