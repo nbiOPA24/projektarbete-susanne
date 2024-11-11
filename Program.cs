@@ -2,9 +2,11 @@
 class Program
 {
     LanguageQuestion languageQuestion = new LanguageQuestion();
+  
     static async Task Main()
     {
-        //string filePath = "questions.json";        
+        //string filePath = "questions.json";   
+        Mathematics mathematics = new Mathematics();      
 
         bool isRunning = true;
 
@@ -52,7 +54,8 @@ class Program
 
                 case "4":
                     Console.WriteLine("Matte"); //Öva multiplikationstabellen på tid!!!
-                    currentSubject = new Subject("EN");                    
+                    //currentSubject = new Subject("EN"); 
+                    mathematics.MultiplicationTable();            
                     break;
 
                 case "5":

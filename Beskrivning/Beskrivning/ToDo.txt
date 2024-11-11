@@ -1,4 +1,4 @@
-Att fortsätta med på måndag:
+--> Att fortsätta med på måndag:
 Fortsätta försöka få till logik för att lägga till poäng i listor för respektive ämne. 
 Är det enklare/bättre med en dict även här???
 

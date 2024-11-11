@@ -12,7 +12,7 @@ using Microsoft.VisualBasic;
 //Innehåller även kod för att ladda Json-filen till programmet.  
 public class Subject
 {   
-    public List<Question> score = new List<Question>();
+    public List<Question> score = new List<Question>();//Ändra till dictionary istället?
     public List<Question> wrongAnswer = new List<Question>();
     public List<Question> Questions {get; set; }
     public string Name {get; set; }
