@@ -55,7 +55,7 @@ class Program
                 case "4":
                     Console.WriteLine("Matte"); //Öva multiplikationstabellen på tid!!!
                     //currentSubject = new Subject("EN"); 
-                    mathematics.PracticeMultiplication();            
+                    mathematics.MathMenu();            
                     break;
 
                 case "5":
