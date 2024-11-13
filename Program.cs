@@ -42,7 +42,7 @@ class Program
                     break;
 
                 case "2":
-                    Console.WriteLine("EN"); // Här vill jag ha andra typer av frågor - glosträning, ersätta ord i meningar. 
+                    Console.WriteLine("EN"); 
                     currentSubject = new Subject("EN");
                     LanguageQuestion.LanguageQuestionMenu();
                     break;
@@ -53,7 +53,7 @@ class Program
                     break;
 
                 case "4":
-                    Console.WriteLine("Matte"); //Öva multiplikationstabellen på tid!!!
+                    Console.WriteLine("Matte");
                     //currentSubject = new Subject("EN"); 
                     mathematics.MathMenu();            
                     break;

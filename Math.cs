@@ -28,7 +28,7 @@ public class Mathematics //Klass för att träna matte
                 }
                 case "2":
                 {
-                    System.Console.WriteLine("Här ska jag lägga metod för multiplikationstabell på tid");
+                    MultiplicationGame();                    
                     break;
                 }
                 case "3":

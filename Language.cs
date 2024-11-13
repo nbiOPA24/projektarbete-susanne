@@ -14,14 +14,14 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
         glossary["Utveckling "] = "Development";
         glossary["Möjlighet "] = "Opportunity";
         glossary["Erfarenhet"] = "Experience";
-        /*glossary["Framtid "] = "Future";
-        glossary["Samhälle "] = "Society";
+        glossary["Framtid "] = "Future";
+        /*glossary["Samhälle "] = "Society";
         glossary["Kultur "] = "Culture";
         glossary["Diskussion "] = "Discussion";
         glossary["Engagemang "] = "Engagement";
         glossary["Fråga "] = "Question";
         glossary["Tolerans "] = "Tolerance";
-        glossary["Förändring "] = "Change"; */             
+        glossary["Förändring "] = "Change";*/             
 
     } 
     
@@ -113,16 +113,20 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
     public void PrintGlossary() //Metod för att skriva ut samtliga frågor, både hårdkodade och tillagda. 
     {
         DefaultGlossary();
+        
         {            
             foreach(var keyValuePair in glossary)
             System.Console.WriteLine($"Svenska: {keyValuePair.Key} // Engelska: {keyValuePair.Value}");            
         }     
     } 
 
-    public void PracticeGlossary() //Metod för användaren att öva på de glosor som finns i listan. Ev. slumpa fram 10 glosor?
+    public void PracticeGlossary() //Metod för användaren att öva på de glosor som finns i listan. 
     {     
-        
-        foreach(var gloss in glossary)
+        var rndGlossary = new List<KeyValuePair<string, string>>(glossary);//Gör om gloslistan (glossary) till en lista av KeyValuePair-obj 
+        Random rnd = new Random();
+        rndGlossary = rndGlossary.OrderBy(x => rnd.Next()).ToList();//OrderBy gör att 
+
+        foreach(var gloss in rndGlossary)
         {
             System.Console.WriteLine($"Skriv ordet '{gloss.Key}' på engelska");
             string userAnswer = Console.ReadLine();
@@ -134,8 +138,7 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
             else
             {
                 System.Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {gloss.Value}"); //Lägger till fel svar i en lista för fel svar. 
-                wrongAnswers.Add(gloss.Key);
-                
+                wrongAnswers.Add(gloss.Key);                
             }
         }
 
