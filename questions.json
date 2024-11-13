@@ -52,7 +52,7 @@
     },
     {
         "Subject": "SO",
-        "Quest": "På vilken kontinent ligger Australien på?",
+        "Quest": "På vilken kontinent ligger Australien?",
         "Answer": "Oceanien",
         "Points": 5,
         "Options": ["Indonesisa halvön","Burmesiska halvön", "Asiatiska kontinentalplattab", "Oceantien"]  

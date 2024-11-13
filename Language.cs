@@ -100,7 +100,7 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
             System.Console.WriteLine($"Glosan {glossSwedish} - {glossEnglish} har lagts till i ordboken");
             System.Console.WriteLine("------------------------------------------------------------------");
 
-            System.Console.WriteLine("Vill du lägga till ytterligare frågor? Klicka på tangenten [J]");
+            System.Console.Write("Vill du lägga till ytterligare frågor? Klicka på tangenten [J]");
             string userInput = Console.ReadLine(); 
 
             if(userInput.ToLower() != "j")

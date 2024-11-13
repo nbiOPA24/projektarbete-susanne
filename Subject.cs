@@ -96,7 +96,7 @@ public class Subject
             }      
             else
             {
-                System.Console.WriteLine("Ditt svar var tyvärr fel");//Frågan ska läggas till i en lista för nytt försök
+                System.Console.WriteLine("Ditt svar var tyvärr fel");//Frågan läggs till i en lista för fel svar, som används när anv vill öva på frågorna igen. 
                 wrongAnswer.Add(rndQuestion);                
             }
         }

@@ -1,7 +1,7 @@
 ﻿
 class Program
 {
-    LanguageQuestion languageQuestion = new LanguageQuestion();
+    //LanguageQuestion languageQuestion = new LanguageQuestion(); --> används inte i klassen Program? ta bort?
   
     static async Task Main()
     {

@@ -152,7 +152,7 @@ public class Mathematics //Klass för att träna matte
        totalStopwatch.Stop();
        System.Console.WriteLine($"Inga fler tal. Din totala tid blev: {totalStopwatch.Elapsed.TotalSeconds} sekunder."); //Skriver ut den totala tiden.
        System.Console.WriteLine($"Du svarade fel på {wrongAnswers.Count} frågor");//Skriver ut antal frågor användaren svarat fel på
-       System.Console.WriteLine("Bra jobbat!?"); 
+       System.Console.WriteLine("Bra jobbat!"); 
     }       
 }
 
