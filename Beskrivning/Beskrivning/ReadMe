@@ -1,14 +1,15 @@
 
 BESKRIVNING:
 En protoyp på en quiz-app som riktar sig till barn/ungdomar i skolåldern. 
-Frågorna i denna protoyp riktar sig till skolelever i åk 8. 
+Frågorna i denna protoyp riktar sig till skolelever i åk 8. (kommentar 13/11 - vissa delar, ex matte, är mer riktade mot mellanstadieelever...). 
 Frågorna följer de ämnen som man har inom skolan, och syftet med appen är att vara ett kul sätt att lära sig. 
 
 SÅ HÄR FUNKAR APPLIKATIONEN:
 Appen består av en meny med ett alternativ för respektive ämnesområden (SV, ENG, MA, SO)
 Eleven väljer exempelvis SV. 
-Ny meny öppnas, där eleven får välja mellan olika typer av quiz (ex. gissa årtal, rätt/fel, 1X2, fritext, glosor).
-Varje rätt svar genererar poäng. 
+Ny meny öppnas, där eleven får välja mellan olika typer av quiz (ex. gissa årtal, rätt/fel, 1X2, fritext, glosor).(kommentar 13/11 - Inte gjort så många alternativt som jag initialt tänkt...)
+
+Varje rätt svar genererar poäng. (kommentar 13/11 - denna del är INTE klar!!!)
 Poängen kommer sedermera ge ett sammataget betygspoäng (enbart inom appen...) i respektive ämne (ex. har 15 poäng i EN == betyg G, har 25 i SV == MVG). 
 Eleven ska kunna gå in i sin betygssammanställning och se sitt "betyg" i den omgång där den gör sitt quiz. 
 
@@ -19,39 +20,72 @@ FUNDERINGAR LÄNGS VÄGEN:
 4. Använda streamreader för hårdkodade frågor? (Hur sjutton får jag skiten att funka????????)
 
 ******TO DO:*******
+[] Se över koden från ett användarperspektiv, för att programmet ska vara intuitivt och ha ett bra "användargränsnitt".
 
 [x] Klass -  Program
 [x] bool - isRunning
 [x] Metod - Innehåller meny, 
 
 [] KLASS - Question
-[] Egenskaper - Ämne, Fråga, Svar, Poängen
+Klassen ska hålla samman allt som har med frågor att göra. 
 
-[] SUBKLASS - MultiChoice : Question
-[] Egna svarsalternativ för flervalsalternarnativ
+[X] Egenskaper - Ämne, Fråga, Svar, Poängen
+--> Lagt till under utveckling av programmet: 
+[X] Lista för options --> Används för flervalsfrågor
+[X] Lista för Keywords --> Används för att användaren ska kunna få rätt för ett svar även om fritext svaret inte överensstämmer helt med frågans svar
 
+[] KLASS - Subject
+Klassen ska hålla samman allt som har med ämnen att göra.
+Under programmets utveckling har det ibland varit svårt att särskilja metoder som hör till Question resp Subject. 
+En del av koden i klassen Subject bör kanske flyttas till Question???
+[X] Meny för val av frågetyp
+[X] Metod för att ladda frågor från json-filen till programmet
+[X] Metod för flervalsfrågor
+[X] Metod för fritextfrågor
+[X] Metod för att öva på de frågor där användaren svarat fel. 
 
-[] SUBKLASS TrueFalse :  Question
-[] Egna svarsalternativ för sant/falskt
+[] KLASS - Language
+[X] Meny för val vilken typ av övningar man vill göra
+[X] Metod för att lägga till glosor
+[X] Metod för öva på glosor
+[] Metod för att fylla i ord som saknas
 
+[] Klass - Math //Den här delen är jag typ klar med (tror jag...) 
+[X] Meny för val vilken typ av övningar man vill göra
+[X] Metod för att välja vilken multiplikatioonstabell som användaren vill öva på
+[X] Metod för att öva på multiplikationstabell
+[X] Metod för att öva multiplikation på tid
 
-[] SUBKLASS ShortAnswer : Question
-
-[] KLASS - HandleQuestions
-[] Lista för Frågorna
-
-[] KLASS - Admin
+[] KLASS - Admin --> Ej påbörjat denna del i programmet. Framtida utveckling?
 [] Ordna whileloop i admin-menyn
 
-[] Test - Använda Streamreader för hårdkodade frågor?????????
-
-[] KLASS - Elev. 
+[] KLASS - Elev --> Ej påbörjat denna del i programmet. Framtida utveckling?
 [] Egenskaper - Namn, poäng
 [] Metod - Lägg till poäng till respektive ämne
 
-[] KLASS - HandleElev
+[] KLASS - HandleElev --> Ej påbörjat denna del i programmet. Framtida utveckling?
 [] Lista för elever
 [] Metod  - Lägg till elever till lista
+
+
+ÄNDRINGAR UNDER PROGRAMMETS UTVECKLING
+[] SUBKLASS - MultiChoice : Question --> Ändras till metod i klassen Subject
+[] Egna svarsalternativ för flervalsalternarnativ
+
+
+[] SUBKLASS ShortAnswer : Question --> Ändras till metod i klassen Subject
+
+
+[] SUBKLASS TrueFalse :  Question --> Inte utvecklat
+[] Egna svarsalternativ för sant/falskt
+
+
+[] KLASS - HandleQuestions --> Inte aktuellt pga läser in frågor från Json-fil
+[] Lista för Frågorna
+
+
+[X] Test - Använda Streamreader för hårdkodade frågor????????? --> Testat, men fick inte att funka. Ersatte med en json-fil istället-
+
 
 
 

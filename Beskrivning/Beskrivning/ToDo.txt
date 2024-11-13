@@ -6,14 +6,15 @@ Fortsätta försöka få till logik för att lägga till poäng i listor för re
 
 BESKRIVNING:
 En protoyp på en quiz-app som riktar sig till barn/ungdomar i skolåldern. 
-Frågorna i denna protoyp riktar sig till skolelever i åk 8. 
+Frågorna i denna protoyp riktar sig till skolelever i åk 8. (kommentar 13/11 - vissa delar är mer riktade mot mellanstadieelever...). 
 Frågorna följer de ämnen som man har inom skolan, och syftet med appen är att vara ett kul sätt att lära sig. 
 
 SÅ HÄR FUNKAR APPLIKATIONEN:
 Appen består av en meny med ett alternativ för respektive ämnesområden (SV, ENG, MA, SO)
 Eleven väljer exempelvis SV. 
-Ny meny öppnas, där eleven får välja mellan olika typer av quiz (ex. gissa årtal, rätt/fel, 1X2, fritext, glosor).
-Varje rätt svar genererar poäng. 
+Ny meny öppnas, där eleven får välja mellan olika typer av quiz (ex. gissa årtal, rätt/fel, 1X2, fritext, glosor). (kommentar 13/11 - Inte gjort så många alternativt som jag initialt tänkt...)
+
+Varje rätt svar genererar poäng. (kommentar 13/11 - denna del är INTE klar)
 Poängen kommer sedermera ge ett sammataget betygspoäng (enbart inom appen...) i respektive ämne (ex. har 15 poäng i EN == betyg G, har 25 i SV == MVG). 
 Eleven ska kunna gå in i sin betygssammanställning och se sitt "betyg" i den omgång där den gör sitt quiz. 
 
