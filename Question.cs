@@ -49,8 +49,14 @@ public class Question //Klassen ändras, så den kan vara en subklass för olika
             return false;
         }        
     } 
+}
 
-    
+public class MultipleChoiceQuestion : Question //Subklass för flervalsfrågor. 
+{
+    public MultipleChoiceQuestion(string name, string subject, string quest, string answer, int points, List<string> options)
+    : base(name, subject, quest, answer, points, options)
+    {
+    }
 }
 
 
