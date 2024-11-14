@@ -12,67 +12,24 @@ using Microsoft.VisualBasic;
 //Innehåller även kod för att ladda Json-filen till programmet.  
 public class Subject
 {   
+    public string Name {get; set; }
     public List<Question> score = new List<Question>();//Ändra till dictionary istället?
     public List<Question> wrongAnswer = new List<Question>();
-    public List<Question> Questions {get; set; }
-    public string Name {get; set; }
+    //public List<Question> Questions {get; set; }
+    
 
     public Subject(string name)
     {
-        Name = name;
-        Questions = new List<Question>(); 
+        Name = name;        
     }   
 
-    public virtual async Task LoadQuestionsAsync(string filePath) //Kod för att ladda jsonfilen till programmet. Ändra den här till olika frågor?
+    public List<Question> GetQuestionsForSubject()
     {
-        using FileStream openStream = File.OpenRead(filePath);
-        var allQuestions = await JsonSerializer.DeserializeAsync<List<Question>>(openStream);
-        if(allQuestions != null)
-        {
-            Questions = allQuestions.FindAll(quest => quest.Subject == Name);
-        }
-        else
-        {
-            System.Console.WriteLine("Filen med frågorna kunde inte läsas in.");
-        }
+        return Question.AllQuestions.Where(q => q.Subject == Name).ToList();
     }
-    public async Task ChooseType() //Meny för ämnen, där fråga och svar ligger i Json-filen. 
-    {
-        while(true)
-        {
-            Console.WriteLine("Välj typ av fråga:");
-            Console.WriteLine("1. Fritextfråga");
-            Console.WriteLine("2. Flervalsfråga");
-            Console.WriteLine("3. Öva på frågor där du svarat fel");
-            Console.WriteLine("4. Återgå till huvudmenyn");
-            string input = Console.ReadLine();
-            
-            if (input == "1")
-            {
-                FritextFråga();                
-            }
-            
-            else if(input == "2")
-            {
-                FlervalsFråga();
-            }
-            else if(input == "3")
-            {
-                PracticeWrongQuestions();               
-            }
-            else if(input == "4")
-            {
-                System.Console.WriteLine("Återgår till huvudmenyn");
-                break;
-            }
-            else
-            {
-                System.Console.WriteLine("Ogiltig inmatning");
-            }
-        }        
-    }   
     
-    private void FritextFråga() //Metod för fritextfråga - Flytta till filen Questions????
+   
+    /*private void FritextFråga() //Metod för fritextfråga - Flytta till filen Questions????
     {       
         var rnd = new Random();
         int numOfQuestions = Math.Min(5, Questions.Count);
@@ -102,7 +59,8 @@ public class Subject
         }
         System.Console.WriteLine("Inga frågor kvar att besvara.");            
     }
-
+   
+/*
     public void FlervalsFråga() //Metod för flervalsfråga - Flytta till filen Questions?
     {
         List<Question> mulitChoiceQuestions = Questions.FindAll(q => q.Options != null && q.Options.Count > 0);
@@ -228,7 +186,7 @@ public class Subject
                 System.Console.WriteLine("Alla frågor är nu besvarade!");
             }
         }
-    } 
+    } */
     
 }
 

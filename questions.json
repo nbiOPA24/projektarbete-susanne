@@ -4,29 +4,32 @@
         "Quest": "Vad är 2 + 2?",
         "Answer": "4",
         "Points": 5,
-        "Options": ["1", "2", "3","4"]           
-        
+        "Options": ["1", "2", "3","4"],           
+        "Keywords": []
     },
     {
         "Subject": "SV",
         "Quest": "Vad är huvudstaden i Sverige?",
         "Answer": "Stockholm",
         "Points": 5,
-        "Options": ["Göteborg", "Malmö", "Stockholm", "Uppsala"]  
+        "Options": ["Göteborg", "Malmö", "Stockholm", "Uppsala"],
+        "Keywords": []  
     },
     {
         "Subject": "SV",
         "Quest": "Vilket år landade människan på månen?",
         "Answer": "1969",
         "Points": 5,
-        "Options": ["1965", "1967", "1969", "1971"]  
+        "Options": ["1965", "1967", "1969", "1971"],
+        "Keywords": []  
     },
     {
         "Subject": "NA",
         "Quest": "Vad är havets djupaste punkt?",
         "Answer": "Marianergraven",
         "Points": 5,
-        "Options": ["Östersjögraven","Djävulsgraven","Marianergraven","Berumdagraven"]  
+        "Options": ["Östersjögraven","Djävulsgraven","Marianergraven","Berumdagraven"],
+        "Keywords": []  
     },
     
     {
@@ -34,56 +37,64 @@
         "Quest": "Vilket ämne har kemisk beteckning O?",
         "Answer": "Syre",
         "Points": 5,
-        "Options": ["Syre", "Järn", "Platinum", "Kryptonit"]  
+        "Options": ["Syre", "Järn", "Platinum", "Kryptonit"],
+        "Keywords": []  
     },
     {
         "Subject": "NA",
         "Quest": "Vilken planet är känd som den röda planeten?",
         "Answer": "Mars",
         "Points": 5,
-        "Options": ["Merkuris","Jorden","Venus","Mars"]  
+        "Options": ["Merkuris","Jorden","Venus","Mars"],
+        "Keywords": []  
     },
     {
         "Subject": "NA",
         "Quest": "Vad kallas den process där växter omvandlar ljus till energi?",
         "Answer": "Fotosyntes",
         "Points": 5,
-        "Options": ["Fotosyntes","Celldelning","Magmifiering","Gejser"]  
+        "Options": ["Fotosyntes","Celldelning","Magmifiering","Gejser"],
+        "Keywords": []  
     },
     {
         "Subject": "SO",
         "Quest": "På vilken kontinent ligger Australien?",
         "Answer": "Oceanien",
         "Points": 5,
-        "Options": ["Indonesisa halvön","Burmesiska halvön", "Asiatiska kontinentalplattab", "Oceantien"]  
+        "Options": ["Indonesisa halvön","Burmesiska halvön", "Asiatiska kontinentalplattab", "Oceantien"],
+        "Keywords": []  
     },
     {
         "Subject": "SO",
         "Quest": "Vilket år startade andra världskriget?",
         "Answer": "1939",
         "Points": 5,
-        "Options": ["1935","1939","1941","1945"]  
+        "Options": ["1935","1939","1941","1945"],
+        "Keywords": []  
     },
     {
         "Subject": "NA",
         "Quest": "Vilken är den största arten av landlevande däggdjur?",
         "Answer": "Elefant",
         "Points": 5,
-        "Options": ["Blåval", "Bisonoxe", "Elefant", "Mammut"]  
+        "Options": ["Blåval", "Bisonoxe", "Elefant", "Mammut"],
+        "Keywords": []  
     },
     {
         "Subject": "NA",
         "Quest": "Vad är enheten för elektrisk ström?",
         "Answer": "Ampere",
         "Points": 5,
-        "Options": ["Volt", "Ohm", "Watt", "Ampere"]
+        "Options": ["Volt", "Ohm", "Watt", "Ampere"],
+        "Keywords": []
     },
     {
         "Subject": "MA",
         "Quest": "Vad är roten ur 9?",
         "Answer": "3",
         "Points": 5,
-        "Options": ["1", "2", "3", "4"]  
+        "Options": ["1", "2", "3", "4"],
+        "Keywords": []  
     },
     {   "Subject": "NA", 
         "Quest": "Vad gör klorofyll?", 

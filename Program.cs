@@ -3,11 +3,12 @@ class Program
 {
     //LanguageQuestion languageQuestion = new LanguageQuestion(); --> används inte i klassen Program? ta bort?
   
-    static async Task Main()
+    public static async Task Main()
     {
-        //string filePath = "questions.json";   
-        Mathematics mathematics = new Mathematics();      
-
+            
+        string filePath = "questions.json";
+        await Question.LoadQuestionsFromFile(filePath);
+        HandleDifferentQuestions questionHandler = new HandleDifferentQuestions();       
         bool isRunning = true;
 
         Console.WriteLine("***************************************************************************");
@@ -26,45 +27,49 @@ class Program
             Console.WriteLine("3. Samhällsorienterande ämnen");
             Console.WriteLine("4. Matte");
             Console.WriteLine("5. Naturkunskap ");
-            Console.WriteLine("6. Se dina betyg i respektive ämne");
+            Console.WriteLine("6. Skriv ut antal frågor");
             Console.WriteLine("7. Se samtliga frågor");
             Console.WriteLine("8. Avsluta programmet");
             Console.WriteLine();
             string choice = Console.ReadLine();
 
-            Subject currentSubject = null; //Variabeln sätter subject till tomt värde från början. I respektive ämne sätts därefter subject/ämne och möjliggör att rätt frågor laddas från filen. 
-
+            //Variabeln sätter subject till tomt värde från början. I respektive ämne sätts därefter subject/ämne och möjliggör att rätt frågor laddas från filen. 
+            List<Question> subjectQuestions = null;
+            
             switch (choice)
             {
                 case "1":
+                    
                     Console.WriteLine("Svenska");
-                    currentSubject = new Subject("SV");                    
+                    subjectQuestions = Question.AllQuestions.Where(q => q.Subject == "SV").ToList();
+                    questionHandler.ChooseTypeOfQuestionMenu(subjectQuestions);                   
                     break;
-
+                
+                
                 case "2":
                     Console.WriteLine("EN"); 
-                    currentSubject = new Subject("EN");
+                    //currentSubject = new Subject("EN");
                     LanguageQuestion.LanguageQuestionMenu();
                     break;
 
                 case "3":
                     Console.WriteLine("Samhällsorienterande ämnen");
-                    currentSubject = new Subject("SO");
+                    //currentSubject = new Subject("SO");
                     break;
 
                 case "4":
                     Console.WriteLine("Matte");
                     //currentSubject = new Subject("EN"); 
-                    mathematics.MathMenu();            
+                    //mathematics.MathMenu();            
                     break;
 
                 case "5":
                     Console.WriteLine("Naturkunskap");
-                    currentSubject = new Subject("NA");                   
+                    //currentSubject = new Subject("NA");                   
                     break;
 
                 case "6":
-                    Console.WriteLine("Se dina betyg i respektive ämne"); //Logik för att räkna poäng behövs.  EJ PÅBÖRJAT!!!                 
+                    Console.WriteLine("Skriv ut antal frågor"); //Logik för att räkna poäng behövs.  EJ PÅBÖRJAT!!!                 
                     break;
 
                 case "7":
@@ -80,8 +85,6 @@ class Program
                     Console.WriteLine("Felaktig inmatning");
                     break;
             }
-            await currentSubject.LoadQuestionsAsync("questions.json");
-            await currentSubject.ChooseType();
         }
     }
     
