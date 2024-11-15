@@ -1,137 +1,46 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection.Metadata;
-using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 
-public class Question //Klassen ändras, så den kan vara en subklass för olika typer av frågealternativ
-{ 
+public class Question
+{
     public string Name { get; set; }
     public string Subject { get; set; }
     public string Quest { get; set; }
     public string Answer { get; set; }
     public int Points { get; set; }
+    public List<string> Options { get; set; } = new List<string>();
+    public List<string> Keywords { get; set; } = new List<string>();
+    
+}//Klass som innehåller metod för inläsning av Json-filen till programmet samt delar upp json-objekten till motsvarande objekt i klassen Question
+public class LoadQuestions 
+{    
+    public static List<Question> LoadAllQuestions(string filePath) //Metod för inläsning av Json-filen.Ändrar från asynkton till synkron inläsning av filen. Då filen är liten behövs inte någon asynkron inläsning. 
+    {
+        string jsonText = File.ReadAllText(filePath);
+        
+       
+        var allQuestions = JsonSerializer.Deserialize<List<Question>>(jsonText); // Deserialiserar JSON-texten till en lista av Question-objekt, där de olika json-objekten kan matchas med objekten i klassen Question.       
+
+        return allQuestions;
+    }
+}
+
+//Klass som läser in frågor från json-filen samt dess tillhörande options(flervalsfrågor)
+public class MultipleChoiceQuestion : Question
+{
     public List<string> Options { get; set; }
-    public List<string> Keywords { get; set; }
-
-    public static List<Question> AllQuestions { get; set; } = new List<Question>();
-
-    public Question() {}
-
-    public virtual bool CheckAnswer(string userAnswer)
-    {
-        return userAnswer.ToUpper() == Answer.ToUpper();
-    }
     
-    public static async Task LoadQuestionsFromFile(string filePath) //Metoden LoadQuestions ändras från en virtuell metod till en statisk metod.Detta för att filen egentligen bara behöver läsas in en gång och sedan filtreras i respektive frågetyp/ämnestyp. 
-    {
-        try
-        {
-            System.Console.WriteLine("Påbörjar inläsning av filen...");
-            string json = await File.ReadAllTextAsync(filePath);
-            AllQuestions = JsonSerializer.Deserialize<List<Question>>(json, new JsonSerializerOptions
-            {
-                Converters = {new QuestionConverter()}
-            });
-            System.Console.WriteLine($"Antal inlästa frågor: {AllQuestions.Count}");
-           
-        }
-        catch(Exception ex)
-        {
-            System.Console.WriteLine($"Fel vid inläsning av JSON-filen: {ex.Message}");
-        }       
-    }
-   
 }
-
-public class QuestionConverter : JsonConverter<Question>
-{
-    public override Question Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-    {
-        using (JsonDocument doc = JsonDocument.ParseValue(ref reader))
-        {
-            var root = doc.RootElement;
-
-            // Kolla om vi har en "Options" för att avgöra om det är en MultipleChoiceQuestion
-            if (root.TryGetProperty("Options", out _))
-            {
-                // Deserialisera som MultipleChoiceQuestion
-                return JsonSerializer.Deserialize<MultipleChoiceQuestion>(root.GetRawText());
-            }
-
-            // Annars deserialisera som TextQuestion
-            return JsonSerializer.Deserialize<TextQuestion>(root.GetRawText());
-        }
-    }
-
-    public override void Write(Utf8JsonWriter writer, Question value, JsonSerializerOptions options)
-    {
-        JsonSerializer.Serialize(writer, value, value.GetType(), options);
-    }
-}
-
-
-public class MultipleChoiceQuestion : Question //Subklass för flervalsfrågor. 
-{
-    public List<string> Options {get; set;}
-    
-    public MultipleChoiceQuestion (){}
-    public MultipleChoiceQuestion(string name, string subject, string quest, string answer, int points, List<string> options)
-    {
-        Name = name;
-        Subject = subject;
-        Quest = quest;
-        Answer = answer;
-        Points = points;
-        Options = options;
-    }
-
-    public override bool CheckAnswer(string userAnswer)
-    {
-        return string.Equals(userAnswer.Trim(), Answer.Trim(), StringComparison.OrdinalIgnoreCase);
-    }
-}
-
-public class TextQuestion : Question //Subklass för fritextfrågor
+//Klass som läser in frågor från json-filen sam dess tillhörande Keywords. Keywords gör att användaren kan få rätt även om användaren inte skriver exakt samma mening som i Answer. 
+public class TextQuestion : Question
 {
     public List<string> Keywords { get; set; }
 
-    public TextQuestion() { }
-
-    public TextQuestion(string name, string subject, string quest, string answer, int points, List<string> keywords)
-    {
-        Name = name;
-        Subject = subject;
-        Quest = quest;
-        Answer = answer;
-        Points = points;
-        Keywords = keywords;
-    }
-
-    public override bool CheckAnswer(string userAnswer)
-    {
-        return Keywords.Any(keyword => userAnswer.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0);
-    }
 }
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
+//Klass som läser in frågor från json-filen samt dess tillhöraden True/False-alternativ. EJ PÅBÖRJAT!
+public class TrueFalseQuestion : Question //Ej påbörjad
+{
+    public List<string> TrueFalse {get; set;}
+}
 
 

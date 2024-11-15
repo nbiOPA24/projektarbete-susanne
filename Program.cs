@@ -1,15 +1,28 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 class Program
 {
     //LanguageQuestion languageQuestion = new LanguageQuestion(); --> används inte i klassen Program? ta bort?
+    
   
-    public static async Task Main()
-    {
-            
-        string filePath = "questions.json";
-        await Question.LoadQuestionsFromFile(filePath);
-        HandleDifferentQuestions questionHandler = new HandleDifferentQuestions();       
+    public static void Main()
+    {            
+        List<Question> questions = LoadQuestions.LoadAllQuestions("questions.json");  
+
+        if (questions != null && questions.Count > 0) // Kontrollutskrift för att säkerställa att filinläsningen fungerar
+        {
+            Console.WriteLine($"Antal frågor inlästa: {questions.Count}");
+        }
+
+        else
+        {
+            Console.WriteLine("Ingen data lästes in från JSON-filen.");
+        }
+
         bool isRunning = true;
+        string selectedSubject = "";
 
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("Välkommen till elev-Quiz!");
@@ -41,35 +54,35 @@ class Program
                 case "1":
                     
                     Console.WriteLine("Svenska");
-                    subjectQuestions = Question.AllQuestions.Where(q => q.Subject == "SV").ToList();
-                    questionHandler.ChooseTypeOfQuestionMenu(subjectQuestions);                   
+                    selectedSubject = "SV"; 
+                    subjectQuestions = HandleQuestions.FilterQuestionsBySubject(questions, selectedSubject);
                     break;
-                
+                                                     
                 
                 case "2":
                     Console.WriteLine("EN"); 
-                    //currentSubject = new Subject("EN");
-                    LanguageQuestion.LanguageQuestionMenu();
+                    //currentSubject = new Subject("EN");                    
                     break;
 
                 case "3":
                     Console.WriteLine("Samhällsorienterande ämnen");
-                    //currentSubject = new Subject("SO");
+                    selectedSubject = "SO"; 
+                    subjectQuestions = HandleQuestions.FilterQuestionsBySubject(questions, selectedSubject);
                     break;
 
                 case "4":
                     Console.WriteLine("Matte");
-                    //currentSubject = new Subject("EN"); 
-                    //mathematics.MathMenu();            
+                             
                     break;
 
                 case "5":
                     Console.WriteLine("Naturkunskap");
-                    //currentSubject = new Subject("NA");                   
+                    selectedSubject = "NA"; 
+                    subjectQuestions = HandleQuestions.FilterQuestionsBySubject(questions, selectedSubject);             
                     break;
 
                 case "6":
-                    Console.WriteLine("Skriv ut antal frågor"); //Logik för att räkna poäng behövs.  EJ PÅBÖRJAT!!!                 
+                    Console.WriteLine("Se vad dina poäng motsvarar i betyg"); //Logik för att räkna poäng behövs.  EJ PÅBÖRJAT!!!                 
                     break;
 
                 case "7":
@@ -83,9 +96,24 @@ class Program
 
                 default:
                     Console.WriteLine("Felaktig inmatning");
-                    break;
+                    continue;
             }
+            
+             // Anropar HandleQuestions.HandleQuestionTypeMenu när ämnet har valts
+            if (subjectQuestions != null && subjectQuestions.Count > 0)
+            {
+                HandleQuestions.HandleQuestionTypeMenu(subjectQuestions, selectedSubject);
+            }
+            else if(subjectQuestions != null && subjectQuestions.Count == 0)
+            {
+                System.Console.WriteLine("Inga ytterligare frågor att besvara. ");
+            }
+            else
+            {
+                Console.WriteLine("Tack för idag!");
+            }
+                      
         }
     }
-    
+ 
 }

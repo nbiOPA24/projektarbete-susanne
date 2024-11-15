@@ -13,10 +13,10 @@ public class Mathematics //Klass för att träna matte
         bool isRunning = true;
         while(isRunning)
         {
-            System.Console.WriteLine("Välj vad du vill öva på: ");
-            System.Console.WriteLine("1. Multiplikationstabeller");
-            System.Console.WriteLine("2. Multiplikationstabellen på tid");
-            System.Console.WriteLine("3. Återgå till huvumeny");
+            Console.WriteLine("Välj vad du vill öva på: ");
+            Console.WriteLine("1. Multiplikationstabeller");
+            Console.WriteLine("2. Multiplikationstabellen på tid");
+            Console.WriteLine("3. Återgå till huvumeny");
             string userInput = Console.ReadLine();
 
             switch(userInput)
@@ -33,13 +33,13 @@ public class Mathematics //Klass för att träna matte
                 }
                 case "3":
                 {
-                    System.Console.WriteLine("Återgår till huvudmenyn");
+                    Console.WriteLine("Återgår till huvudmenyn");
                     isRunning = false;
                     break;
                 }
                 default:
                 {
-                    System.Console.WriteLine("Ogiltig inmatning");
+                    Console.WriteLine("Ogiltig inmatning");
                     break;
                 }
                
@@ -62,7 +62,7 @@ public class Mathematics //Klass för att träna matte
     } 
     public void PracticeMultiplication()
     {
-        System.Console.Write("Ange talet för den multiplikationstabell som du vill öva på: ");
+        Console.Write("Ange talet för den multiplikationstabell som du vill öva på: ");
         if(int.TryParse(Console.ReadLine(), out int chosenTable))
         {
             MultiplicationTable();
@@ -79,8 +79,8 @@ public class Mathematics //Klass för att träna matte
                 {
                     if(userAnswer == product)
                     {
-                        System.Console.WriteLine("Du svarade rätt!");
-                        System.Console.WriteLine();
+                        Console.WriteLine("Du svarade rätt!");
+                        Console.WriteLine();
                         Factors.RemoveAt(rndIndex);
                     }
                     else
@@ -110,13 +110,13 @@ public class Mathematics //Klass för att träna matte
     {
         List<int> wrongAnswers = new List<int>();//Lista för felsvar. 
        
-        System.Console.WriteLine("Välkommen till multiplikationsspelet!");
-        System.Console.WriteLine("Här får du svara på 10 olika tal på tid");
-        System.Console.WriteLine("Tiden startar när du får det första talet.");
-        System.Console.WriteLine("När du svarat på alla tal får du den totala tiden.");
-        System.Console.WriteLine("---------------------------------------------------");
-        System.Console.WriteLine("------Klicka på enter för att börja spelet---------");
-        System.Console.WriteLine("---------------------------------------------------");
+        Console.WriteLine("Välkommen till multiplikationsspelet!");
+        Console.WriteLine("Här får du svara på 10 olika tal på tid");
+        Console.WriteLine("Tiden startar när du får det första talet.");
+        Console.WriteLine("När du svarat på alla tal får du den totala tiden.");
+        Console.WriteLine("---------------------------------------------------");
+        Console.WriteLine("------Klicka på enter för att börja spelet---------");
+        Console.WriteLine("---------------------------------------------------");
         Console.ReadKey();       
 
         
@@ -129,30 +129,30 @@ public class Mathematics //Klass för att träna matte
             int factor2 = rnd.Next(1, 12);
             int product = factor1 * factor2; //beräkning för rätt svar
 
-            System.Console.Write($"Vad är {factor1} * {factor2}? "); //fråga till användare
+            Console.Write($"Vad är {factor1} * {factor2}? "); //fråga till användare
             if(int.TryParse(Console.ReadLine(), out int userAnswer))
             {
                 if(userAnswer == product)
                 {
-                    System.Console.WriteLine("Rätt svar!");
-                    System.Console.WriteLine();
+                    Console.WriteLine("Rätt svar!");
+                    Console.WriteLine();
                 }
                 else
                 {
-                    System.Console.WriteLine("Ditt svar var tyvärr fel"); //Skriver ut om svaret var fel. 
-                    System.Console.WriteLine();
+                    Console.WriteLine("Ditt svar var tyvärr fel"); //Skriver ut om svaret var fel. 
+                    Console.WriteLine();
                     wrongAnswers.Add(userAnswer); //Fel svar läggs till listan
                 }                
             }
             else
             {
-                System.Console.WriteLine("Felaktig inmatning. Ange ditt svar som ett heltal");
+                Console.WriteLine("Felaktig inmatning. Ange ditt svar som ett heltal");
             }
        }
        totalStopwatch.Stop();
-       System.Console.WriteLine($"Inga fler tal. Din totala tid blev: {totalStopwatch.Elapsed.TotalSeconds} sekunder."); //Skriver ut den totala tiden.
-       System.Console.WriteLine($"Du svarade fel på {wrongAnswers.Count} frågor");//Skriver ut antal frågor användaren svarat fel på
-       System.Console.WriteLine("Bra jobbat!"); 
+       Console.WriteLine($"Inga fler tal. Din totala tid blev: {totalStopwatch.Elapsed.TotalSeconds} sekunder."); //Skriver ut den totala tiden.
+       Console.WriteLine($"Du svarade fel på {wrongAnswers.Count} frågor");//Skriver ut antal frågor användaren svarat fel på
+       Console.WriteLine("Bra jobbat!"); 
     }       
 }
 
