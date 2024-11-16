@@ -1,6 +1,8 @@
---> Att fortsätta med på måndag:
-Fortsätta försöka få till logik för att lägga till poäng i listor för respektive ämne. 
-Är det enklare/bättre med en dict även här???
+--> Fortsätt med det här:
+1. Få till metod för PracticeWrongAnswers i klassen HandleQuestions
+2. Dela upp metoden AskQuestion i mindre funktioner. 
+3. Få till poängräkningen!
+4. Ändra klasserna Mathematics och Language, så de blir subklasser till Question istället. 
 
 
 

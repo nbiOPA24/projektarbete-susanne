@@ -42,13 +42,9 @@ public class Mathematics //Klass för att träna matte
                     Console.WriteLine("Ogiltig inmatning");
                     break;
                 }
-               
             }
-
         }
-        
     }
-
         //Metod för att skapa en multiplikationstabell för det tal som användaren har valt.
         //Metoden skapar en lista för multiplikationstabellen och anropas senare i koden. 
     public void MultiplicationTable() 

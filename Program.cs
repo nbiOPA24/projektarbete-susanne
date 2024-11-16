@@ -9,7 +9,7 @@ class Program
   
     public static void Main()
     {            
-        List<Question> questions = LoadQuestions.LoadAllQuestions("questions.json");  
+        List<Question> questions = LoadFile.LoadAllQuestions("questions.json");  
 
         if (questions != null && questions.Count > 0) // Kontrollutskrift för att säkerställa att filinläsningen fungerar
         {

@@ -112,8 +112,7 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
 
     public void PrintGlossary() //Metod för att skriva ut samtliga frågor, både hårdkodade och tillagda. 
     {
-        DefaultGlossary();
-        
+        DefaultGlossary();        
         {            
             foreach(var keyValuePair in glossary)
             Console.WriteLine($"Svenska: {keyValuePair.Key} // Engelska: {keyValuePair.Value}");            
@@ -151,11 +150,11 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
 
             if(userAnswer.ToLower() == "j")
             {
-                PracticeWrongAnswers();
+                PracticeWrongGlossary();
             }            
         }      
     }   
-    public void PracticeWrongAnswers() //Metod för att öva på de glosor där anv svarat fel. 
+    public void PracticeWrongGlossary() //Metod för att öva på de glosor där anv svarat fel. 
     {
         foreach(var q in wrongAnswers)
         {
