@@ -2,6 +2,8 @@
 
 //Klassen innehåller en meny för quiz - KLART
 //Klassen samordnar alla svar som användaren har gett?
+using Microsoft.VisualBasic;
+
 public class HandleQuiz
 {
     //Metoden filtrerar listan med frågor utifrån ämne (subject) och returnerar en lista med valt ämne (subject)
@@ -36,11 +38,13 @@ public class HandleQuiz
             switch(input)
             {
                 case "1":
-                Console.WriteLine("Öva med fritextfrågor");
+                Console.WriteLine("Öva med fritextfrågor");                
+                //MultiChoiceQuestion.ProbeQuestion(questions); 
                 break;
 
                 case "2":
                 Console.WriteLine("Öva med flervalsfrågor");
+                new MultiChoiceQuestion().ProbeQuestion(subjectQuestions);
                 break;
 
                 case "3":
@@ -60,7 +64,5 @@ public class HandleQuiz
         }
 
     }
-
-   
 
 }

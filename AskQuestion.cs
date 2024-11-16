@@ -1,30 +1,46 @@
-public class AskQuestions
+using System.Collections.Immutable;
+using System.Dynamic;
+
+public abstract class AskQuestion
+{    
+    public abstract void ProbeQuestion(List<Question> questions);   
+}
+
+
+public class MultiChoiceQuestion : AskQuestion
 {
-    List<Question> questions = new List<Question>();
-    
-
-    public string GetQuestion {get; set;}
-    public string GetCorrectAnswer {get; set;}
-
-    public AskQuestions(string getQuestion, string getCorrectAnswer)
-    {
-        GetQuestion = getQuestion;
-        GetCorrectAnswer = getCorrectAnswer;
-    }
-      
-    //Metoden slumpar fram 5 frågor från det av användaren valda ämnet. 
-    //De fem rågorna lagras i listan selectedQuestions. 
-    //Eftersom alla ämnen har en fråga bör denna metod vara universell. 
-    public static void ProbeQuestion(List<Question> questions)
+    public override void ProbeQuestion(List<Question> questions)
     {
         var rnd = new Random();
-        var selectedQuestions = questions.OrderBy(q => rnd.Next()).Take(5).ToList();
-        
-        foreach(var question in selectedQuestions)
+        var selectedQuestion = questions.OrderBy(q => rnd.Next()).Take(5).ToList();
+        foreach(var question in selectedQuestion)
         {
-            System.Console.WriteLine("Här skriver vi ut fem slumpade frågor");//Testkod - testar att metoden hämtar fem slumpade frågor från json-filen.
-            Console.WriteLine($"{question.Quest} ");
-        }      
+            Console.WriteLine($"Fråga: {question.Quest}");
+            if(question.Options != null && question.Options.Count > 0)
+            {
+                for(int i = 0; i < question.Options.Count; i++)
+                {
+                    Console.WriteLine($"{i +1}. {question.Options[i]}");
+                }
+                Console.WriteLine("Skriv in siffran framför det rätta svaret");
+                if(int.TryParse(Console.ReadLine(), out int userAnswer))
+                {
+                    if(userAnswer > 0 && userAnswer <= question.Options.Count && question.Options[userAnswer -1].Equals(question.Answer))
+                    {
+                        Console.WriteLine("Ditt svar var rätt!");
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {question.Answer}");
+                        Console.WriteLine();
+                    }
+
+                }
+
+            }
+        }
+        
     }
 
 }
