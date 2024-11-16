@@ -1,12 +1,8 @@
-public class HandleQuestions
+/*public class HandleQuestions
 {
     public static List<Question> wrongAnswer = new List<Question>();
-    public static List<Question> FilterQuestionsBySubject(List<Question> questions, string subject) 
-    {
-        return questions.FindAll(q => q.Subject == subject);
-    }
-
-    public static void HandleQuestionTypeMenu(List<Question> questions, string selectedSubject)//Flyttar meny för att välja fråga till klassen Subjects.   
+   
+    public static void HandleQuestionTypeMenu(List<Question> questions, string selectedSubject)
     {
         bool isRunning = true;     
         
@@ -43,7 +39,7 @@ public class HandleQuestions
                 {
                     for(int i = 0; i < wrongAnswer.Count; i++)
                     {
-                        //PracticeAllWrongQuestions();  
+                        //PracticeWrongQuestions();  
                     } 
                 }
             }
@@ -59,10 +55,10 @@ public class HandleQuestions
         }        
     } 
    
-    public static void AskQuestions(List<Question> questions, string questionType)//En metod som används för att ställa frågor till användaren, oavsett typ av fråga
+    /*public static void AskQuestions(List<Question> questions, string questionType)//En metod som används för att ställa frågor till användaren, oavsett typ av fråga
     {
         var rnd = new Random();
-        var selectedQuestions = questions.OrderBy(q => rnd.Next()).Take(5).ToList();  // Slumpar fram 5 frågor från json-filen och lägger i variabeln selectedQuestions,. 
+        var selectedQuestions = questions.OrderBy(q => rnd.Next()).Take(5).ToList();  //Slumpar fram 5 frågor från json-filen och lägger i variabeln selectedQuestions,. 
 
         foreach (var question in selectedQuestions) //En loop som körs för varje fråga i variabeln SelectedQuestions.
         {
@@ -118,4 +114,4 @@ public class HandleQuestions
     }
     
        
-}
+}*/

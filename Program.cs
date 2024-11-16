@@ -1,11 +1,9 @@
 ﻿
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+
 class Program
 {
     //LanguageQuestion languageQuestion = new LanguageQuestion(); --> används inte i klassen Program? ta bort?
-    
+  
   
     public static void Main()
     {            
@@ -54,8 +52,8 @@ class Program
                 case "1":
                     
                     Console.WriteLine("Svenska");
-                    selectedSubject = "SV"; 
-                    subjectQuestions = HandleQuestions.FilterQuestionsBySubject(questions, selectedSubject);
+                    //selectedSubject = "SV"; 
+                    //subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject);
                     break;
                                                      
                 
@@ -66,8 +64,8 @@ class Program
 
                 case "3":
                     Console.WriteLine("Samhällsorienterande ämnen");
-                    selectedSubject = "SO"; 
-                    subjectQuestions = HandleQuestions.FilterQuestionsBySubject(questions, selectedSubject);
+                    //selectedSubject = "SO"; 
+                    //subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject); 
                     break;
 
                 case "4":
@@ -77,12 +75,14 @@ class Program
 
                 case "5":
                     Console.WriteLine("Naturkunskap");
-                    selectedSubject = "NA"; 
-                    subjectQuestions = HandleQuestions.FilterQuestionsBySubject(questions, selectedSubject);             
+                    //selectedSubject = "NA"; 
+                    //subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject);
+                              
                     break;
 
                 case "6":
-                    Console.WriteLine("Se vad dina poäng motsvarar i betyg"); //Logik för att räkna poäng behövs.  EJ PÅBÖRJAT!!!                 
+                    Console.WriteLine("Se vad dina poäng motsvarar i betyg"); //Logik för att räkna poäng behövs.  EJ PÅBÖRJAT!!!
+                    AskQuestions.ProbeQuestion(questions);                    
                     break;
 
                 case "7":
@@ -98,21 +98,6 @@ class Program
                     Console.WriteLine("Felaktig inmatning");
                     continue;
             }
-            
-             // Anropar HandleQuestions.HandleQuestionTypeMenu när ämnet har valts
-            if (subjectQuestions != null && subjectQuestions.Count > 0)
-            {
-                HandleQuestions.HandleQuestionTypeMenu(subjectQuestions, selectedSubject);
-            }
-            else if(subjectQuestions != null && subjectQuestions.Count == 0)
-            {
-                System.Console.WriteLine("Inga ytterligare frågor att besvara. ");
-            }
-            else
-            {
-                Console.WriteLine("Tack för idag!");
-            }
-                      
         }
     }
  
