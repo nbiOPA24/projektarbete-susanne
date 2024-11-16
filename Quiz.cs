@@ -30,7 +30,7 @@ public class HandleQuiz
             System.Console.WriteLine("______________________________________");
             Console.WriteLine("1. Öva med fritextfrågor");
             Console.WriteLine("2. Öva med flervalsfrågor");
-            Console.WriteLine("4. Öva på de frågor som du svarat fel på");
+            Console.WriteLine("3. Öva på de frågor som du svarat fel på");
             Console.WriteLine("4. Återgå till huvudmenyn");
             Console.WriteLine("_______________________________________________");
             string input = Console.ReadLine();
@@ -39,7 +39,7 @@ public class HandleQuiz
             {
                 case "1":
                 Console.WriteLine("Öva med fritextfrågor");                
-                //MultiChoiceQuestion.ProbeQuestion(questions); 
+                new FreetextQuestion().ProbeQuestion(subjectQuestions);
                 break;
 
                 case "2":

@@ -1,4 +1,5 @@
 using System.Collections.Immutable;
+using System.Data.Common;
 using System.Dynamic;
 
 public abstract class AskQuestion
@@ -35,12 +36,39 @@ public class MultiChoiceQuestion : AskQuestion
                         Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {question.Answer}");
                         Console.WriteLine();
                     }
-
                 }
-
             }
         }
-        
     }
+}
+public class FreetextQuestion : AskQuestion
+{
+    public override void ProbeQuestion(List<Question> questions)
+    {
+        var rnd = new Random();
+        var selectedQuestion = questions.OrderBy(q => rnd.Next()).Take(5).ToList();
+        foreach(var question in selectedQuestion)
+        {
+            Console.WriteLine($"Fråga: {question.Quest}");            
+            Console.WriteLine();                
 
+            Console.Write("Skriv svaret på frågan: ");
+            string userAnswer = Console.ReadLine();
+
+            if(userAnswer == question.Quest)
+            {
+                Console.WriteLine("Du svarade rätt!");
+            }
+            else if(userAnswer != null && question.Keywords.Any(keyword => userAnswer.Contains(keyword, StringComparison.OrdinalIgnoreCase)))
+            {
+                Console.WriteLine("Ditt svar innehåller ett eller flera nyckelord, och du får därför rätt på frågan");
+            }
+            else
+            {
+                Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är: {question.Answer}");
+            }
+
+            Console.WriteLine();
+        }      
+    }
 }
