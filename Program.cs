@@ -4,7 +4,7 @@ class Program
 {
     //LanguageQuestion languageQuestion = new LanguageQuestion(); --> används inte i klassen Program? ta bort?
   
-  
+  //Mainmetoden håller meny för de val som användaren gör initialt i programmet - väljer vad hen vill öva på. 
     public static void Main()
     {            
         List<Question> questions = LoadFile.LoadAllQuestions("questions.json");  
@@ -20,7 +20,7 @@ class Program
         }
 
         bool isRunning = true;
-        string selectedSubject = "";
+        string selectedSubject = ""; //Sätter ett initialvärde för variabeln, då det annars ger kompilator-fel.
 
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("Välkommen till elev-Quiz!");
@@ -33,18 +33,20 @@ class Program
         {
             Console.WriteLine();
             Console.WriteLine("Välj ett ämne:");
+            System.Console.WriteLine("-------------------------------");
             Console.WriteLine("1. Svenska");
             Console.WriteLine("2. Engelska");
             Console.WriteLine("3. Samhällsorienterande ämnen");
             Console.WriteLine("4. Matte");
             Console.WriteLine("5. Naturkunskap ");
-            Console.WriteLine("6. Skriv ut antal frågor");
+            Console.WriteLine("-------------------------------------- ");
+            Console.WriteLine("6. Se vilket betyg dina poäng motsvarar");
             Console.WriteLine("7. Se samtliga frågor");
             Console.WriteLine("8. Avsluta programmet");
             Console.WriteLine();
             string choice = Console.ReadLine();
 
-            //Variabeln sätter subject till tomt värde från början. I respektive ämne sätts därefter subject/ämne och möjliggör att rätt frågor laddas från filen. 
+            //Variabeln sätter subjectQuestions till tomt värde från början. I respektive ämne sätts därefter subject/ämne och möjliggör att rätt frågor laddas från filen. 
             List<Question> subjectQuestions = null;
             
             switch (choice)
@@ -52,37 +54,37 @@ class Program
                 case "1":
                     
                     Console.WriteLine("Svenska");
-                    //selectedSubject = "SV"; 
-                    //subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject);
+                    selectedSubject = "SV";
+                    subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject); //Här bestäms vilka frågor som ska hämtas från filen till listan subjectQuestions
                     break;
                                                      
                 
                 case "2":
                     Console.WriteLine("EN"); 
-                    //currentSubject = new Subject("EN");                    
-                    break;
+                    //Gå direkt för meny för språk-frågor                    
+                    continue;
 
                 case "3":
                     Console.WriteLine("Samhällsorienterande ämnen");
-                    //selectedSubject = "SO"; 
-                    //subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject); 
+                    selectedSubject = "SO"; 
+                    subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject); 
                     break;
 
                 case "4":
                     Console.WriteLine("Matte");
-                             
-                    break;
+                    //Gå direkt för meny för Matte-frågor           
+                    continue; //Behöver sättas till continue för att jag inte användare mig av ämnen från questions-filen. 
 
                 case "5":
                     Console.WriteLine("Naturkunskap");
-                    //selectedSubject = "NA"; 
-                    //subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject);
+                    selectedSubject = "NA"; 
+                    subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject);
                               
                     break;
 
                 case "6":
                     Console.WriteLine("Se vad dina poäng motsvarar i betyg"); //Logik för att räkna poäng behövs.  EJ PÅBÖRJAT!!!
-                    AskQuestions.ProbeQuestion(questions);                    
+                                     
                     break;
 
                 case "7":
@@ -98,7 +100,23 @@ class Program
                     Console.WriteLine("Felaktig inmatning");
                     continue;
             }
+
+            if (subjectQuestions != null && subjectQuestions.Count > 0)
+                {
+                    HandleQuiz.ChooseQuestionMenu(questions, selectedSubject);
+                }
+                else if (subjectQuestions != null && subjectQuestions.Count == 0)
+                {
+                    Console.WriteLine("Inga frågor att besvara");
+                }
+                else
+                {
+                    Console.WriteLine("Tack för idag!");
+                }
+            
         }
+        
     }
+    
  
 }

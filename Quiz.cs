@@ -11,8 +11,15 @@ public class HandleQuiz
     }   
         
 
-    public static void ChooseQuestionMenu()
+    public static void ChooseQuestionMenu(List<Question> questions, string selectedSubject )
     {
+        var subjectQuestions = FilterQuestionsBySubject(questions, selectedSubject);
+        
+        if(subjectQuestions == null||subjectQuestions.Count == 0)
+        {
+            Console.WriteLine($"Inga frågor hittades för ämnet {selectedSubject}");
+        }
+
         bool isRunning = true;
 
         while(isRunning)

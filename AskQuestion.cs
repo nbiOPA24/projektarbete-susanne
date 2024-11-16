@@ -11,8 +11,6 @@ public class AskQuestions
         GetQuestion = getQuestion;
         GetCorrectAnswer = getCorrectAnswer;
     }
-
-
       
     //Metoden slumpar fram 5 frågor från det av användaren valda ämnet. 
     //De fem rågorna lagras i listan selectedQuestions. 
@@ -24,7 +22,7 @@ public class AskQuestions
         
         foreach(var question in selectedQuestions)
         {
-            System.Console.WriteLine("Här skriver vi ut efm slumpade frågor");
+            System.Console.WriteLine("Här skriver vi ut fem slumpade frågor");//Testkod - testar att metoden hämtar fem slumpade frågor från json-filen.
             Console.WriteLine($"{question.Quest} ");
         }      
     }
