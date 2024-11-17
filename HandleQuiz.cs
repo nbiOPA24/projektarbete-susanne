@@ -2,17 +2,17 @@
 
 //Klassen innehåller en meny för quiz - KLART
 //Klassen samordnar alla svar som användaren har gett?
-using Microsoft.VisualBasic;
+
 
 public class HandleQuiz
 {
     //Metoden filtrerar listan med frågor utifrån ämne (subject) och returnerar en lista med valt ämne (subject)
+    
     public static List<Question> FilterQuestionsBySubject(List<Question> questions, string subject)
     {
         return questions.FindAll(q => q.Subject == subject);
     }   
         
-
     public static void ChooseQuestionMenu(List<Question> questions, string selectedSubject )
     {
         var subjectQuestions = FilterQuestionsBySubject(questions, selectedSubject);
@@ -49,6 +49,7 @@ public class HandleQuiz
 
                 case "3":
                 Console.WriteLine("Öva på de frågor där du svarat fel");
+                AskQuestion.PracticeWrongAnswers();
                 break;
 
                 case "4":

@@ -1,9 +1,10 @@
 --> Fortsätt med det här:
 1. Få till metod för PracticeWrongAnswers i klassen HandleQuestions
-2. Dela upp metoden AskQuestion i mindre funktioner. 
-3. Få till poängräkningen!
+2. Få till poängräkningen!
 4. Ändra klasserna Mathematics och Language, så de blir subklasser till Question istället. 
 
+Klart!
+Dela upp metoden AskQuestion i mindre funktioner. //KLART!
 
 
 BESKRIVNING:
