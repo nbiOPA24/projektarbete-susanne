@@ -4,7 +4,7 @@ class Program
 {
     //LanguageQuestion languageQuestion = new LanguageQuestion(); --> används inte i klassen Program? ta bort?
   
-  //Mainmetoden håller meny för de val som användaren gör initialt i programmet - väljer vad hen vill öva på. 
+    //Mainmetoden håller meny för de val som användaren gör initialt i programmet - väljer vad hen vill öva på. 
     public static void Main()
     {            
         List<Question> questions = LoadFile.LoadAllQuestions("questions.json");  
@@ -25,15 +25,20 @@ class Program
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("Välkommen till elev-Quiz!");
         Console.WriteLine("Välj det ämne som du vill öva på.");
-        Console.WriteLine("När du är klar kan du se vilket betyg dina poäng motsvarar i respektive ämne");
-        Console.WriteLine("Lycka till!");
+        Console.WriteLine("Väljer du att logga in sparas dina poäng, och du kan se vad dina poäng motsvarar i betyg");
         Console.WriteLine("*****************************************************************************");
+        Console.WriteLine("Vill du logga in, eller fortsätta utan att vara inloggad användare?");
+        Console.WriteLine();
+        Console.WriteLine("Klicka på tangenten [J] på ditt tangentbord för att logga in eller skapa en ny användare.");
+        Console.WriteLine("Vill du fortsätta utan att vara inloggad, klicka på [N]");
 
+        
+        
         while (isRunning)
         {
             Console.WriteLine();
             Console.WriteLine("Välj ett ämne:");
-            System.Console.WriteLine("-------------------------------");
+            Console.WriteLine("-------------------------------");
             Console.WriteLine("1. Svenska");
             Console.WriteLine("2. Engelska");
             Console.WriteLine("3. Samhällsorienterande ämnen");
@@ -61,7 +66,7 @@ class Program
                 
                 case "2":
                     Console.WriteLine("EN"); 
-                    //Gå direkt för meny för språk-frågor                    
+                    LanguageQuestion.LanguageQuestionMenu();                  
                     continue;
 
                 case "3":
@@ -72,7 +77,8 @@ class Program
 
                 case "4":
                     Console.WriteLine("Matte");
-                    //Gå direkt för meny för Matte-frågor           
+                    Mathematics myMathematics = new Mathematics();
+                    myMathematics.MathMenu();           
                     continue; //Behöver sättas till continue för att jag inte användare mig av ämnen från questions-filen. 
 
                 case "5":

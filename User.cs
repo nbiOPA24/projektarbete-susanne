@@ -30,7 +30,7 @@ public static class HandleUser
     public static Dictionary<string, int> userScore = new Dictionary<string, int>();
     public static List<User> users = new List<User>();
 
-    public static void LogIn()
+    public static void LogIn(string userName, string userID)
     {
 
     }
