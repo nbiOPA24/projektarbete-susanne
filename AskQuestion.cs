@@ -17,7 +17,7 @@ public abstract class AskQuestion
         foreach(var question in WrongAnswers)
         {
             Console.WriteLine(question.Quest);  
-                                
+
             Console.Write("Skriv svaret på frågan: ");
             var userAnswer = Console.ReadLine();
 
@@ -38,8 +38,8 @@ public abstract class AskQuestion
             
         }
         Console.WriteLine("Inga fler frågor att besvara. Bra jobbat!");
-        
-    }  
+    } 
+    
 }
 
 

@@ -5,13 +5,15 @@ class Program
     //LanguageQuestion languageQuestion = new LanguageQuestion(); --> används inte i klassen Program? ta bort?
   
     //Mainmetoden håller meny för de val som användaren gör initialt i programmet - väljer vad hen vill öva på. 
+    
     public static void Main()
     {            
-        List<Question> questions = LoadFile.LoadAllQuestions("questions.json");  
+        List<Question> questions = LoadFile.LoadAllQuestions("questions.json");
 
         if (questions != null && questions.Count > 0) // Kontrollutskrift för att säkerställa att filinläsningen fungerar
         {
             Console.WriteLine($"Antal frågor inlästa: {questions.Count}");
+            
         }
 
         else
@@ -21,6 +23,7 @@ class Program
 
         bool isRunning = true;
         string selectedSubject = ""; //Sätter ett initialvärde för variabeln, då det annars ger kompilator-fel.
+         HandleUser.DeFaultUser(); 
 
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("Välkommen till elev-Quiz!");
@@ -31,8 +34,10 @@ class Program
         Console.WriteLine();
         Console.WriteLine("Klicka på tangenten [J] på ditt tangentbord för att logga in eller skapa en ny användare.");
         Console.WriteLine("Vill du fortsätta utan att vara inloggad, klicka på [N]");
+        string userInput = Console.ReadLine();
 
-        
+        if(userInput == "j")
+        HandleUser.LogInMenu(HandleUser.users); 
         
         while (isRunning)
         {
@@ -90,7 +95,7 @@ class Program
 
                 case "6":
                     Console.WriteLine("Se vad dina poäng motsvarar i betyg"); //Logik för att räkna poäng behövs.  EJ PÅBÖRJAT!!!
-                                     
+                    HandleUser.DeFaultUser();                 
                     break;
 
                 case "7":

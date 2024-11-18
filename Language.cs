@@ -36,7 +36,7 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
             Console.WriteLine("Gör ett av följande val: ");
             Console.WriteLine("1. Lägg till glosor till ordboken");
             Console.WriteLine("2. Öva på glosor");
-            Console.WriteLine("3. Lägg till ord i meningar");
+            Console.WriteLine("3. Lägg till ord i meningar");//Ej påbörjat
             Console.WriteLine("4. Se samtliga frågor"); //Admin behörighet?
             Console.WriteLine("5. Återgå till hvudmenyn");
             string input = Console.ReadLine();
