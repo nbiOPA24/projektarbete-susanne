@@ -1,4 +1,8 @@
-﻿
+﻿using System.Text.Json; // För JsonSerializer
+using System.Text.Json.Serialization; // För avancerade JSON-funktioner, som attribut
+using System.IO; // För att läsa och skriva filer
+
+
 
 class Program
 {
@@ -12,7 +16,7 @@ class Program
 
         if (questions != null && questions.Count > 0) // Kontrollutskrift för att säkerställa att filinläsningen fungerar
         {
-            Console.WriteLine($"Antal frågor inlästa: {questions.Count}");
+            //Console.WriteLine($"Antal frågor inlästa: {questions.Count}");
             
         }
 
@@ -23,8 +27,7 @@ class Program
 
         bool isRunning = true;
         string selectedSubject = ""; //Sätter ett initialvärde för variabeln, då det annars ger kompilator-fel.
-         HandleUser.DeFaultUser(); 
-
+        
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("Välkommen till elev-Quiz!");
         Console.WriteLine("Välj det ämne som du vill öva på.");

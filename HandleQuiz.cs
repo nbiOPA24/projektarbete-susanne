@@ -1,8 +1,21 @@
-
+using System.Text.Json; // För JsonSerializer
+using System.Text.Json.Serialization; // För avancerade JSON-funktioner, som attribut
+using System.IO; // För att läsa och skriva filer
 
 //Klassen innehåller en meny för quiz - KLART
 //Klassen samordnar alla svar som användaren har gett?
+public class LoadFile //Döper om klassen till LoadFile, eftersom jag vill kunna ladda olika typer av frågefiler till mitt program, och LoadfFile är ett mer generiskt namn på 
+{    
+    public static List<Question> LoadAllQuestions(string filePath) //Metod för inläsning av Json-filen.Ändrar från asynkton till synkron inläsning av filen. Då filen är liten behövs inte någon asynkron inläsning. 
+    {
+        string jsonText = File.ReadAllText(filePath);
+        
+       
+        var allQuestions = JsonSerializer.Deserialize<List<Question>>(jsonText); // Deserialiserar JSON-texten till en lista av Question-objekt, där de olika json-objekten kan matchas med objekten i klassen Question.       
 
+        return allQuestions;
+    }
+}
 
 public class HandleQuiz
 {
@@ -27,7 +40,7 @@ public class HandleQuiz
         while(isRunning)
         {
             Console.WriteLine("---Välj vilken typ av frågor du vill besvara---");
-            System.Console.WriteLine("______________________________________");
+            Console.WriteLine("______________________________________");
             Console.WriteLine("1. Öva med fritextfrågor");
             Console.WriteLine("2. Öva med flervalsfrågor");
             Console.WriteLine("3. Öva på de frågor som du svarat fel på");
@@ -39,17 +52,17 @@ public class HandleQuiz
             {
                 case "1":
                 Console.WriteLine("Öva med fritextfrågor");                
-                new FreetextQuestion().ProbeQuestion(subjectQuestions);
+                new TextQuestion().ProbeQuestion(subjectQuestions);
                 break;
 
                 case "2":
                 Console.WriteLine("Öva med flervalsfrågor");
-                new MultiChoiceQuestion().ProbeQuestion(subjectQuestions);
+                new MultipleChoiceQuestion().ProbeQuestion(subjectQuestions);
                 break;
 
                 case "3":
                 Console.WriteLine("Öva på de frågor där du svarat fel");
-                AskQuestion.PracticeWrongAnswers();
+                Question.PracticeWrongAnswers();
                 break;
 
                 case "4":
