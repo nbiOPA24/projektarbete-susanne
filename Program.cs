@@ -1,25 +1,21 @@
 ﻿using System.Text.Json; // För JsonSerializer
 using System.Text.Json.Serialization; // För avancerade JSON-funktioner, som attribut
-using System.IO; // För att läsa och skriva filer
-
-
 
 class Program
 {
-    //LanguageQuestion languageQuestion = new LanguageQuestion(); --> används inte i klassen Program? ta bort?
-  
+    //LanguageQuestion languageQuestion = new LanguageQuestion(); --> används inte i klassen Program? ta bort?  
     //Mainmetoden håller meny för de val som användaren gör initialt i programmet - väljer vad hen vill öva på. 
     
     public static void Main()
-    {            
+    {           
+        HandleUser myhandleUser = new HandleUser(); 
+        List<User> users = new List<User>();
         List<Question> questions = LoadFile.LoadAllQuestions("questions.json");
 
         if (questions != null && questions.Count > 0) // Kontrollutskrift för att säkerställa att filinläsningen fungerar
         {
-            //Console.WriteLine($"Antal frågor inlästa: {questions.Count}");
-            
+            Console.WriteLine($"Antal frågor inlästa: {questions.Count}");            
         }
-
         else
         {
             Console.WriteLine("Ingen data lästes in från JSON-filen.");
@@ -27,7 +23,9 @@ class Program
 
         bool isRunning = true;
         string selectedSubject = ""; //Sätter ett initialvärde för variabeln, då det annars ger kompilator-fel.
-        
+        myhandleUser.DefaultUser(users);
+         
+
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("Välkommen till elev-Quiz!");
         Console.WriteLine("Välj det ämne som du vill öva på.");
@@ -40,7 +38,7 @@ class Program
         string userInput = Console.ReadLine();
 
         if(userInput == "j")
-        HandleUser.LogInMenu(HandleUser.users); 
+        myhandleUser.LogInMenu(users); 
         
         while (isRunning)
         {
@@ -98,7 +96,7 @@ class Program
 
                 case "6":
                     Console.WriteLine("Se vad dina poäng motsvarar i betyg"); //Logik för att räkna poäng behövs.  EJ PÅBÖRJAT!!!
-                    HandleUser.DeFaultUser();                 
+                    myhandleUser.DefaultUser(users);                 
                     break;
 
                 case "7":

@@ -25,6 +25,7 @@ public class HandleQuiz
     {
         return questions.FindAll(q => q.Subject == subject);
     }   
+    
         
     public static void ChooseQuestionMenu(List<Question> questions, string selectedSubject )
     {
@@ -47,17 +48,20 @@ public class HandleQuiz
             Console.WriteLine("4. Återgå till huvudmenyn");
             Console.WriteLine("_______________________________________________");
             string input = Console.ReadLine();
+            List<Question> selectedQuestions;
 
             switch(input)
             {
                 case "1":
                 Console.WriteLine("Öva med fritextfrågor");                
-                new TextQuestion().ProbeQuestion(subjectQuestions);
+                selectedQuestions = Question.FilterQuestionsByType(subjectQuestions, QuestionType.Text);
+                new TextQuestion().AskQuestion(selectedQuestions);
                 break;
 
                 case "2":
                 Console.WriteLine("Öva med flervalsfrågor");
-                new MultipleChoiceQuestion().ProbeQuestion(subjectQuestions);
+                selectedQuestions = Question.FilterQuestionsByType(subjectQuestions, QuestionType.MultipleChoice);
+                new MultipleChoiceQuestion().AskQuestion(selectedQuestions);
                 break;
 
                 case "3":

@@ -1,6 +1,18 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.IO;
 
+public enum QuestionType //Lägger till QuestionType  för att lista olika frågetyper i Jsonfilen eftersom jag inte får det att fungera som tänkt. 
+{
+    Text,
+    MultipleChoice
+}
 public class Question
-{    
+{
+    
     public string? Subject {get; set;}
     public string? Quest {get; set;}
     public string? Answer {get; set;}
@@ -8,31 +20,37 @@ public class Question
     public List<string> Options {get; set;} = new List<string>();
     public List<string> Keywords {get; set;} = new List<string>();
     public static List<Question> WrongAnswers { get; set; } = new List<Question>();
+    [JsonConverter(typeof(QuestionTypeConverter))] 
+    public QuestionType Type { get; set; }
+
+    public static List<Question> FilterQuestionsByType(List<Question> questions, QuestionType type)
+    {
+        return questions.Where(q => q.Type == type).ToList();
+    }
 
     
-    public virtual void AskQuestion()
-    {
-        Console.WriteLine($"Fråga: {Quest}");        
+    public virtual void AskQuestion(List<Question> questions)
+    {       
     }
-       
+      
     
     public virtual bool IsAnswerCorrect(string userAnswer)
     {
-        if (Options.Any()) 
+        if (Options.Any()) // Om det är en flervalsfråga
         {
             if (int.TryParse(userAnswer, out int index))
             {
                 return index > 0 && index <= Options.Count && Options[index - 1].Equals(Answer, StringComparison.OrdinalIgnoreCase);
             }
         }
-        else 
+        else // Om det är en textfråga
         {
             return userAnswer.Equals(Answer, StringComparison.OrdinalIgnoreCase) || Keywords.Any(keyword => userAnswer.Contains(keyword, StringComparison.OrdinalIgnoreCase));
         }
 
         return false;
     } 
-    public void ProbeQuestion(List<Question>questions)
+    /*public void ProbeQuestion(List<Question>questions)
     {
         var rnd = new Random();
         var selectedQuestions = questions.OrderBy(q => rnd.Next()).Take(5).ToList();
@@ -53,7 +71,7 @@ public class Question
             }
             System.Console.WriteLine();
         }
-    }
+    }*/
      public static void PracticeWrongAnswers()
     {
         if(WrongAnswers == null && WrongAnswers.Count == 0)
@@ -86,61 +104,92 @@ public class Question
         }
         Console.WriteLine("Inga fler frågor att besvara. Bra jobbat!");
     } 
+    
+    
+    
 }
-//Klass som läser in frågor från json-filen samt dess tillhörande options(flervalsfrågor)
+
 public class MultipleChoiceQuestion : Question
 {
     public MultipleChoiceQuestion() { }
-    public override void AskQuestion()
+    public override void AskQuestion(List<Question> questions)
     {
-        Console.WriteLine($"Fråga: {Quest}");
-        for(int i = 0; i < Options.Count; i++)
+        var filteredQuestions = FilterQuestionsByType(questions, QuestionType.MultipleChoice);
+        var selectedQuestions = filteredQuestions.OrderBy(q => Guid.NewGuid()).Take(5).ToList();
+        
+        foreach(var question in selectedQuestions)
         {
-            Console.WriteLine($"{i+1}. {Options[i]}");
+            Console.WriteLine($"Fråga: {question.Quest}");
+            for(int i = 0; i < question.Options.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {question.Options[i]}");
+            }
+            Console.WriteLine("Skriv in siffran framör det rätta svaret:");
+            string userAnswer = Console.ReadLine();
+
+            bool isCorrect = question.IsAnswerCorrect(userAnswer);
+            if(isCorrect)
+            {
+                Console.WriteLine("Du svarade rätt!");                
+            }
+            else
+            {
+                Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {question.Answer}.");
+            }
+            
         }
-        Console.Write("Skriv in siffran för det rätta svaret: ");
     }
     public override bool IsAnswerCorrect(string userAnswer)
     {
         if(int.TryParse(userAnswer, out int index))
         {
-            return index > 0 && index <= Options.Count && Options[index -1].Equals(Answer, StringComparison.OrdinalIgnoreCase);
+            if(index >0 && index <= Options.Count)
+            {
+                bool isCorrect = Options[index -1].Equals(Answer, StringComparison.OrdinalIgnoreCase);
+                if (!isCorrect)
+                {
+                    WrongAnswers.Add(this);
+                }
+                
+                return isCorrect; 
+            }                     
         }
         return false;
+        
     }
 }
 
-//Klass som läser in frågor från json-filen sam dess tillhörande Keywords. Keywords gör att användaren kan få rätt även om användaren inte skriver exakt samma mening som i Answer. 
 public class TextQuestion : Question
 {
     public TextQuestion() { }
-    public override void AskQuestion()
+    public override void AskQuestion(List<Question> questions)
     {
-        Console.WriteLine($"Fråga: {Quest}");
-        Console.Write("Skriv ditt svar: ");
-    }
-    public override bool IsAnswerCorrect(string userAnswer)
-    {
-        foreach(var question in WrongAnswers)
+        var filteredQuestions = FilterQuestionsByType(questions, QuestionType.Text);
+        var selectedQuestions = filteredQuestions.OrderBy(q => Guid.NewGuid()).Take(5).ToList();
         {
-            Console.WriteLine(question);
+            foreach(var question in selectedQuestions)
+            {
+                Console.WriteLine($"Fråga: {question.Quest}");
+                Console.Write("Skriv ditt svar: ");
+                string userAnswer = Console.ReadLine();
 
-            if(userAnswer == question.Answer)
-            {
-                Console.WriteLine("Den här gången svarade du rätt. Bra jobbat!");
-            }
-            else if(userAnswer != null && question.Keywords.Any(keyword => userAnswer.Contains(keyword, StringComparison.OrdinalIgnoreCase)))
-            {
-                Console.WriteLine("Ditt svar innehåller ett eller flera nyckelod. Bra jobbat!");
-            }
-            else
-            {
-                Console.WriteLine($"Ditt svar var tyvärr fel även denna gång. Rätt svar är {question.Answer}");
-                
+                if (question.IsAnswerCorrect(userAnswer))
+                {
+                    Console.WriteLine("Ditt svar var rätt!");                    
+                }
+                else
+                {
+                    Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {question.Answer}");
+                    WrongAnswers.Add(question);
+                }
             }
         }
-        Console.WriteLine("Inga fler frågor att besvara. Bra jobbat");
     }
+       
+    /*{public override bool IsAnswerCorrect(string userAnswer)
+    {
+        //return userAnswer.Equals(Answer, StringComparison.OrdinalIgnoreCase) || Keywords.Any(keyword => userAnswer.Contains(keyword, StringComparison.OrdinalIgnoreCase));
+    }*/
 
 }
 
