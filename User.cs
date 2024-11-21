@@ -28,28 +28,32 @@ public class HandleUser //Ändrar klassen från statisk till ickestatisk, då en
 {    
     public List<User> users = new List<User>();
 
-    public void LogInMenu(List<User> users)
+    public User LogInMenu(List<User> users)
     {
-        Console.WriteLine("Klicka på [J] om du redan har ett inlogg till programmet");
+        Console.WriteLine("-------------Gör ett av följande val--------------------");
+        Console.WriteLine("Klicka på [L] om du redan har ett inlogg till programmet");
         Console.WriteLine("Klicka på [C] om du vill skapa inloggning till programmet");
         Console.WriteLine("Klicka på [P] för att skriva ut samtliga användare");
-        Console.WriteLine();
+        Console.WriteLine("---------------------------------------------------------");
         string input = Console.ReadLine();
-        if(input == "j")
+        if(input == "l")
         {
-            LogIn(users);
+            return LogIn(users);
         }
         else if(input == "c")
         {
             CreateNewUser();
+            return null;
         }
         else if(input == "p")
         {
-            DefaultUser(users);
+            PrintDefaultUser(users);
+            return null;
         }
         else
         {
             Console.WriteLine("Felaktig inmatning");
+            return null;
         }
     }
 
@@ -70,39 +74,24 @@ public class HandleUser //Ändrar klassen från statisk till ickestatisk, då en
         newUser.Score.Add("EN", 0);
         users.Add(newUser);      
     }
-    public void LogIn(List<User> users) //Metod för att logga in i systemet
+    public User LogIn(List<User> users) //Metod för att logga in i systemet 
     {
         Console.Write("Skriv in ditt användarnamn: ");
         string userName = Console.ReadLine();
         Console.Write("Skriv in ditt lösenord: ");
-        string userPassword = Console.ReadLine();
-        
-        User user = null; //user sätts som null, dels för att reservera plats i minnet och dels för att avgöra om en användare finns i listan när listan itereras senare i programmet. 
+        string userPassword = Console.ReadLine();       
 
-        foreach(var u in users) //
+        foreach(var user in users) //
         {
-            if(u.UserName == userName)
+            if(user.UserName == userName && user.UserPassword == userPassword) //Ändrar funktionen i metoden, så man i en och samma rad kontrollerar användarnamn + lösenord. 
             {
-                user = u; //null ersätts med objektet user
+                Console.WriteLine("Du är nu inloggad!");
+                user.IsOnline = true;
+                return user;
             }
         }
-
-        if(user != null)
-        {
-            Console.Write("Skriv in ditt lösenord: ");
-            if(userPassword.Equals(user.UserPassword))
-            {
-                Console.WriteLine("Du är nu inloggad");
-            } 
-            else
-            {
-            Console.WriteLine("Felaktigt lösenord");
-            }           
-        }
-        else
-        {
-            Console.WriteLine("Ingen användare med angivet namn hittad. Kontrollera användarnamn, eller skap en ny användare.");
-        }    
+        Console.WriteLine("Ingen användare hittad eller felaktigt lösenord angett");
+        return null;          
     }
 
     public void DefaultUser(List<User> users) //Metod för att lägga till hårdkodade användare i programmet
@@ -118,8 +107,14 @@ public class HandleUser //Ändrar klassen från statisk till ickestatisk, då en
         newDefaultUser.Score.Add("SO", 0);
         newDefaultUser.Score.Add("MA", 0);
         newDefaultUser.Score.Add("EN", 0);
-        users.Add(newDefaultUser);
+        users.Add(newDefaultUser);        
+    }
 
-        
+    public void PrintDefaultUser(List<User> users)
+    {
+        foreach(var user in users)
+        {
+            System.Console.WriteLine($"{user.UserName}, {user.Score}");
+        }       
     }
 }

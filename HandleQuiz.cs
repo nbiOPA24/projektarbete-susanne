@@ -1,6 +1,7 @@
 using System.Text.Json; // För JsonSerializer
 using System.Text.Json.Serialization; // För avancerade JSON-funktioner, som attribut
-using System.IO; // För att läsa och skriva filer
+using System.IO;
+using System.Reflection.Metadata; // För att läsa och skriva filer
 
 //Klassen innehåller en meny för quiz - KLART
 //Klassen samordnar alla svar som användaren har gett?
@@ -20,14 +21,13 @@ public class LoadFile //Döper om klassen till LoadFile, eftersom jag vill kunna
 public class HandleQuiz
 {
     //Metoden filtrerar listan med frågor utifrån ämne (subject) och returnerar en lista med valt ämne (subject)
-    
     public static List<Question> FilterQuestionsBySubject(List<Question> questions, string subject)
     {
         return questions.FindAll(q => q.Subject == subject);
     }   
     
         
-    public static void ChooseQuestionMenu(List<Question> questions, string selectedSubject )
+    public static void ChooseQuestionMenu(List<Question> questions, string selectedSubject, User currentUser )
     {
         var subjectQuestions = FilterQuestionsBySubject(questions, selectedSubject);
         
@@ -35,7 +35,7 @@ public class HandleQuiz
         {
             Console.WriteLine($"Inga frågor hittades för ämnet {selectedSubject}");
         }
-
+        
         bool isRunning = true;
 
         while(isRunning)
@@ -55,13 +55,13 @@ public class HandleQuiz
                 case "1":
                 Console.WriteLine("Öva med fritextfrågor");                
                 selectedQuestions = Question.FilterQuestionsByType(subjectQuestions, QuestionType.Text);
-                new TextQuestion().AskQuestion(selectedQuestions);
+                new TextQuestion().AskQuestion(currentUser,selectedQuestions);
                 break;
 
                 case "2":
                 Console.WriteLine("Öva med flervalsfrågor");
                 selectedQuestions = Question.FilterQuestionsByType(subjectQuestions, QuestionType.MultipleChoice);
-                new MultipleChoiceQuestion().AskQuestion(selectedQuestions);
+                new MultipleChoiceQuestion().AskQuestion(currentUser,selectedQuestions);
                 break;
 
                 case "3":

@@ -9,7 +9,9 @@ class Program
     public static void Main()
     {           
         HandleUser myhandleUser = new HandleUser(); 
-        List<User> users = new List<User>();
+        var users = new List<User>();
+         myhandleUser.DefaultUser(users);
+
         List<Question> questions = LoadFile.LoadAllQuestions("questions.json");
 
         if (questions != null && questions.Count > 0) // Kontrollutskrift för att säkerställa att filinläsningen fungerar
@@ -21,10 +23,8 @@ class Program
             Console.WriteLine("Ingen data lästes in från JSON-filen.");
         }
 
-        bool isRunning = true;
-        string selectedSubject = ""; //Sätter ett initialvärde för variabeln, då det annars ger kompilator-fel.
-        myhandleUser.DefaultUser(users);
-         
+        User currentUser = null;       
+                 
 
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("Välkommen till elev-Quiz!");
@@ -36,10 +36,16 @@ class Program
         Console.WriteLine("Klicka på tangenten [J] på ditt tangentbord för att logga in eller skapa en ny användare.");
         Console.WriteLine("Vill du fortsätta utan att vara inloggad, klicka på [N]");
         string userInput = Console.ReadLine();
-
-        if(userInput == "j")
-        myhandleUser.LogInMenu(users); 
+        if(userInput.ToLower() == "j")
+        {
+            currentUser = myhandleUser.LogInMenu(users);
+        }
+        else if(currentUser == null)
+        {
+            Console.WriteLine("Du fortsätter som gäst, och kommer inte att spara dina poäng");            
+        }       
         
+        bool isRunning = true;
         while (isRunning)
         {
             Console.WriteLine();
@@ -57,8 +63,8 @@ class Program
             Console.WriteLine();
             string choice = Console.ReadLine();
 
-            //Variabeln sätter subjectQuestions till tomt värde från början. I respektive ämne sätts därefter subject/ämne och möjliggör att rätt frågor laddas från filen. 
-            List<Question> subjectQuestions = null;
+            List<Question> subjectQuestions = null;            
+            string selectedSubject = ""; //Sätter ett initialvärde för variabeln, då det annars ger kompilator-fel. 
             
             switch (choice)
             {
@@ -85,7 +91,7 @@ class Program
                     Console.WriteLine("Matte");
                     Mathematics myMathematics = new Mathematics();
                     myMathematics.MathMenu();           
-                    continue; //Behöver sättas till continue för att jag inte användare mig av ämnen från questions-filen. 
+                    continue; //Behöver sättas till continue för att jag inte använder mig av ämnen från questions-filen. 
 
                 case "5":
                     Console.WriteLine("Naturkunskap");
@@ -95,9 +101,12 @@ class Program
                     break;
 
                 case "6":
-                    Console.WriteLine("Se vad dina poäng motsvarar i betyg"); //Logik för att räkna poäng behövs.  EJ PÅBÖRJAT!!!
-                    myhandleUser.DefaultUser(users);                 
-                    break;
+                    Console.WriteLine("Se dina poäng"); //Logik för att räkna poäng 
+                    foreach(var subject in currentUser.Score)
+                    {
+                        Console.WriteLine($"{subject.Key}: {subject.Value}");
+                    }               
+                    continue;
 
                 case "7":
                     Console.WriteLine("Adminklass:");//Här ska man kunna lägga in frågor och ev även kunna se olika elevers poäng!                  
@@ -115,11 +124,11 @@ class Program
 
             if (subjectQuestions != null && subjectQuestions.Count > 0)
                 {
-                    HandleQuiz.ChooseQuestionMenu(questions, selectedSubject);
+                    HandleQuiz.ChooseQuestionMenu(subjectQuestions, selectedSubject, currentUser);
                 }
                 else if (subjectQuestions != null && subjectQuestions.Count == 0)
                 {
-                    Console.WriteLine("Inga frågor att besvara");
+                    Console.WriteLine("Inga frågor hittades för det valda ämnet");
                 }
                 else
                 {

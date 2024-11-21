@@ -2,7 +2,7 @@ using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 //OBS! Koden in denna fil är INTE min utan kopierad rakt från chatGPT pga fick inte json-filen att deserialiseras på rätt sätt,
-//och prioriterade att få programmet att funka överhuvudtaget istället för att försöka lösa probelemt själv.
+//och prioriterade att få programmet att funka överhuvudtaget eftr lagt orimligt mycket tid på att själv försöka få det att funka. 
 
 
 public class QuestionTypeConverter : JsonConverter<QuestionType>

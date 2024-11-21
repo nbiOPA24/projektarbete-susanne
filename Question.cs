@@ -29,7 +29,7 @@ public class Question
     }
 
     
-    public virtual void AskQuestion(List<Question> questions)
+    public virtual void AskQuestion(User user, List<Question> questions)
     {       
     }
       
@@ -104,15 +104,12 @@ public class Question
         }
         Console.WriteLine("Inga fler frågor att besvara. Bra jobbat!");
     } 
-    
-    
-    
-}
 
+}
 public class MultipleChoiceQuestion : Question
 {
     public MultipleChoiceQuestion() { }
-    public override void AskQuestion(List<Question> questions)
+    public override void AskQuestion(User user, List<Question> questions)
     {
         var filteredQuestions = FilterQuestionsByType(questions, QuestionType.MultipleChoice);
         var selectedQuestions = filteredQuestions.OrderBy(q => Guid.NewGuid()).Take(5).ToList();
@@ -130,7 +127,9 @@ public class MultipleChoiceQuestion : Question
             bool isCorrect = question.IsAnswerCorrect(userAnswer);
             if(isCorrect)
             {
-                Console.WriteLine("Du svarade rätt!");                
+                Console.WriteLine("Du svarade rätt!"); 
+                user.Score[question.Subject] += question.Points; //Logik för att lägga till poäng för rätt svar till dictionary
+                             
             }
             else
             {
@@ -162,7 +161,7 @@ public class MultipleChoiceQuestion : Question
 public class TextQuestion : Question
 {
     public TextQuestion() { }
-    public override void AskQuestion(List<Question> questions)
+    public override void AskQuestion(User user, List<Question> questions)
     {
         var filteredQuestions = FilterQuestionsByType(questions, QuestionType.Text);
         var selectedQuestions = filteredQuestions.OrderBy(q => Guid.NewGuid()).Take(5).ToList();
@@ -175,7 +174,8 @@ public class TextQuestion : Question
 
                 if (question.IsAnswerCorrect(userAnswer))
                 {
-                    Console.WriteLine("Ditt svar var rätt!");                    
+                    Console.WriteLine("Ditt svar var rätt!");
+                    user.Score[question.Subject] += question.Points;                   
                 }
                 else
                 {
@@ -185,12 +185,6 @@ public class TextQuestion : Question
             }
         }
     }
-       
-    /*{public override bool IsAnswerCorrect(string userAnswer)
-    {
-        //return userAnswer.Equals(Answer, StringComparison.OrdinalIgnoreCase) || Keywords.Any(keyword => userAnswer.Contains(keyword, StringComparison.OrdinalIgnoreCase));
-    }*/
-
 }
 
 
