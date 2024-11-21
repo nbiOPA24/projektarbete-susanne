@@ -5,18 +5,6 @@ using System.Reflection.Metadata; // För att läsa och skriva filer
 
 //Klassen innehåller en meny för quiz - KLART
 //Klassen samordnar alla svar som användaren har gett?
-public class LoadFile //Döper om klassen till LoadFile, eftersom jag vill kunna ladda olika typer av frågefiler till mitt program, och LoadfFile är ett mer generiskt namn på 
-{    
-    public static List<Question> LoadAllQuestions(string filePath) //Metod för inläsning av Json-filen.Ändrar från asynkton till synkron inläsning av filen. Då filen är liten behövs inte någon asynkron inläsning. 
-    {
-        string jsonText = File.ReadAllText(filePath);
-        
-       
-        var allQuestions = JsonSerializer.Deserialize<List<Question>>(jsonText); // Deserialiserar JSON-texten till en lista av Question-objekt, där de olika json-objekten kan matchas med objekten i klassen Question.       
-
-        return allQuestions;
-    }
-}
 
 public class HandleQuiz
 {
@@ -54,19 +42,17 @@ public class HandleQuiz
             {
                 case "1":
                 Console.WriteLine("Öva med fritextfrågor");                
-                selectedQuestions = Question.FilterQuestionsByType(subjectQuestions, QuestionType.Text);
-                new TextQuestion().AskQuestion(currentUser,selectedQuestions);
+          
                 break;
 
                 case "2":
                 Console.WriteLine("Öva med flervalsfrågor");
-                selectedQuestions = Question.FilterQuestionsByType(subjectQuestions, QuestionType.MultipleChoice);
-                new MultipleChoiceQuestion().AskQuestion(currentUser,selectedQuestions);
+                
                 break;
 
                 case "3":
                 Console.WriteLine("Öva på de frågor där du svarat fel");
-                Question.PracticeWrongAnswers();
+                //Question.PracticeWrongAnswers();
                 break;
 
                 case "4":

@@ -12,17 +12,6 @@ class Program
         var users = new List<User>();
          myhandleUser.DefaultUser(users);
 
-        List<Question> questions = LoadFile.LoadAllQuestions("questions.json");
-
-        if (questions != null && questions.Count > 0) // Kontrollutskrift för att säkerställa att filinläsningen fungerar
-        {
-            Console.WriteLine($"Antal frågor inlästa: {questions.Count}");            
-        }
-        else
-        {
-            Console.WriteLine("Ingen data lästes in från JSON-filen.");
-        }
-
         User currentUser = null;       
                  
 
@@ -60,6 +49,7 @@ class Program
             Console.WriteLine("6. Se vilket betyg dina poäng motsvarar");
             Console.WriteLine("7. Se samtliga frågor");
             Console.WriteLine("8. Avsluta programmet");
+            Console.WriteLine("9. Admin - skapa frågor.");
             Console.WriteLine();
             string choice = Console.ReadLine();
 
@@ -72,7 +62,7 @@ class Program
                     
                     Console.WriteLine("Svenska");
                     selectedSubject = "SV";
-                    subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject); //Här bestäms vilka frågor som ska hämtas från filen till listan subjectQuestions
+                    //subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject); //Här bestäms vilka frågor som ska hämtas från filen till listan subjectQuestions
                     break;
                                                      
                 
@@ -84,7 +74,7 @@ class Program
                 case "3":
                     Console.WriteLine("Samhällsorienterande ämnen");
                     selectedSubject = "SO"; 
-                    subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject); 
+                    //subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject); 
                     break;
 
                 case "4":
@@ -96,7 +86,7 @@ class Program
                 case "5":
                     Console.WriteLine("Naturkunskap");
                     selectedSubject = "NA"; 
-                    subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject);
+                    //subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject);
                               
                     break;
 
@@ -116,6 +106,12 @@ class Program
                     Console.WriteLine("Avslutar programmet.");
                     isRunning = false;
                     break;
+                case "9":
+                    Console.WriteLine("Admin - Skapa nya frågor.");
+                    Adminklass.AdminMenu();
+                    
+                    break;
+
 
                 default:
                     Console.WriteLine("Felaktig inmatning");
@@ -124,7 +120,7 @@ class Program
 
             if (subjectQuestions != null && subjectQuestions.Count > 0)
                 {
-                    HandleQuiz.ChooseQuestionMenu(subjectQuestions, selectedSubject, currentUser);//Här är når fel
+                    HandleQuiz.ChooseQuestionMenu(subjectQuestions, selectedSubject, currentUser);
                 }
                 else if (subjectQuestions != null && subjectQuestions.Count == 0)
                 {
