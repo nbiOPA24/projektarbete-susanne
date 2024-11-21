@@ -1,71 +1,112 @@
-﻿
+﻿using System.Text.Json; // För JsonSerializer
+using System.Text.Json.Serialization; // För avancerade JSON-funktioner, som attribut
+
 class Program
 {
-    LanguageQuestion languageQuestion = new LanguageQuestion();
-  
-    static async Task Main()
-    {
-        //string filePath = "questions.json";   
-        Mathematics mathematics = new Mathematics();      
+    //LanguageQuestion languageQuestion = new LanguageQuestion(); --> används inte i klassen Program? ta bort?  
+    //Mainmetoden håller meny för de val som användaren gör initialt i programmet - väljer vad hen vill öva på. 
+    
+    public static void Main()
+    {           
+        HandleUser myhandleUser = new HandleUser(); 
+        var users = new List<User>();
+         myhandleUser.DefaultUser(users);
 
-        bool isRunning = true;
+        List<Question> questions = LoadFile.LoadAllQuestions("questions.json");
+
+        if (questions != null && questions.Count > 0) // Kontrollutskrift för att säkerställa att filinläsningen fungerar
+        {
+            Console.WriteLine($"Antal frågor inlästa: {questions.Count}");            
+        }
+        else
+        {
+            Console.WriteLine("Ingen data lästes in från JSON-filen.");
+        }
+
+        User currentUser = null;       
+                 
 
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("Välkommen till elev-Quiz!");
         Console.WriteLine("Välj det ämne som du vill öva på.");
-        Console.WriteLine("När du är klar kan du se vilket betyg dina poäng motsvarar i respektive ämne");
-        Console.WriteLine("Lycka till!");
+        Console.WriteLine("Väljer du att logga in sparas dina poäng, och du kan se vad dina poäng motsvarar i betyg");
         Console.WriteLine("*****************************************************************************");
-
+        Console.WriteLine("Vill du logga in, eller fortsätta utan att vara inloggad användare?");
+        Console.WriteLine();
+        Console.WriteLine("Klicka på tangenten [J] på ditt tangentbord för att logga in eller skapa en ny användare.");
+        Console.WriteLine("Vill du fortsätta utan att vara inloggad, klicka på [N]");
+        string userInput = Console.ReadLine();
+        if(userInput.ToLower() == "j")
+        {
+            currentUser = myhandleUser.LogInMenu(users);
+        }
+        else if(currentUser == null)
+        {
+            Console.WriteLine("Du fortsätter som gäst, och kommer inte att spara dina poäng");            
+        }       
+        
+        bool isRunning = true;
         while (isRunning)
         {
             Console.WriteLine();
             Console.WriteLine("Välj ett ämne:");
+            Console.WriteLine("-------------------------------");
             Console.WriteLine("1. Svenska");
             Console.WriteLine("2. Engelska");
             Console.WriteLine("3. Samhällsorienterande ämnen");
             Console.WriteLine("4. Matte");
             Console.WriteLine("5. Naturkunskap ");
-            Console.WriteLine("6. Se dina betyg i respektive ämne");
+            Console.WriteLine("-------------------------------------- ");
+            Console.WriteLine("6. Se vilket betyg dina poäng motsvarar");
             Console.WriteLine("7. Se samtliga frågor");
             Console.WriteLine("8. Avsluta programmet");
             Console.WriteLine();
             string choice = Console.ReadLine();
 
-            Subject currentSubject = null; //Variabeln sätter subject till tomt värde från början. I respektive ämne sätts därefter subject/ämne och möjliggör att rätt frågor laddas från filen. 
-
+            List<Question> subjectQuestions = null;            
+            string selectedSubject = ""; //Sätter ett initialvärde för variabeln, då det annars ger kompilator-fel. 
+            
             switch (choice)
             {
                 case "1":
+                    
                     Console.WriteLine("Svenska");
-                    currentSubject = new Subject("SV");                    
+                    selectedSubject = "SV";
+                    subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject); //Här bestäms vilka frågor som ska hämtas från filen till listan subjectQuestions
                     break;
-
+                                                     
+                
                 case "2":
                     Console.WriteLine("EN"); 
-                    currentSubject = new Subject("EN");
-                    LanguageQuestion.LanguageQuestionMenu();
-                    break;
+                    LanguageQuestion.LanguageQuestionMenu();                  
+                    continue;
 
                 case "3":
                     Console.WriteLine("Samhällsorienterande ämnen");
-                    currentSubject = new Subject("SO");
+                    selectedSubject = "SO"; 
+                    subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject); 
                     break;
 
                 case "4":
                     Console.WriteLine("Matte");
-                    //currentSubject = new Subject("EN"); 
-                    mathematics.MathMenu();            
-                    break;
+                    Mathematics myMathematics = new Mathematics();
+                    myMathematics.MathMenu();           
+                    continue; //Behöver sättas till continue för att jag inte använder mig av ämnen från questions-filen. 
 
                 case "5":
                     Console.WriteLine("Naturkunskap");
-                    currentSubject = new Subject("NA");                   
+                    selectedSubject = "NA"; 
+                    subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject);
+                              
                     break;
 
                 case "6":
-                    Console.WriteLine("Se dina betyg i respektive ämne"); //Logik för att räkna poäng behövs.  EJ PÅBÖRJAT!!!                 
-                    break;
+                    Console.WriteLine("Se dina poäng"); //Logik för att räkna poäng 
+                    foreach(var subject in currentUser.Score)
+                    {
+                        Console.WriteLine($"{subject.Key}: {subject.Value}");
+                    }               
+                    continue;
 
                 case "7":
                     Console.WriteLine("Adminklass:");//Här ska man kunna lägga in frågor och ev även kunna se olika elevers poäng!                  
@@ -78,11 +119,25 @@ class Program
 
                 default:
                     Console.WriteLine("Felaktig inmatning");
-                    break;
+                    continue;
             }
-            await currentSubject.LoadQuestionsAsync("questions.json");
-            await currentSubject.ChooseType();
+
+            if (subjectQuestions != null && subjectQuestions.Count > 0)
+                {
+                    HandleQuiz.ChooseQuestionMenu(subjectQuestions, selectedSubject, currentUser);//Här är når fel
+                }
+                else if (subjectQuestions != null && subjectQuestions.Count == 0)
+                {
+                    Console.WriteLine("Inga frågor hittades för det valda ämnet");
+                }
+                else
+                {
+                    Console.WriteLine("Tack för idag!");
+                }
+            
         }
+        
     }
     
+ 
 }

@@ -1,562 +1,172 @@
 [
     {
-        "Subject": "MA",
-        "Quest": "Vad är 2 + 2?",
-        "Answer": "4",
+        "Subject": "SV",
+        "Quest": "Vad heter Sveriges nationalskald?",
+        "Answer": "Carl Michael Bellman",
         "Points": 5,
-        "Options": ["1", "2", "3","4"]           
-        
+        "Keywords": ["Carl Michael Bellman", "Bellman"],
+        "Type": "fritext"
     },
     {
         "Subject": "SV",
-        "Quest": "Vad är huvudstaden i Sverige?",
-        "Answer": "Stockholm",
+        "Quest": "Vilken roman av Selma Lagerlöf handlar om Nils Holgerssons resa genom Sverige?",
+        "Answer": "Nils Holgerssons underbara resa genom Sverige",
         "Points": 5,
-        "Options": ["Göteborg", "Malmö", "Stockholm", "Uppsala"]  
+        "Keywords": ["Nils Holgerssons underbara resa genom Sverige", "Nils Holgersson"],
+        "Type": "fritext"
+    },
+    {
+        "Subject": "SO",
+        "Quest": "Vad heter FN:s förkortning för hållbar utveckling?",
+        "Answer": "SDG",
+        "Points": 5,
+        "Keywords": ["SDG", "hållbar utveckling"],
+        "Type": "fritext"
+    },
+    {
+        "Subject": "SO",
+        "Quest": "Vad hette den första svenska kvinnan som fick rösträtt?",
+        "Answer": "Elin Wägner",
+        "Points": 5,
+        "Keywords": ["Elin Wägner", "kvinnlig rösträtt"],
+        "Type": "fritext"
+    },
+    {
+        "Subject": "NA",
+        "Quest": "Vad är den kemiska formeln för vatten?",
+        "Answer": "H2O",
+        "Points": 5,
+        "Keywords": ["H2O", "vatten"],
+        "Type": "fritext"
+    },
+    {
+        "Subject": "NA",
+        "Quest": "Vilket organ i människokroppen filtrerar blod?",
+        "Answer": "Njuren",
+        "Points": 5,
+        "Keywords": ["Njuren", "njurar"],
+        "Type": "fritext"
+    },
+    {
+        "Subject": "NA",
+        "Quest": "Vad kallas läran om växter?",
+        "Answer": "Botanik",
+        "Points": 5,
+        "Keywords": ["Botanik"],
+        "Type": "fritext"
     },
     {
         "Subject": "SV",
-        "Quest": "Vilket år landade människan på månen?",
-        "Answer": "1969",
+        "Quest": "Vilken genre används för att beskriva berättelser med drakar och magi?",
+        "Answer": "Fantasy",
         "Points": 5,
-        "Options": ["1965", "1967", "1969", "1971"]  
+        "Keywords": ["Fantasy"],
+        "Type": "fritext"
+    },
+    {
+        "Subject": "SO",
+        "Quest": "Vad är Sveriges största sjö?",
+        "Answer": "Vänern",
+        "Points": 5,
+        "Keywords": ["Vänern", "sjö"],
+        "Type": "fritext"
     },
     {
         "Subject": "NA",
-        "Quest": "Vad är havets djupaste punkt?",
-        "Answer": "Marianergraven",
-        "Points": 5,
-        "Options": ["Östersjögraven","Djävulsgraven","Marianergraven","Berumdagraven"]  
-    },
-    
-    {
-        "Subject": "NA",
-        "Quest": "Vilket ämne har kemisk beteckning O?",
-        "Answer": "Syre",
-        "Points": 5,
-        "Options": ["Syre", "Järn", "Platinum", "Kryptonit"]  
-    },
-    {
-        "Subject": "NA",
-        "Quest": "Vilken planet är känd som den röda planeten?",
-        "Answer": "Mars",
-        "Points": 5,
-        "Options": ["Merkuris","Jorden","Venus","Mars"]  
-    },
-    {
-        "Subject": "NA",
-        "Quest": "Vad kallas den process där växter omvandlar ljus till energi?",
+        "Quest": "Vad kallas processen där växter omvandlar koldioxid till syre?",
         "Answer": "Fotosyntes",
         "Points": 5,
-        "Options": ["Fotosyntes","Celldelning","Magmifiering","Gejser"]  
+        "Keywords": ["Fotosyntes"],
+        "Type": "fritext"
+    },
+    {
+        "Subject": "SV",
+        "Quest": "Vad betyder ordet 'metafor'?",
+        "Answer": "Bildligt uttryck",
+        "Points": 5,
+        "Options": ["Bokstavligt uttryck", "Bildligt uttryck", "Framställning", "Berättelse"],
+        "Keywords": ["Bildligt uttryck"],
+        "Type": "flerval"
+    },
+    {
+        "Subject": "SV",
+        "Quest": "Vilken svensk poet skrev diktsamlingen 'Frostens barn'?",
+        "Answer": "Esaias Tegnér",
+        "Points": 5,
+        "Options": ["Carl Michael Bellman", "Esaias Tegnér", "August Strindberg", "Selma Lagerlöf"],
+        "Keywords": ["Esaias Tegnér"],
+        "Type": "flerval"
     },
     {
         "Subject": "SO",
-        "Quest": "På vilken kontinent ligger Australien på?",
-        "Answer": "Oceanien",
+        "Quest": "Vilken världsdel ligger Egypten i?",
+        "Answer": "Afrika",
         "Points": 5,
-        "Options": ["Indonesisa halvön","Burmesiska halvön", "Asiatiska kontinentalplattab", "Oceantien"]  
+        "Options": ["Asien", "Afrika", "Europa", "Sydamerika"],
+        "Keywords": ["Afrika"],
+        "Type": "flerval"
     },
     {
         "Subject": "SO",
-        "Quest": "Vilket år startade andra världskriget?",
-        "Answer": "1939",
+        "Quest": "Vad är namnet på den gamla kinesiska muren?",
+        "Answer": "Kinesiska muren",
         "Points": 5,
-        "Options": ["1935","1939","1941","1945"]  
+        "Options": ["Kinesiska muren", "Silkesvägen", "Himalaya", "Shanghai Tower"],
+        "Keywords": ["Kinesiska muren"],
+        "Type": "flerval"
     },
     {
         "Subject": "NA",
-        "Quest": "Vilken är den största arten av landlevande däggdjur?",
-        "Answer": "Elefant",
+        "Quest": "Vilket grundämne har den kemiska beteckningen O?",
+        "Answer": "Syre",
         "Points": 5,
-        "Options": ["Blåval", "Bisonoxe", "Elefant", "Mammut"]  
+        "Options": ["Kväve", "Syre", "Väte", "Klor"],
+        "Keywords": ["Syre", "O"],
+        "Type": "flerval"
     },
     {
         "Subject": "NA",
-        "Quest": "Vad är enheten för elektrisk ström?",
-        "Answer": "Ampere",
+        "Quest": "Vad är den största planeten i solsystemet?",
+        "Answer": "Jupiter",
         "Points": 5,
-        "Options": ["Volt", "Ohm", "Watt", "Ampere"]
+        "Options": ["Mars", "Jupiter", "Saturnus", "Venus"],
+        "Keywords": ["Jupiter"],
+        "Type": "flerval"
     },
     {
-        "Subject": "MA",
-        "Quest": "Vad är roten ur 9?",
-        "Answer": "3",
+        "Subject": "SV",
+        "Quest": "Vilken typ av berättelse är 'Kalevala'?",
+        "Answer": "Epos",
         "Points": 5,
-        "Options": ["1", "2", "3", "4"]  
+        "Options": ["Roman", "Saga", "Epos", "Novell"],
+        "Keywords": ["Epos", "Kalevala"],
+        "Type": "flerval"
     },
-    {   "Subject": "NA", 
-        "Quest": "Vad gör klorofyll?", 
-        "Answer": "Fångar solljus för fotosyntesen.", 
-        "Points": 5, 
-        "Options": ["Fångar solljus för fotosyntesen", "Skyddar växten mot insekter", "Hjälper till vid celldelning", "Främjar rotutveckling"],
-        "Keywords": ["fotosyntes", "solljus"]     
+    {
+        "Subject": "SO",
+        "Quest": "Vilken religion är störst i Indien?",
+        "Answer": "Hinduism",
+        "Points": 5,
+        "Options": ["Islam", "Buddhism", "Hinduism", "Kristendom"],
+        "Keywords": ["Hinduism"],
+        "Type": "flerval"
     },
-    
-    {   "Subject": "NA", 
-        "Quest": "Vad är fotosyntes?", 
-        "Answer": "Växternas process att omvandla ljus till energi.", 
-        "Points": 5, 
-        "Options": ["Växternas process att omvandla ljus till energi", "Växternas vattenupptagningsprocess", "En process för att skydda växten", "Nedbrytning av döda växtdelar"], 
-        "Keywords": ["omvandlar", "ljus"]
+    {
+        "Subject": "NA",
+        "Quest": "Vad är pH-värdet för rent vatten?",
+        "Answer": "7",
+        "Points": 5,
+        "Options": ["5", "6", "7", "8"],
+        "Keywords": ["7"],
+        "Type": "flerval"
     },
-    
-    {   "Subject": "NA", 
-        "Quest": "Vad är DNA?", 
-        "Answer": "Arvsmassan som innehåller genetisk information.", 
-        "Points": 5, 
-        "Options": ["Arvsmassan som innehåller genetisk information", "En form av protein i cellerna", "Ett hormon i kroppen", "Ett kemiskt ämne för energilagring"],
-        "Keywords": ["arvsmassa", "genetisk"] 
-    },
-    
-    {   "Subject": "NA", 
-        "Quest": "Vad är en atom?", 
-        "Answer": "Den minsta enheten av ett grundämne.", 
-        "Points": 5, 
-        "Options": ["Den minsta enheten av ett grundämne", "En molekyls byggsten", "En liten del av en cell", "En kemisk förening"],
-        "Keywords": ["grundämne", "solljus"] 
-    },
-    
-    {   "Subject": "NA", 
-        "Quest": "Vad är ett grundämne?", 
-        "Answer": "Ett ämne som består av bara en sorts atomer.", 
-        "Points": 5, 
-        "Options": ["Ett ämne som består av bara en sorts atomer", "En kemisk förening av olika atomer", "Ett ämne med flera molekyler", "En blandning av olika metaller"],
-        "Keywords": ["en", "atomer"] 
-    },
-    
-    {   "Subject": "NA", 
-        "Quest": "Vad är en molekyl?", 
-        "Answer": "Två eller fler atomer bundna tillsammans.", 
-        "Points": 5, 
-        "Options": ["Två eller fler atomer bundna tillsammans", "En enskild atom", "En del av en cellkärna", "Ett slags grundämne"],
-        "Keywords": ["atomer", "bundna"]
-    },
-    
-    {   "Subject": "NA", 
-        "Quest": "Vad är ekosystem?", 
-        "Answer": "Ett område där organismer samverkar med miljön.", 
-        "Points": 5, 
-        "Options": ["Ett område där organismer samverkar med miljön", "En specifik växts livscykel", "Ett system för energilagring", "Ett samspel mellan celler i kroppen"],
-        "Keywords": ["organismer", "samverkar"]
-    },
-    
-    {   "Subject": "NA", 
-        "Quest": "Vad är ett rovdjur?", 
-        "Answer": "Ett djur som äter andra djur.", 
-        "Points": 5, 
-        "Options": ["Ett djur som äter andra djur", "Ett djur som enbart äter växter", "En växtätande insekt", "En art av fiskar"],
-        "Keywords": ["köttätare", "äter", "djur"] 
-    },
-    
-    {   "Subject": "NA", 
-        "Quest": "Vad är evolution?", 
-        "Answer": "Långsam förändring av arter över tid.", 
-        "Points": 5, 
-        "Options": ["Långsam förändring av arter över tid", "Omedelbar förändring hos en art", "Enskilds individers anpassning", "Förändringar av cellens struktur"],
-        "Keywords": ["långsam", "förändring", "arter"]
-    },
-    
-    {   "Subject": "NA", 
-        "Quest": "Vad är förbränning?", 
-        "Answer": "En kemisk reaktion där energi frigörs från bränsle.", 
-        "Points": 5, 
-        "Options": ["En kemisk reaktion där energi frigörs från bränsle", "Processen att lagra energi i kroppen", "Omvandling av ljus till energi", "Utsläpp av syre i atmosfären"],
-        "Keywords": ["kemisk", "reaktion", "frigör", "bränsle"] 
-    },
-    
-    {   "Subject": "NA", 
-        "Quest": "Vad är energi?", 
-        "Answer": "Förmågan att utföra arbete eller skapa rörelse.", 
-        "Points": 5, 
-        "Options": ["Förmågan att utföra arbete eller skapa rörelse", "Ett ämne som lagrar syre", "Värme som produceras av kemiska reaktioner", "En del av en atomkärna"],
-        "Keywords": ["energi", "arbete", "rörelse", "kraft"] 
-    },
-    
-    {   "Subject": "NA", 
-        "Quest": "Vad är en konsument i ekosystemet?", 
-        "Answer": "En organism som äter andra organismer för energi.", 
-        "Points": 5, 
-        "Options": ["En organism som äter andra organismer för energi", "En organism som producerar egen energi", "En nedbrytare av döda växter", "En växt som binder kväve"],
-        "Keywords": ["konsument", "ekosystem", "organism", "energi"] 
-    },
-    
-    {   "Subject": "NA", 
-        "Quest": "Vad är en producent i ekosystemet?", 
-        "Answer": "En organism, som växter, som tillverkar egen energi.", 
-        "Points": 5, 
-        "Options": ["En organism, som växter, som tillverkar egen energi", "En organism som äter andra för energi", "En organism som bryter ner organiska ämnen", "En parasit på träd och buskar"],
-        "Keywords": ["producent", "ekosystem", "organism", "energi", "växter"] 
-    },
-    
-    {   "Subject": "NA", 
-        "Quest": "Vad är ett kretslopp?", 
-        "Answer": "En cykel där ämnen cirkulerar i naturen.", 
-        "Points": 5, 
-        "Options": ["En cykel där ämnen cirkulerar i naturen", "Ett rovdjurs jaktmönster", "Ett årstidsbaserat beteende", "En engångsprocess i ekosystemet"],
-        "Keywords": ["kretslopp", "ämnen", "cirkulation", "natur"] 
-    },
-    
-    {   "Subject": "NA", 
-        "Quest": "Vad är ozonlagret?", 
-        "Answer": "Ett lager i atmosfären som skyddar mot UV-strålning.", 
-        "Points": 5, 
-        "Options": ["Ett lager i atmosfären som skyddar mot UV-strålning", "Ett lager som fångar in syre", "En gasblandning nära marknivå", "En del av jordens kärna"],
-        "Keywords": ["ozonlagret", "atmosfär", "UV-strålning"]
-    },
-    
-    {   "Subject": "NA", 
-        "Quest": "Vad är syre?", 
-        "Answer": "En gas som behövs för cellandning.", 
-        "Points": 5, 
-        "Options": ["En gas som behövs för cellandning", "En syra i blodet", "Ett fast ämne i celler", "En metall"],
-        "Keywords": ["syre", "gas", "cellandning"] 
-    },
-    
-    {   "Subject": "NA", 
-        "Quest": "Vad är koldioxid?", 
-        "Answer": "En gas som växter använder i fotosyntesen.", 
-        "Points": 5, 
-        "Options": ["En gas som växter använder i fotosyntesen", "En energikälla i celler", "En vätska i blodomloppet", "Ett mineral i jordskorpan"],
-        "Keywords": ["koldioxid", "gas", "fotosyntes", "växter"] 
-    },
-    
-    {   "Subject": "NA", 
-        "Quest": "Vad är global uppvärmning?", 
-        "Answer": "En ökning av jordens medeltemperatur.", 
-        "Points": 5, 
-        "Options": ["En ökning av jordens medeltemperatur", "En minskning av ozonlagret", "En kylande effekt av klimatet", "En väderomväxling över kort tid"],
-        "Keywords": ["global uppvärmning", "jordens temperatur", "klimatförändring"] 
-    },
-    
-    {   "Subject": "NA", 
-        "Quest": "Vad är hållbar utveckling?", 
-        "Answer": "Utveckling som inte skadar framtida generationers möjligheter.", 
-        "Points": 5, 
-        "Options": ["Utveckling som inte skadar framtida generationers möjligheter", "Resursslöseri för snabb tillväxt", "Endast miljöskydd utan ekonomisk tillväxt", "Kortvarig resursanvändning"],
-        "Keywords": ["hållbar utveckling", "framtid", "resurser", "generationer"] 
-    },
-
-
-    {   "Subject": "SV", 
-        "Quest": "Vad är ett substantiv?", 
-        "Answer": "Namn på saker, personer och platser.", 
-        "Points": 5, 
-        "Options": ["Namn på saker, personer och platser", "Ord som beskriver handlingar", "Ord som beskriver egenskaper", "Ord som ersätter substantiv"],
-        "Keywords": ["substantiv", "namn", "saker", "personer", "platser"] 
-    },
-    
-    {   "Subject": "SV", 
-        "Quest": "Vad är ett verb?", 
-        "Answer": "Ord som beskriver handlingar eller tillstånd.", 
-        "Points": 5, 
-        "Options": ["Ord som beskriver handlingar eller tillstånd", "Namn på personer och platser", "Ord som ersätter substantiv", "Ord som beskriver egenskaper"],
-        "Keywords": ["verb", "handling", "tillstånd"]
-    },
-    
-    {   "Subject": "SV", 
-        "Quest": "Vad är ett adjektiv?", 
-        "Answer": "Ord som beskriver egenskaper hos substantiv.", 
-        "Points": 5, 
-        "Options": ["Ord som beskriver egenskaper hos substantiv", "Ord som uttrycker känslor", "Namn på handlingar", "Ord som ersätter pronomen"],
-        "Keywords": ["adjektiv", "egenskaper", "substantiv"]
-       
-    },
-    
-    {   "Subject": "SV", 
-        "Quest": "Vad är ett pronomen?", 
-        "Answer": "Ord som ersätter substantiv, t.ex. han, hon, det.", 
-        "Points": 5, 
-        "Options": ["Ord som ersätter substantiv, t.ex. han, hon, det", "Namn på en specifik person", "Ord som beskriver platser", "Ord som uttrycker tillstånd"],
-        "Keywords": ["pronomen", "ersätta", "substantiv"]  
-    },
-    
-    {   "Subject": "SV", 
-        "Quest": "Vad är en synonym?", 
-        "Answer": "Ord som betyder ungefär samma sak.", 
-        "Points": 5, "Options": ["Ord som betyder ungefär samma sak", "Ord med motsatt betydelse", "Ord som rimmar med varandra", "Ord som används i liknelser"],
-        "Keywords": ["synonym", "lika betydelse", "ord"] 
-    },
-    
-    {   "Subject": "SV", 
-        "Quest": "Vad är en antonym?", 
-        "Answer": "Ord med motsatt betydelse.", 
-        "Points": 5, 
-        "Options": ["Ord med motsatt betydelse", "Ord som rimmar", "Ord som används i dikter", "Ord som beskriver känslor"],
-        "Keywords": ["antonym", "motsats", "ord"] 
-    },
-    
-    {   "Subject": "SV", 
-        "Quest": "Vad är en metafor?", 
-        "Answer": "Bildspråk som jämför utan 'som'.", 
-        "Points": 5, 
-        "Options": ["Bildspråk som jämför utan 'som'", "En jämförelse med 'som'", "En typ av rim", "En stilfigur i prosa"],
-        "Keywords": ["metafor", "bildspråk", "jämförelse"] 
-    },
-    
-    {   "Subject": "SV", 
-        "Quest": "Vad är en liknelse?", 
-        "Answer": "Bildspråk som jämför med 'som'.", 
-        "Points": 5, 
-        "Options": ["Bildspråk som jämför med 'som'", "En bild utan jämförelse", "En stilfigur i poesi", "En typ av dialog"],
-        "Keywords": ["liknelse", "bildspråk", "jämförelse"]
-    },
-    
-    {   "Subject": "SV", 
-        "Quest": "Vad är en dikt?", 
-        "Answer": "En text med rytm och ibland rim.", 
-        "Points": 5, 
-        "Options": ["En text med rytm och ibland rim", "En kort berättelse", "En typ av dialog", "En roman i versform"],
-        "Keywords": ["dikt", "vers", "rim", "rytmer"] 
-    },
-    
-    {   "Subject": "SV", 
-        "Quest": "Vad är ett rim?", 
-        "Answer": "Ord som låter lika i slutet.", 
-        "Points": 5, 
-        "Options": ["Ord som låter lika i slutet", "Ord som betyder samma sak", "Ord med motsatt betydelse", "Ord som används i metaforer"],
-        "Keywords": ["rim", "ljud", "ord"] 
-    },
-    
-    {   "Subject": "SV", 
-        "Quest": "Vad är ett tema i en berättelse?", 
-        "Answer": "Berättelsens huvudämne eller budskap.", 
-        "Points": 5, 
-        "Options": ["Berättelsens huvudämne eller budskap", "En specifik karaktär", "Stilen på berättelsen", "Antalet kapitel i berättelsen"],
-        "Keywords": ["tema", "berättelse", "budskap"] 
-    },
-    
-    {   "Subject": "SV", 
-        "Quest": "Vad är en roman?", 
-        "Answer": "En längre berättelse i bokform.", 
-        "Points": 5, 
-        "Options": ["En längre berättelse i bokform", "En kort berättelse", "En typ av dikt", "En samling av artiklar"],
-        "Keywords": ["roman", "berättelse", "bokform"] 
-    },
-    
-    {   "Subject": "SV", 
-        "Quest": "Vad är en novell?", 
-        "Answer": "En kort berättelse med få karaktärer.", 
-        "Points": 5, 
-        "Options": ["En kort berättelse med få karaktärer", "En längre berättelse med många karaktärer", "En typ av dikt", "En roman i versform"],
-        "Keywords": ["novell", "kort berättelse", "karaktärer"] 
-    },
-    
-    {   "Subject": "SV", 
-        "Quest": "Vad är ett komparativ?", 
-        "Answer": "Steg två i att jämföra adjektiv, t.ex. bättre.", 
-        "Points": 5, 
-        "Options": ["Steg två i att jämföra adjektiv, t.ex. bättre", "Högsta formen av adjektiv", "En typ av substantiv", "Ord som beskriver känslor"],
-        "Keywords": ["komparativ", "adjektiv", "jämförelse"] 
-    },
-    
-    {   "Subject": "SV", 
-        "Quest": "Vad är ett superlativ?", 
-        "Answer": "Högsta jämförelseformen av adjektiv, t.ex. bäst.", 
-        "Points": 5, 
-        "Options": ["Högsta jämförelseformen av adjektiv, t.ex. bäst", "Steg ett i att jämföra adjektiv", "En form av substantiv", "Ord med motsatt betydelse"], 
-        "Keywords": ["superlativ", "adjektiv", "högsta form", "bäst"]
-    },
-    
-    {   "Subject": "SV", 
-        "Quest": "Vad är en dialog?", 
-        "Answer": "Ett samtal mellan två eller flera personer.", 
-        "Points": 5, 
-        "Options": ["Ett samtal mellan två eller flera personer", "Ett längre tal av en person", "En typ av text utan tal", "En samling av rim"],
-        "Keywords": ["dialog", "samtal", "personer"] 
-    },
-    
-    {   "Subject": "SV", 
-        "Quest": "Vad är en monolog?", 
-        "Answer": "Ett längre tal av en person.", 
-        "Points": 5, 
-        "Options": ["Ett längre tal av en person", "Ett samtal mellan flera personer", "En typ av dikt", "En kort text"],
-        "Keywords": ["monolog", "tal", "person"]
-    },
-    
-    {   "Subject": "SV", 
-        "Quest": "Vad är ett presens?", 
-        "Answer": "Verbform för nutid, t.ex. springer.", 
-        "Points": 5, 
-        "Options": ["Verbform för nutid, t.ex. springer", "Verbform för dåtid, t.ex. sprang", "En typ av substantiv", "En orddel som förändrar betydelse"],
-        "Keywords": ["presens", "verbform", "nutid"]
-    },
-    
-    {   "Subject": "SV", 
-        "Quest": "Vad är ett preteritum?", 
-        "Answer": "Verbform för dåtid, t.ex. sprang.", 
-        "Points": 5, 
-        "Options": ["Verbform för dåtid, t.ex. sprang", "Verbform för nutid, t.ex. springer", "En typ av verb som beskriver tillstånd", "En orddel i början av ord"], 
-        "Keywords": ["preteritum", "verbform", "dåtid"]
-    },
-    
-    {   "Subject": "SV", 
-        "Quest": "Vad är ett prefix?", 
-        "Answer": "En orddel som läggs i början och ändrar ordets betydelse.", 
-        "Points": 5, 
-        "Options": ["En orddel som läggs i början och ändrar ordets betydelse", "En del av en mening", "En typ av substantiv", "Ett synonym till suffix"],
-        "Keywords": ["prefix", "orddel", "betydelse"]
-    },
-    
-    {   "Subject": "SO", 
-        "Quest": "Vad är demokrati?", 
-        "Answer": "Folkstyre.", 
-        "Points": 5, 
-        "Options": ["Monarki", "Folkstyre", "Envälde", "Diktatur"],
-        "Keywords": ["demokrati", "folkstyre", "politik", "folket", "rösta"]
-         
-    },
-    
-    {   "Subject": "SO", 
-        "Quest": "Vad är en diktatur?", 
-        "Answer": "Envälde, utan folkets inflytande.", 
-        "Points": 5, 
-        "Options": ["Envälde, utan folkets inflytande", "Demokrati", "Republik", "Folkstyre"],
-        "Keywords": ["diktatur", "envälde", "politik", "inflytande"]
-    },
-    
-    {   "Subject": "SO", 
-        "Quest": "Vad gör riksdagen?", 
-        "Answer": "Stiftar lagar och beslutar om budgeten.", 
-        "Points": 5, 
-        "Options": ["Styr landet", "Representerar folket", "Stiftar lagar och beslutar om budgeten","Skriver konstitutionen"],
-        "Keywords": ["lagstiftning", "budget", "beslut", "beslutar"] 
-    },
-    
-    {   "Subject": "SO", 
-        "Quest": "Vad är regeringens uppgift?", 
-        "Answer": "Att styra landet och verkställa lagar.", 
-        "Points": 5, 
-        "Options": ["Att styra landet och verkställa lagar", "Stifta lagar", "Sköta lokalpolitik", "Representera folket i EU"],
-        "Keywords": ["regering", "styra", "lagar", "verkställa", "verkställer"] 
-    },
-    
-    {   "Subject": "SO", 
-        "Quest": "Vad är en grundlag?", 
-        "Answer": "En viktig lag som skyddar demokratin.", 
-        "Points": 5, 
-        "Options": ["En lag för ekonomisk styrning", "En viktig lag som skyddar demokratin", "En lag som kan ändras lätt", "En lokal lag"],
-        "Keywords": ["viktig", "demokrati", "lag"]
-        
-     },
-    
-    {   "Subject": "SO", 
-        "Quest": "Hur många grundlagar har Sverige?", 
-        "Answer": "Fyra.", 
-        "Points": 5, 
-        "Options": ["Två", "Tre", "Fyra", "Fem"] 
-    },
-    
-    {   "Subject": "SO", 
-        "Quest": "Vad är en kommun?", 
-        "Answer": "Ett lokalt självstyre.", 
-        "Points": 5, 
-        "Options": ["En del av regeringen", "En typ av stat", "En internationell organisation"],
-        "Keywords": ["kommun", "självstyre", "lokalpolitik"] 
-    },
-    
-    {   "Subject": "SO", 
-        "Quest": "Vad är skatt?", 
-        "Answer": "Avgift till stat och kommun för samhällstjänster.",
-        "Points": 5, 
-        "Options": ["Avgift till stat och kommun för samhällstjänster", "En belöning för arbete", "En typ av avgift för företag", "Pengar som ges till välgörenhet"],
-        "Keywords": ["skatt", "avgift", "samhälle", "stat"]
-    },
-    
-    {   "Subject": "SO",
-         "Quest": "Vad innebär tryckfrihet?", 
-         "Answer": "Rätten att skriva fritt.", 
-         "Points": 5, 
-         "Options": ["Rätten att läsa böcker", "Rätten att skriva fritt", "Rätten att uttrycka åsikter", "Rätten att publicera filmer"], 
-         "Keywords": ["rätt", "skriva", "fritt"]
-    },
-    
-    {   "Subject": "SO", 
-        "Quest": "Vad gör en domstol?", 
-        "Answer": "Avgör om någon brutit mot lagen.", 
-        "Points": 5, 
-        "Options": ["Stiftar lagar","Avgör om någon brutit mot lagen", "Representerar folket", "Arbetar med skatter"],
-        "Keywords": ["brutit", "mot", "lag", "rättvisa"]
-    },
-    
-    {   "Subject": "SO", 
-        "Quest": "Vad är rättssäkerhet?", 
-        "Answer": "Lagen ska behandla alla lika.", 
-        "Points": 5, 
-        "Options": [ "Lagen är olika för olika personer", "Rätten att välja advokat", "Lagen ska behandla alla lika","Rätten till en rättvis rättegång"],
-        "Keywords": ["lag", "lika behandling"]
-    },
-    
-    {   "Subject": "SO", 
-        "Quest": "Vad är välfärd?", 
-        "Answer": "Samhällets stöd för utbildning, vård och omsorg.", 
-        "Points": 5, 
-        "Options": ["Samhällets stöd för utbildning, vård och omsorg", "Ekonomiskt stöd till företag", "Kulturell verksamhet", "Stöd för idrottsaktiviteter"],
-        "Keywords": ["välfärd", "samhälle", "utbildning", "vård"]
-    },
-    
-    {   "Subject": "SO", 
-        "Quest": "Vad betyder offentlig sektor?", 
-        "Answer": "Den del av samhället som drivs av staten.", 
-        "Points": 5, 
-        "Options": ["Icke vinstdrivande organisationer", "Den del av samhället som drivs av staten", "Privata företag", "Internationella företag"] 
-    },
-    
-    {   "Subject": "SO", 
-        "Quest": "Vad är EU?", 
-        "Answer": "En union av europeiska länder.", 
-        "Points": 5, 
-        "Options": ["En militärallians","En union av europeiska länder",  "En ekonomisk organisation", "En kulturorganisation"] 
-    },
-    
-    {   "Subject": "SO", 
-        "Quest": "Vad är FN?", 
-        "Answer": "En organisation för internationellt samarbete och fred.", 
-        "Points": 5, 
-        "Options": ["En organisation för internationellt samarbete och fred", "En politisk organisation", "En ekonomisk allians", "En kulturorganisation"] 
-    },
-    
-    {   "Subject": "SO", 
-        "Quest": "Vad innebär mänskliga rättigheter?", 
-        "Answer": "Grundläggande rättigheter för alla människor.", 
-        "Points": 5, 
-        "Options": ["Rättigheter för medborgare i ett land","Grundläggande rättigheter för alla människor", "Rättigheter för företag", "Rättigheter för politiska partier"] 
-         
-    },
-    
-    {   "Subject": "SO", 
-        "Quest": "Vad är en folkomröstning?", 
-        "Answer": "Direkt omröstning i en fråga.", 
-        "Points": 5, 
-        "Options": ["En omröstning i riksdagen", "En typ av val", "En opinionsundersökning", "Direkt omröstning i en fråga"] 
-    },
-    
-    {   "Subject": "SO", 
-        "Quest": "Vad betyder globalisering?", 
-        "Answer": "Att världen knyts närmare genom samarbete.", 
-        "Points": 5, 
-        "Options": ["Att länder isoleras från varandra", "Att kulturella skillnader ökar", "Att världen knyts närmare genom samarbete","Att ekonomisk tillväxt minskar"] 
-    },
-    
-    {   "Subject": "SO", 
-        "Quest": "Vad är media?", 
-        "Answer": "Kanaler som sprider information till allmänheten.", 
-        "Points": 5, 
-        "Options": [ "En typ av underhållning","Kanaler som sprider information till allmänheten", "En form av utbildning", "En organisation för journalister"] 
-    },
-    
-    {   "Subject": "SO", 
-        "Quest": "Vad är yttrandefrihet?", 
-        "Answer": "Rätten att uttrycka sig fritt.", 
-        "Points": 5, 
-        "Options": ["Rätten att föra en debatt","Rätten att uttrycka sig fritt", "Rätten att skriva lagar", "Rätten att vara anonym"] 
+    {
+        "Subject": "SO",
+        "Quest": "Vilket år inträffade franska revolutionen?",
+        "Answer": "1789",
+        "Points": 5,
+        "Options": ["1776", "1789", "1804", "1815"],
+        "Keywords": ["1789"],
+        "Type": "flerval"
     }
-
-
 ]
-
-
-
-
-
-

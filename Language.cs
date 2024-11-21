@@ -33,49 +33,49 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
         while(isRunning)
         {
             
-            System.Console.WriteLine("Gör ett av följande val: ");
-            System.Console.WriteLine("1. Lägg till glosor till ordboken");
-            System.Console.WriteLine("2. Öva på glosor");
-            System.Console.WriteLine("3. Lägg till ord i meningar");
-            System.Console.WriteLine("4. Se samtliga frågor"); //Admin behörighet?
-            System.Console.WriteLine("5. Återgå till hvudmenyn");
+            Console.WriteLine("Gör ett av följande val: ");
+            Console.WriteLine("1. Lägg till glosor till ordboken");
+            Console.WriteLine("2. Öva på glosor");
+            Console.WriteLine("3. Lägg till ord i meningar");//Ej påbörjat
+            Console.WriteLine("4. Se samtliga frågor"); //Admin behörighet?
+            Console.WriteLine("5. Återgå till hvudmenyn");
             string input = Console.ReadLine();
 
             switch(input)
             {
                 case "1":
                 {
-                    System.Console.WriteLine();
+                    Console.WriteLine();
                     languageQuestions.GlossaryAddWord(); //Här återgår jag till ChooseType, vilket jag inte vill. VARFÖR???
                     break;
                 }
                 case "2":
                 {
-                    System.Console.WriteLine("---Öva på glosor---");
+                    Console.WriteLine("---Öva på glosor---");
                     languageQuestions.PracticeGlossary();
                     break;
                 }
                  case "3":
                 {
-                    System.Console.WriteLine("---Ersätt ord i meningar---");
+                    Console.WriteLine("---Ersätt ord i meningar---");
                     break;
                 }
                 case "4":
                 {
-                    System.Console.WriteLine(); 
+                    Console.WriteLine(); 
                     languageQuestions.PrintGlossary();//Skriver ut frågor - både hårdkodade och egentillagda
                     
                     break;
                 }
                 case "5":
                 {
-                    System.Console.WriteLine("---Återgå till hvudmenyn---"); //Här återgår jag till ChooseType, vilket jag inte vill. ÄNDRA!
+                    Console.WriteLine("---Återgå till hvudmenyn---"); //Här återgår jag till ChooseType, vilket jag inte vill. ÄNDRA!
                     isRunning = false;
                     break;
                 }
                 default:
                 {
-                    System.Console.WriteLine("Felaktig inmatning! Ange en siffra mellan 1 och 4.");//Kan behöva ändras om ytterligare alternativ tillkommer. 
+                    Console.WriteLine("Felaktig inmatning! Ange en siffra mellan 1 och 4.");//Kan behöva ändras om ytterligare alternativ tillkommer. 
                     break;
                 }
             }
@@ -86,21 +86,21 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
         bool isRunning = true;
         while(isRunning)
         {
-            System.Console.WriteLine("---Här lägger du till de glosor som du vill öva på--- ");
-            System.Console.WriteLine();
+            Console.WriteLine("---Här lägger du till de glosor som du vill öva på--- ");
+            Console.WriteLine();
         
-            System.Console.Write("Skriv in ordet på svenska: ");
+            Console.Write("Skriv in ordet på svenska: ");
             string glossSwedish = Console.ReadLine();//lägger till det svenska ordet i dictionary!
             
-            System.Console.Write("Skriv in ordet på engelska: ");
+            Console.Write("Skriv in ordet på engelska: ");
             string glossEnglish = Console.ReadLine(); // Lägg till det engelska ordet i dictionary!
 
             glossary[glossSwedish] = glossEnglish;
            
-            System.Console.WriteLine($"Glosan {glossSwedish} - {glossEnglish} har lagts till i ordboken");
-            System.Console.WriteLine("------------------------------------------------------------------");
+            Console.WriteLine($"Glosan {glossSwedish} - {glossEnglish} har lagts till i ordboken");
+            Console.WriteLine("------------------------------------------------------------------");
 
-            System.Console.WriteLine("Vill du lägga till ytterligare frågor? Klicka på tangenten [J]");
+            Console.Write("Vill du lägga till ytterligare frågor? Klicka på tangenten [J]");
             string userInput = Console.ReadLine(); 
 
             if(userInput.ToLower() != "j")
@@ -112,11 +112,10 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
 
     public void PrintGlossary() //Metod för att skriva ut samtliga frågor, både hårdkodade och tillagda. 
     {
-        DefaultGlossary();
-        
+        DefaultGlossary();        
         {            
             foreach(var keyValuePair in glossary)
-            System.Console.WriteLine($"Svenska: {keyValuePair.Key} // Engelska: {keyValuePair.Value}");            
+            Console.WriteLine($"Svenska: {keyValuePair.Key} // Engelska: {keyValuePair.Value}");            
         }     
     } 
 
@@ -128,34 +127,34 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
 
         foreach(var gloss in rndGlossary)
         {
-            System.Console.WriteLine($"Skriv ordet '{gloss.Key}' på engelska");
+            Console.WriteLine($"Skriv ordet '{gloss.Key}' på engelska");
             string userAnswer = Console.ReadLine();
 
             if(userAnswer.Equals(gloss.Value,StringComparison.OrdinalIgnoreCase))
             {
-                System.Console.WriteLine("Du svarade rätt!"); //Lägg till logik för att lägga till poäng i lista! //Fast har ju inga poäng för
+                Console.WriteLine("Du svarade rätt!"); //Lägg till logik för att lägga till poäng i lista! //Fast har ju inga poäng för
             }
             else
             {
-                System.Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {gloss.Value}"); //Lägger till fel svar i en lista för fel svar. 
+                Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {gloss.Value}"); //Lägger till fel svar i en lista för fel svar. 
                 wrongAnswers.Add(gloss.Key);                
             }
         }
 
         if(wrongAnswers.Count > 0)
         {
-            System.Console.WriteLine("--------------------------------------------");
-            System.Console.WriteLine("Samtliga glosor besvarade");
-            System.Console.Write("Vill du öva på de frågor där du svarat fel?");
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("Samtliga glosor besvarade");
+            Console.Write("Vill du öva på de frågor där du svarat fel?");
             string userAnswer = Console.ReadLine();
 
             if(userAnswer.ToLower() == "j")
             {
-                PracticeWrongAnswers();
+                PracticeWrongGlossary();
             }            
         }      
     }   
-    public void PracticeWrongAnswers() //Metod för att öva på de glosor där anv svarat fel. 
+    public void PracticeWrongGlossary() //Metod för att öva på de glosor där anv svarat fel. 
     {
         foreach(var q in wrongAnswers)
         {
@@ -164,13 +163,13 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
 
             if(userAnswer.Equals(glossary[q], StringComparison.OrdinalIgnoreCase))
             {
-                System.Console.WriteLine("Bra jobbat! Denna gång svarade du rätt!");
+                Console.WriteLine("Bra jobbat! Denna gång svarade du rätt!");
                 System.Console.WriteLine();
             }
             else
             {
-                System.Console.WriteLine($"Ditt svar är tyvärr fel. Rätt svar är {glossary[q]}");
-                System.Console.WriteLine();
+                Console.WriteLine($"Ditt svar är tyvärr fel. Rätt svar är {glossary[q]}");
+                Console.WriteLine();
             }
         }
         wrongAnswers.Clear();      
