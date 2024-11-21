@@ -124,7 +124,7 @@ class Program
 
             if (subjectQuestions != null && subjectQuestions.Count > 0)
                 {
-                    HandleQuiz.ChooseQuestionMenu(subjectQuestions, selectedSubject, currentUser);
+                    HandleQuiz.ChooseQuestionMenu(subjectQuestions, selectedSubject, currentUser);//Här är når fel
                 }
                 else if (subjectQuestions != null && subjectQuestions.Count == 0)
                 {

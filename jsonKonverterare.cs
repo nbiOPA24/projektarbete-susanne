@@ -1,4 +1,4 @@
-using System;
+
 using System.Text.Json;
 using System.Text.Json.Serialization;
 //OBS! Koden in denna fil är INTE min utan kopierad rakt från chatGPT pga fick inte json-filen att deserialiseras på rätt sätt,

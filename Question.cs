@@ -50,28 +50,7 @@ public class Question
 
         return false;
     } 
-    /*public void ProbeQuestion(List<Question>questions)
-    {
-        var rnd = new Random();
-        var selectedQuestions = questions.OrderBy(q => rnd.Next()).Take(5).ToList();
-
-        foreach(var question in selectedQuestions)
-        {
-            question.AskQuestion();
-            string userAnswer = Console.ReadLine();
-
-            if(question.IsAnswerCorrect(userAnswer))
-            {
-                Console.WriteLine("Ditt svar var rätt!");
-            }
-            else
-            {
-                Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {question.Answer}");
-                WrongAnswers.Add(question);
-            }
-            System.Console.WriteLine();
-        }
-    }*/
+    
      public static void PracticeWrongAnswers()
     {
         if(WrongAnswers == null && WrongAnswers.Count == 0)
@@ -142,7 +121,7 @@ public class MultipleChoiceQuestion : Question
     {
         if(int.TryParse(userAnswer, out int index))
         {
-            if(index >0 && index <= Options.Count)
+            if(index > 0 && index <= Options.Count)
             {
                 bool isCorrect = Options[index -1].Equals(Answer, StringComparison.OrdinalIgnoreCase);
                 if (!isCorrect)
