@@ -88,6 +88,8 @@ public class HandleUser //Ändrar klassen från statisk till ickestatisk, då en
         Console.Write("Skriv ett lösenord: ");
         string newUserPassword = Console.ReadLine();
 
+        Console.WriteLine("Du har nu skapat ett inlogg till programmet. Välkommen!");        
+
         var newUser = new User(newUserName, newUserPassword); 
         newUser.Score.Add("SV", 0); //Sätter det initiala värdet för poäng per ämne till 0 i dictionaryn för Score. 
         newUser.Score.Add("NA", 0);

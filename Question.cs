@@ -38,15 +38,30 @@ public class TextQuestion : Question
         if(userAnswer.ToLower() == CorrectAnswer.ToLower())
         {
             Console.WriteLine("Ditt svar var rätt!");
-            if(user.Score.ContainsKey(SubjectType.ToString()))
+            if(user == null)
             {
-                user.Score[SubjectType.ToString()] += Points;
+                Console.WriteLine();//Tom rad - poäng sparas inte eftersom användaren inte är inloggad aktör. 
             }
+
+            else if (user != null && user.Score.ContainsKey(SubjectType.ToString()))
+            {
+                
+                user.Score[SubjectType.ToString()] += Points;            }                
+            
         }
         else
         {
             Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {CorrectAnswer}");
-            user.AddWrongAnswer(this);
+
+            if(user == null)
+            {
+                Console.WriteLine(); //Tom rad - frågan sparas inte eftersom användaren inte är inloggad aktör. 
+            }
+            else if(user != null)
+            {
+                 user.AddWrongAnswer(this);
+            }
+           
         }
     }
 
@@ -73,7 +88,13 @@ public class MultipleChoiceQuestion : Question
         if(int.TryParse(Console.ReadLine(), out int userAnswer) && userAnswer > 0 && userAnswer <= Options.Count && Options[userAnswer -1].ToLower() == CorrectAnswer.ToLower())
         {
             Console.WriteLine("Ditt svar var rätt!");
-            if(user.Score.ContainsKey(SubjectType.ToString()))
+            if(user == null)
+            {
+                Console.WriteLine("");//Tom rad - poäng sparas inte eftersom användaren inte är inloggad aktör. 
+            }
+
+
+            else if (user != null && user.Score.ContainsKey(SubjectType.ToString()))
             {
                 user.Score[SubjectType.ToString()] += Points;
             }
@@ -81,7 +102,17 @@ public class MultipleChoiceQuestion : Question
         else
         {
             Console.WriteLine($"Ditt svar var tyvärr fel. Rätt svar är {CorrectAnswer}");
-            user.AddWrongAnswer(this);
+            if(user == null)
+            {
+                Console.WriteLine("");//Tom rad - frågan sparas inte eftersom användaren inte är inloggad aktör. 
+            }
+
+            else if (user != null)
+            {
+                user.AddWrongAnswer(this);
+            }
+
+            
         }
 
         
