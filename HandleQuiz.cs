@@ -1,29 +1,20 @@
-using System.Text.Json; // För JsonSerializer
-using System.Text.Json.Serialization; // För avancerade JSON-funktioner, som attribut
-using System.IO;
-using System.Reflection.Metadata; // För att läsa och skriva filer
 
 //Klassen innehåller en meny för quiz - KLART
 //Klassen samordnar alla svar som användaren har gett?
 
+using System.Reflection;
+
 public class HandleQuiz
-{
-    //Metoden filtrerar listan med frågor utifrån ämne (subject) och returnerar en lista med valt ämne (subject)
+{   
     public static List<Question> FilterQuestionsBySubject(List<Question> questions, string subject)
     {
-        return questions.FindAll(q => q.Subject == subject);
-    }   
-    
-        
+        return questions.Where(q => q.SubjectType.ToString() == subject).ToList();
+    }
+
     public static void ChooseQuestionMenu(List<Question> questions, string selectedSubject, User currentUser )
     {
-        var subjectQuestions = FilterQuestionsBySubject(questions, selectedSubject);
         
-        if(subjectQuestions == null||subjectQuestions.Count == 0)
-        {
-            Console.WriteLine($"Inga frågor hittades för ämnet {selectedSubject}");
-        }
-        
+              
         bool isRunning = true;
 
         while(isRunning)
@@ -36,23 +27,41 @@ public class HandleQuiz
             Console.WriteLine("4. Återgå till huvudmenyn");
             Console.WriteLine("_______________________________________________");
             string input = Console.ReadLine();
-            List<Question> selectedQuestions;
+            
 
             switch(input)
             {
                 case "1":
-                Console.WriteLine("Öva med fritextfrågor");                
-          
+                Console.WriteLine("Öva med fritextfrågor");
+                var TextQuestion = questions.OfType<TextQuestion>().ToList();
+                if(TextQuestion.Count > 0)
+                {
+                    foreach(var question in TextQuestion)
+                    {
+                        question.AskQuestion(currentUser);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Inga textfrågor hittades. ");
+                }              
                 break;
 
                 case "2":
                 Console.WriteLine("Öva med flervalsfrågor");
-                
+                var MultipleChoiceQuestion = questions.OfType<MultipleChoiceQuestion>().ToList();
+                if(MultipleChoiceQuestion.Count > 0)
+                {
+                    foreach(var question in MultipleChoiceQuestion)
+                    {
+                        question.AskQuestion(currentUser);
+                    }
+                }
                 break;
 
                 case "3":
                 Console.WriteLine("Öva på de frågor där du svarat fel");
-                //Question.PracticeWrongAnswers();
+                currentUser.PracticeWrongAnswers();
                 break;
 
                 case "4":
@@ -68,5 +77,6 @@ public class HandleQuiz
         }
 
     }
+   
 
 }

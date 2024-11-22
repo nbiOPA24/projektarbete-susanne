@@ -1,4 +1,4 @@
-public class LanguageQuestion //Separat klass för språk, då övningarna inte kommer att genereras från json-filen. 
+public class LanguageQuestion //Separat klass för språk, då övningarna inte hämtas från någon lista
 {
     private Dictionary<string, string> glossary = new Dictionary<string, string>(); //Lista av typen dictionary, som sparar glosor på svenska/engelska
     public List<string> wrongAnswers = new List<string>(); //Lista för fel svar, som används för att användren ska kunna öva på de frågor där hen svarat fel. 
@@ -46,7 +46,7 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
                 case "1":
                 {
                     Console.WriteLine();
-                    languageQuestions.GlossaryAddWord(); //Här återgår jag till ChooseType, vilket jag inte vill. VARFÖR???
+                    languageQuestions.GlossaryAddWord();
                     break;
                 }
                 case "2":
@@ -63,13 +63,13 @@ public class LanguageQuestion //Separat klass för språk, då övningarna inte 
                 case "4":
                 {
                     Console.WriteLine(); 
-                    languageQuestions.PrintGlossary();//Skriver ut frågor - både hårdkodade och egentillagda
+                    languageQuestions.PrintGlossary();
                     
                     break;
                 }
                 case "5":
                 {
-                    Console.WriteLine("---Återgå till hvudmenyn---"); //Här återgår jag till ChooseType, vilket jag inte vill. ÄNDRA!
+                    Console.WriteLine("---Återgå till hvudmenyn---");
                     isRunning = false;
                     break;
                 }

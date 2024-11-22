@@ -1,23 +1,47 @@
 
-//Userklassen håller användarens egenskaper i form av användarnamn, användarID (ska ev. tas bort...), lösenord, om användaren är online (ska ev. tas bort...)
-//samt en dictionary för att hålla användarens poäng i respektive ämne. 
+//Userklassen håller användarens egenskaper i form av användarnamn lösenord,
+//samt en dictionary för att hålla användarens poäng i respektive ämne.
+//Lagt till lista för WrongAnswers eftersom det är knutet till den specifika användaren och inte till frågan! 
+using System.Runtime.CompilerServices;
+
 public class User
 {
-    public string UserName {get; set;}
-    public string UserID {get; set;}
+    public string UserName {get; set;}    
     public string UserPassword {get; set;}
-    public bool IsOnline {get; set;} //Lägger till isOnline, för jag tänker att det borde skapas en användarlista när användern loggar in, som håller de poäng som användaren skrapar ihop. 
+    public List<Question> WrongAnswers {get; set;} = new List<Question>(); //Lägger listan för fel svar här istället pga är knuten till den specifika användaren.    
     public Dictionary<string, int> Score {get; set;} //Ändrar Score från att vara en egenskap till att vara en dictionary, då ett dict kan hålla både subject och points. 
 
-    public User(string userName, string userID, string userPassword, bool isOnline) 
+    public User(string userName, string userPassword) 
     {
         UserName = userName; 
-        UserID = userID;
         UserPassword = userPassword;
-        IsOnline = isOnline; 
-        Score = new Dictionary<string, int>();
-        
+        Score = new Dictionary<string, int>();        
     }
+      List<Question> questions;
+    List<User> users;   
+
+    public void AddWrongAnswer(Question question) //Metod som lägger till fel svar i listan wrongAnswers
+    {
+        WrongAnswers.Add(question);
+    }
+
+    public void PracticeWrongAnswers() //metod för att öva på fel svar. VAr ska den ligga???
+    {
+        if(WrongAnswers.Count != 0)
+        {
+            foreach(var q in WrongAnswers)
+            {
+                Console.WriteLine($"Fråga: {q.Quest}");
+            }
+            
+        }
+        else
+        {
+            Console.WriteLine("Inga frågor att öva på. Bra jobbat!");
+        }
+
+    }
+    
 }
 //En klass som håller samman de delar av programmet som gäller inloggning i programmet. 
 //Här finns metod för att skapa en ny användare. 
@@ -60,13 +84,11 @@ public class HandleUser //Ändrar klassen från statisk till ickestatisk, då en
     public void CreateNewUser() //Metod för att skapa ny användare och lägga till användare i listan users. 
     {
         Console.Write("Skriv in ditt namn: ");
-        string newUserName = Console.ReadLine();
-        Console.Write("Skriv in ditt användarID (tre första bokstäverna i ditt namn samt tre valfria siffror): "); //Utveckling - slumpa fram utifrån användarens namn!!!
-        string newUserID = Console.ReadLine();
+        string newUserName = Console.ReadLine();        
         Console.Write("Skriv ett lösenord: ");
         string newUserPassword = Console.ReadLine();
 
-        var newUser = new User(newUserName, newUserID, newUserPassword, false); //isOnline sätts som false. 
+        var newUser = new User(newUserName, newUserPassword); 
         newUser.Score.Add("SV", 0); //Sätter det initiala värdet för poäng per ämne till 0 i dictionaryn för Score. 
         newUser.Score.Add("NA", 0);
         newUser.Score.Add("SO", 0);
@@ -85,9 +107,12 @@ public class HandleUser //Ändrar klassen från statisk till ickestatisk, då en
         {
             if(user.UserName == userName && user.UserPassword == userPassword) //Ändrar funktionen i metoden, så man i en och samma rad kontrollerar användarnamn + lösenord. 
             {
-                Console.WriteLine("Du är nu inloggad!");
-                user.IsOnline = true;
+                Console.WriteLine("Du är nu inloggad!");                
                 return user;
+            }
+            else
+            {
+                Console.WriteLine("Något gick fel. Du använder programmet som gäst. ");
             }
         }
         Console.WriteLine("Ingen användare hittad eller felaktigt lösenord angett");
@@ -97,11 +122,9 @@ public class HandleUser //Ändrar klassen från statisk till ickestatisk, då en
     public void DefaultUser(List<User> users) //Metod för att lägga till hårdkodade användare i programmet
     {    
         string defaultUser = "anna test";
-        string defaultUserID = "ann123";
-        string defaultPassword = "abc123";
-        bool isOnline = false;
+        string defaultPassword = "abc123";        
 
-        var newDefaultUser = new User(defaultUser,defaultUserID, defaultPassword, false);
+        var newDefaultUser = new User(defaultUser, defaultPassword);
         newDefaultUser.Score.Add("SV", 0); //Sätter det initiala värdet för poäng per ämne till 0 i dictionaryn för Score. 
         newDefaultUser.Score.Add("NA", 0);
         newDefaultUser.Score.Add("SO", 0);
@@ -114,7 +137,7 @@ public class HandleUser //Ändrar klassen från statisk till ickestatisk, då en
     {
         foreach(var user in users)
         {
-            System.Console.WriteLine($"{user.UserName}, {user.Score}");
+            Console.WriteLine($"{user.UserName} {user.UserPassword}");
         }       
     }
 }

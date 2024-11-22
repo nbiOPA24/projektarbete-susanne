@@ -10,9 +10,10 @@ class Program
     {           
         HandleUser myhandleUser = new HandleUser(); 
         var users = new List<User>();
-         myhandleUser.DefaultUser(users);
+        myhandleUser.DefaultUser(users);
 
-        User currentUser = null;       
+        User currentUser = null;
+        List<Question> questions = AllQuestions.GetQuestions();       
                  
 
         Console.WriteLine("***************************************************************************");
@@ -62,7 +63,7 @@ class Program
                     
                     Console.WriteLine("Svenska");
                     selectedSubject = "SV";
-                    //subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject); //Här bestäms vilka frågor som ska hämtas från filen till listan subjectQuestions
+                    subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject); //Här bestäms vilka frågor som ska hämtas från filen till listan subjectQuestions
                     break;
                                                      
                 
@@ -74,7 +75,7 @@ class Program
                 case "3":
                     Console.WriteLine("Samhällsorienterande ämnen");
                     selectedSubject = "SO"; 
-                    //subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject); 
+                    subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject);
                     break;
 
                 case "4":
@@ -86,7 +87,7 @@ class Program
                 case "5":
                     Console.WriteLine("Naturkunskap");
                     selectedSubject = "NA"; 
-                    //subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject);
+                    subjectQuestions = HandleQuiz.FilterQuestionsBySubject(questions, selectedSubject);
                               
                     break;
 
@@ -108,7 +109,7 @@ class Program
                     break;
                 case "9":
                     Console.WriteLine("Admin - Skapa nya frågor.");
-                    Adminklass.AdminMenu();
+                    Admin.AdminMenu();
                     
                     break;
 
